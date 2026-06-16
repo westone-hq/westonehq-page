@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  {{> head}}
+  <link rel="stylesheet" href="/src/css/pages.css">
+  <link rel="stylesheet" href="/src/css/case.css">
+</head>
+<body>
+  <a class="sr-only" href="#main">본문 바로가기</a>
+  {{> header}}
+
+  <main id="main">
+
+    <!-- [1] Hero -->
+    <header class="cs-hero">
+      <div class="cs-hero-inner reveal">
+        <span class="cs-label mono">[ CASE 02 ]&nbsp;&nbsp;F&amp;B · 매장 시스템</span>
+        <h1 class="cs-title">동네 분식점의 주문을,<br>손님이 직접.</h1>
+        <p class="cs-sub">소규모 분식점에서 도입한 매장 주문 시스템. 손님이 태블릿으로 직접 주문하고, 주방과 카운터가 상태를 관리합니다. 인터넷 없이 매장 안에서 동작합니다.</p>
+        <p class="cs-meta mono">서비스원 프로 &nbsp;·&nbsp; 멀티플랫폼 앱 &nbsp;·&nbsp; 오프라인 동작</p>
+      </div>
+    </header>
+
+    <!-- [2] At-a-glance -->
+    <section class="cs-summary" aria-label="한눈에 보기">
+      <div class="cs-summary-inner">
+        <dl class="cs-summary-grid reveal">
+          <div class="cs-summary-item">
+            <dt class="cs-summary-label mono">업종</dt>
+            <dd class="cs-summary-value">F&amp;B (동네 분식점)</dd>
+          </div>
+          <div class="cs-summary-item">
+            <dt class="cs-summary-label mono">한 일</dt>
+            <dd class="cs-summary-value">셀프 주문 + 주방·카운터 주문 관리 + 매출 이력</dd>
+          </div>
+          <div class="cs-summary-item">
+            <dt class="cs-summary-label mono">형태</dt>
+            <dd class="cs-summary-value">멀티플랫폼 앱 (태블릿·PC·웹, 오프라인)</dd>
+          </div>
+          <div class="cs-summary-item">
+            <dt class="cs-summary-label mono">시작</dt>
+            <dd class="cs-summary-value">동네 분식점</dd>
+          </div>
+          <div class="cs-summary-item">
+            <dt class="cs-summary-label mono">핵심 결과</dt>
+            <!-- TEMP: 실제 수치 확인 후 교체 -->
+            <dd class="cs-summary-value">주문 오류 감소 · 주방-홀 소통 단순화</dd>
+          </div>
+          <div class="cs-summary-item">
+            <dt class="cs-summary-label mono">상태</dt>
+            <dd class="cs-summary-value">운영 중</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- [3] Problem -->
+    <section class="cs-problem">
+      <div class="cs-section-inner">
+        <p class="cs-section-lead">피크 타임마다 반복되는 두 가지 문제가 있었습니다.</p>
+        <div class="cs-pain-grid reveal">
+          <div class="cs-pain-card">
+            <h2 class="cs-pain-title">주문 오입력·누락</h2>
+            <p class="cs-pain-body">손님이 구두로 주문하면 바쁜 피크 타임에 잘못 적거나 빠뜨리는 일이 생깁니다. 주방까지 전달되는 동안 메뉴가 바뀌거나 테이블이 헷갈리면, 다시 확인하는 시간이 추가됩니다.</p>
+          </div>
+          <div class="cs-pain-card">
+            <h2 class="cs-pain-title">주방-홀 소통 단절</h2>
+            <p class="cs-pain-body">"몇 번 테이블 거예요?", "이거 아직 안 나온 거예요?" — 주방과 홀 사이 구두 확인이 반복됩니다. 어디까지 조리됐는지 한눈에 보이지 않으면 서빙 타이밍도 흔들립니다.</p>
+          </div>
+        </div>
+
+        <p class="cs-constraint-lead">게다가 이런 제약이 있었습니다.</p>
+        <ul class="cs-constraints reveal">
+          <li class="cs-constraint-item">사장 1인 + 알바 1~2인이라 복잡한 시스템은 쓸 수 없음</li>
+          <li class="cs-constraint-item">인터넷이 불안정해도 매장 안에서 안정적으로 돌아야 함</li>
+          <li class="cs-constraint-item">새 장비 구매보다 기존 보유 태블릿·PC를 그대로 쓰고 싶음</li>
+        </ul>
+        <div class="cs-constraint-note">
+          <p>기성 POS 솔루션은 전용 단말 도입과 구독 부담이 있었습니다. 매장 규모와 실제 필요에 맞게 직접 만들기로 했습니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- [4] Solution -->
+    <section class="cs-solution">
+      <div class="cs-section-inner">
+        <p class="cs-solution-lead">손님이 주문하면, 주방까지 한 번에.</p>
+
+        <!--
+          Order flow diagram — 정적 다이어그램.
+          향후 주문 접수 애니메이션 레이어는 이 .cs-flow 구조 위에 추가할 수 있습니다.
+        -->
+        <div class="cs-flow reveal" role="img" aria-label="손님 주문부터 이력 보관까지 주문 흐름">
+
+          <div class="cs-flow-node">
+            <div class="cs-flow-box">
+              <span class="cs-flow-icon" aria-hidden="true">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="4" y="2" width="16" height="20" rx="2"/>
+                  <line x1="8" y1="6" x2="16" y2="6"/>
+                  <line x1="8" y1="10" x2="16" y2="10"/>
+                  <line x1="8" y1="14" x2="12" y2="14"/>
+                </svg>
+              </span>
+              <span class="cs-flow-label">손님 태블릿</span>
+              <span class="cs-flow-sub mono">셀프 주문</span>
+            </div>
+          </div>
+
+          <!-- 핵심 전환 — 앰버: 주문이 주방으로 접수되는 순간 -->
+          <div class="cs-flow-arrow" aria-hidden="true">
+            <svg width="44" height="16" viewBox="0 0 44 16" fill="none">
+              <line x1="0" y1="8" x2="30" y2="8" stroke="var(--accent, #0F8A6B)" stroke-width="2"/>
+              <polyline points="22,2 36,8 22,14" stroke="var(--accent, #0F8A6B)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+
+          <div class="cs-flow-node">
+            <div class="cs-flow-box">
+              <span class="cs-flow-icon" aria-hidden="true">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="3" width="20" height="14" rx="2"/>
+                  <line x1="8" y1="21" x2="16" y2="21"/>
+                  <line x1="12" y1="17" x2="12" y2="21"/>
+                </svg>
+              </span>
+              <span class="cs-flow-label">주방·홀</span>
+              <span class="cs-flow-sub mono">조리 → 완료</span>
+            </div>
+          </div>
+
+          <div class="cs-flow-arrow" aria-hidden="true">
+            <svg width="44" height="16" viewBox="0 0 44 16" fill="none">
+              <line x1="0" y1="8" x2="30" y2="8" stroke="var(--accent, #0F8A6B)" stroke-width="2"/>
+              <polyline points="22,2 36,8 22,14" stroke="var(--accent, #0F8A6B)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+
+          <div class="cs-flow-node">
+            <div class="cs-flow-box">
+              <span class="cs-flow-icon" aria-hidden="true">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="1" y="4" width="22" height="16" rx="2"/>
+                  <line x1="1" y1="10" x2="23" y2="10"/>
+                  <line x1="5" y1="15" x2="10" y2="15"/>
+                </svg>
+              </span>
+              <span class="cs-flow-label">카운터</span>
+              <span class="cs-flow-sub mono">결제</span>
+            </div>
+          </div>
+
+          <div class="cs-flow-arrow" aria-hidden="true">
+            <svg width="44" height="16" viewBox="0 0 44 16" fill="none">
+              <line x1="0" y1="8" x2="30" y2="8" stroke="var(--accent, #0F8A6B)" stroke-width="2"/>
+              <polyline points="22,2 36,8 22,14" stroke="var(--accent, #0F8A6B)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+
+          <div class="cs-flow-node">
+            <div class="cs-flow-box">
+              <span class="cs-flow-icon" aria-hidden="true">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="21 8 21 21 3 21 3 8"/>
+                  <rect x="1" y="3" width="22" height="5" rx="1"/>
+                  <line x1="10" y1="12" x2="14" y2="12"/>
+                </svg>
+              </span>
+              <span class="cs-flow-label">이력 보관</span>
+              <span class="cs-flow-sub mono">매출 아카이브</span>
+            </div>
+          </div>
+
+        </div>
+
+        <ol class="cs-steps reveal" aria-label="처리 단계">
+          <li class="cs-step">
+            <span class="cs-step-num mono" aria-hidden="true">01</span>
+            <div class="cs-step-body">
+              <h3 class="cs-step-title">손님 셀프 주문</h3>
+              <p class="cs-step-desc">태블릿에서 카테고리별 메뉴를 선택하고 수량을 조정한 뒤 주문을 확정합니다. 잘못 담은 항목은 장바구니에서 바로 수정할 수 있습니다.</p>
+            </div>
+          </li>
+          <li class="cs-step">
+            <span class="cs-step-num mono" aria-hidden="true">02</span>
+            <div class="cs-step-body">
+              <h3 class="cs-step-title">주방·홀 상태 관리</h3>
+              <p class="cs-step-desc">주문이 들어오면 주방과 홀 화면에 즉시 표시됩니다. 접수→조리중→완료 순으로 상태를 갱신하면 완료된 것만 서빙하면 됩니다.</p>
+            </div>
+          </li>
+          <li class="cs-step">
+            <span class="cs-step-num mono" aria-hidden="true">03</span>
+            <div class="cs-step-body">
+              <h3 class="cs-step-title">결제·이력 자동 기록</h3>
+              <p class="cs-step-desc">결제를 완료하면 해당 주문이 매출 이력에 자동으로 쌓입니다. 오늘·이번 주·이번 달 단위로 언제든 조회할 수 있습니다.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- [5] Results — dark band -->
+    <section class="cs-results" aria-label="결과">
+      <div class="cs-results-inner">
+        <div class="cs-results-grid reveal">
+
+          <div class="cs-stat">
+            <!-- TEMP: 실제 수치 확인 후 교체 -->
+            <div class="cs-stat-display">
+              <span class="cs-stat-change mono"><span class="cs-stat-before">월 15건</span> <span class="cs-stat-arrow">→</span> <span class="cs-stat-after">0건</span></span>
+            </div>
+            <p class="cs-stat-label">주문 오입력</p>
+          </div>
+
+          <div class="cs-stat">
+            <!-- TEMP: 실제 수치 확인 후 교체 -->
+            <div class="cs-stat-display">
+              <span class="cs-stat-num mono">80%↓</span>
+            </div>
+            <p class="cs-stat-label">주방-홀 구두 소통</p>
+          </div>
+
+          <div class="cs-stat">
+            <div class="cs-stat-display">
+              <span class="cs-stat-num cs-stat-num--sm mono">오프라인</span>
+            </div>
+            <p class="cs-stat-label">인터넷 없이 매장 내 동작</p>
+          </div>
+
+          <div class="cs-stat">
+            <div class="cs-stat-display">
+              <span class="cs-stat-num cs-stat-num--sm mono">기존 기기</span>
+            </div>
+            <p class="cs-stat-label">새 장비 없이 기존 태블릿·PC 재활용</p>
+          </div>
+
+        </div>
+        <p class="cs-results-note">별도 서버나 전용 장비 없이, 매장에 있던 기기에 설치해 바로 운영을 시작했습니다.</p>
+      </div>
+    </section>
+
+    <!-- [6] Technical Details -->
+    <section class="cs-tech" aria-label="기술 상세">
+      <div class="cs-section-inner">
+        <header class="cs-tech-header">
+          <span class="cs-tech-label mono">[ TECH ]&nbsp;&nbsp;기술적으로 어떻게 만들었나</span>
+          <p class="cs-tech-intro">개발 과정이 궁금하시다면 펼쳐보세요. 이 내용을 모두 읽지 않아도 괜찮습니다.</p>
+        </header>
+
+        <details class="cs-tech-item">
+          <summary class="cs-tech-summary">하나의 코드로 태블릿·PC·웹 모두</summary>
+          <div class="cs-tech-body">
+            <p>Flutter 단일 코드베이스로 개발했습니다. Android 태블릿이든 Windows 터치 PC든 macOS든, 같은 앱이 동작합니다. 플랫폼마다 별도 버전을 만들 필요가 없어, 매장에서 이미 쓰던 기기에 그대로 설치할 수 있습니다. 실제 도입 매장에서는 기존에 보유하던 태블릿과 터치 PC를 추가 구매 없이 그대로 활용했습니다.</p>
+          </div>
+        </details>
+
+        <details class="cs-tech-item">
+          <summary class="cs-tech-summary">인터넷 없이 매장 안에서</summary>
+          <div class="cs-tech-body">
+            <p>주문·메뉴·이력을 모두 기기 안에 저장합니다. 외부 서버나 클라우드가 없어도 동작하며, 인터넷이 끊기거나 불안정한 상황에서도 주문이 멈추지 않습니다. 매장 안 기기끼리만 통신하면 되기 때문에 별도 인터넷 회선 조건이 없습니다.</p>
+          </div>
+        </details>
+
+        <details class="cs-tech-item">
+          <summary class="cs-tech-summary">주문이 꼬이지 않게</summary>
+          <div class="cs-tech-body">
+            <p>주문이 확정될 때 당시 메뉴명과 가격을 그대로 기록(스냅샷)합니다. 나중에 메뉴가 바뀌거나 가격이 수정돼도 과거 주문 내역은 정확히 남습니다. 테이블은 매장 실제 배치 그대로 화면에 배열해 홀 직원이 직관적으로 파악할 수 있도록 했습니다.</p>
+          </div>
+        </details>
+
+        <details class="cs-tech-item">
+          <summary class="cs-tech-summary">매출이 저절로 쌓인다</summary>
+          <div class="cs-tech-body">
+            <p>결제 완료 주문은 자동으로 이력에 보관됩니다. 오늘·이번 주·이번 달 단위로 매출을 조회할 수 있어, 별도 수기 정산 없이 기간별 현황을 언제든 확인할 수 있습니다. 인기 메뉴와 시간대별 주문 패턴도 자연스럽게 파악됩니다.</p>
+          </div>
+        </details>
+
+      </div>
+    </section>
+
+    <!-- [7] Reproducibility -->
+    <section class="cs-reuse">
+      <div class="cs-section-inner">
+        <p class="cs-reuse-lead">이 시스템은 카페·분식점·식당 등 주문이 오가는 모든 매장에 적용됩니다.</p>
+        <ul class="cs-reuse-examples reveal">
+          <li class="cs-reuse-item">
+            <span class="cs-reuse-label mono">카페 — 테이블별 음료 주문·픽업 상태 관리</span>
+          </li>
+          <li class="cs-reuse-item">
+            <span class="cs-reuse-label mono">식당 — 다테이블 주문 흐름 통합 관리</span>
+          </li>
+          <li class="cs-reuse-item">
+            <span class="cs-reuse-label mono">소규모 프랜차이즈 — 다매장 확장</span>
+          </li>
+        </ul>
+        <p class="cs-reuse-note">매장 규모와 메뉴에 맞춰 맞춤 구성합니다. 서비스원 프로의 맞춤 개발로 기성 솔루션으로는 구현하기 어려운 매장 운영 방식도 설계할 수 있습니다.</p>
+      </div>
+    </section>
+
+    <!-- [8] CTA Band -->
+    <section class="r-cta-band">
+      <h2 class="r-cta-h2">우리 매장에도 주문 시스템이 필요하다면.</h2>
+      <a href="../index.html#contact" class="r-cta-btn">상담 신청하기 →</a>
+      <p class="cs-cta-sub">매장 규모와 원하는 기능을 알려주시면 맞춤 구성과 비용을 안내드립니다.</p>
+    </section>
+
+  </main>
+
+  {{> footer}}
+  {{> ai-widget}}
+  <script type="module" src="/src/js/kiosk.js"></script>
+</body>
+</html>

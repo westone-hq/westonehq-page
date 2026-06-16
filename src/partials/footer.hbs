@@ -1,0 +1,23 @@
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="{{basePath}}index.html" class="footer-logo mono" aria-label="westone 홈">westone</a>
+        <p class="footer-info">
+          상호: 웨스톤(westone) &nbsp;|&nbsp; 사업자등록번호: 133-71-00727<br>
+          주소: 경기도 파주시 하우 3 길 79-5 101동 402호
+        </p>
+      </div>
+      {{#unless isIndex}}
+      <nav class="footer-nav" aria-label="푸터 하단 메뉴">
+        <a href="{{basePath}}reportone.html">리포트원</a>
+        <a href="{{basePath}}serviceone.html">서비스원</a>
+        <a href="{{basePath}}process.html">진행 방식</a>
+        <a href="{{basePath}}index.html#contact">문의</a>
+        <a href="mailto:westone251113@gmail.com" class="mono">westone251113@gmail.com</a>
+      </nav>
+      {{/unless}}
+    </div>
+    <p class="footer-bottom">© 2026 westone. All rights reserved.</p>
+  </div>
+</footer>

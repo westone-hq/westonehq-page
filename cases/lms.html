@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  {{> head}}
+  <link rel="stylesheet" href="/src/css/pages.css">
+  <link rel="stylesheet" href="/src/css/case.css">
+</head>
+<body>
+  <a class="sr-only" href="#main">본문 바로가기</a>
+  {{> header}}
+
+  <main id="main">
+
+    <!-- [1] Hero -->
+    <header class="cs-hero">
+      <div class="cs-hero-inner reveal">
+        <span class="cs-label mono">[ CASE 01 ]&nbsp;&nbsp;교육 · 자동화</span>
+        <h1 class="cs-title">매 학기 며칠씩 걸리던 보고서 업무를,<br>파일 한 번 드래그로.</h1>
+        <p class="cs-sub">13개 대학이 함께 운영하는 교육과정의 성적·설문 보고서 자동화. 인터넷 없는 PC에서 동작하고, 1년째 운영 중입니다.</p>
+        <p class="cs-meta mono">리포트원 스탠다드 &nbsp;·&nbsp; 데스크톱 앱 &nbsp;·&nbsp; 1개월 구축 &nbsp;·&nbsp; 1년+ 운영</p>
+      </div>
+    </header>
+
+    <!-- [2] At-a-glance -->
+    <section class="cs-summary" aria-label="한눈에 보기">
+      <div class="cs-summary-inner">
+        <dl class="cs-summary-grid reveal">
+          <div class="cs-summary-item">
+            <dt class="cs-summary-label mono">업종</dt>
+            <dd class="cs-summary-value">교육 (13개 대학 연합 LMS 운영)</dd>
+          </div>
+          <div class="cs-summary-item">
+            <dt class="cs-summary-label mono">한 일</dt>
+            <dd class="cs-summary-value">성적 처리 + 설문 통계 보고서 자동화</dd>
+          </div>
+          <div class="cs-summary-item">
+            <dt class="cs-summary-label mono">형태</dt>
+            <dd class="cs-summary-value">Windows 데스크톱 앱 (오프라인 동작)</dd>
+          </div>
+          <div class="cs-summary-item">
+            <dt class="cs-summary-label mono">구축 기간</dt>
+            <dd class="cs-summary-value mono">1개월</dd>
+          </div>
+          <div class="cs-summary-item">
+            <dt class="cs-summary-label mono">운영</dt>
+            <dd class="cs-summary-value mono">1년+ (유지보수 지속)</dd>
+          </div>
+          <div class="cs-summary-item">
+            <dt class="cs-summary-label mono">핵심 결과</dt>
+            <dd class="cs-summary-value">며칠 → <span class="mono">약 10분</span> · 수작업 오류 제거</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- [3] Problem -->
+    <section class="cs-problem">
+      <div class="cs-section-inner">
+        <p class="cs-section-lead">매 학기 반복되는 두 가지 작업이 있었습니다.</p>
+        <div class="cs-pain-grid reveal">
+          <div class="cs-pain-card">
+            <h2 class="cs-pain-title">성적 처리</h2>
+            <p class="cs-pain-body">LMS에서 내려받은 진도·과제 엑셀을, 14주 출석을 일일이 확인하고, 대학별로 나누고, 점수를 환산해 수료 여부를 판정하고, 보고서로 정리. 과목 수 × 대학 수만큼 시트가 불어나면 수작업 실수가 나기 시작합니다.</p>
+          </div>
+          <div class="cs-pain-card">
+            <h2 class="cs-pain-title">설문 분석</h2>
+            <p class="cs-pain-body">프로그램 전후로 받은 설문을 학생마다 짝지어, 여러 항목을 통계로 검증하고 Word 보고서로. 학기마다 수백~수천 건을 손으로 처리하는 데 며칠이 걸렸습니다.</p>
+          </div>
+        </div>
+
+        <p class="cs-constraint-lead">게다가 이런 제약이 있었습니다.</p>
+        <ul class="cs-constraints reveal">
+          <li class="cs-constraint-item">비전문가도 파일만 넣으면 결과가 나와야 함</li>
+          <li class="cs-constraint-item">학생 데이터라 인터넷 없는 PC에서 처리해야 함 (보안)</li>
+          <li class="cs-constraint-item">대학마다 분류 기준·점수 비율이 달라 설정이 바뀔 수 있어야 함</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- [4] Solution -->
+    <section class="cs-solution">
+      <div class="cs-section-inner">
+        <p class="cs-solution-lead">파일을 끌어다 놓으면, 끝납니다.</p>
+
+        <!--
+          Transform graphic — 정적 다이어그램. 이 .cs-transform 구조를 유지하면
+          향후 드래그 애니메이션 레이어를 자연스럽게 추가할 수 있습니다.
+        -->
+        <div class="cs-transform reveal" role="img" aria-label="엑셀 파일을 보고서로 자동 변환하는 과정">
+          <div class="cs-transform-side cs-transform-input" aria-hidden="true">
+            <span class="cs-transform-label mono">입력</span>
+            <div class="cs-file-stack">
+              <div class="cs-file">
+                <svg class="cs-file-icon" viewBox="0 0 40 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <rect width="40" height="48" rx="4" fill="white" stroke="#9DA3AE" stroke-width="1.5"/>
+                  <path d="M26 0 L26 12 L40 12" fill="#F6F7F9" stroke="#9DA3AE" stroke-width="1.5"/>
+                  <rect x="8" y="20" width="24" height="2" rx="1" fill="#0F8A6B" opacity="0.45"/>
+                  <rect x="8" y="26" width="18" height="2" rx="1" fill="#C0C4CC"/>
+                  <rect x="8" y="32" width="20" height="2" rx="1" fill="#C0C4CC"/>
+                </svg>
+                <span class="cs-file-label mono">진도·과제</span>
+              </div>
+              <div class="cs-file">
+                <svg class="cs-file-icon" viewBox="0 0 40 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <rect width="40" height="48" rx="4" fill="white" stroke="#9DA3AE" stroke-width="1.5"/>
+                  <path d="M26 0 L26 12 L40 12" fill="#F6F7F9" stroke="#9DA3AE" stroke-width="1.5"/>
+                  <rect x="8" y="20" width="24" height="2" rx="1" fill="#0F8A6B" opacity="0.45"/>
+                  <rect x="8" y="26" width="16" height="2" rx="1" fill="#C0C4CC"/>
+                  <rect x="8" y="32" width="22" height="2" rx="1" fill="#C0C4CC"/>
+                </svg>
+                <span class="cs-file-label mono">설문 응답</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="cs-transform-arrow" aria-hidden="true">
+            <svg width="56" height="24" viewBox="0 0 56 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <line x1="0" y1="12" x2="42" y2="12" stroke="var(--signal, #D97706)" stroke-width="2.5"/>
+              <polyline points="33,4 47,12 33,20" stroke="var(--signal, #D97706)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+
+          <div class="cs-transform-side cs-transform-output" aria-hidden="true">
+            <span class="cs-transform-label mono">출력</span>
+            <div class="cs-file-stack">
+              <div class="cs-file">
+                <svg class="cs-file-icon" viewBox="0 0 40 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <rect width="40" height="48" rx="4" fill="white" stroke="#0F8A6B" stroke-width="1.5"/>
+                  <path d="M26 0 L26 12 L40 12" fill="#F6F7F9" stroke="#0F8A6B" stroke-width="1.5"/>
+                  <rect x="8" y="20" width="10" height="8" rx="1" fill="#0F8A6B" opacity="0.25"/>
+                  <rect x="22" y="20" width="10" height="8" rx="1" fill="#0F8A6B" opacity="0.15"/>
+                  <rect x="8" y="34" width="24" height="2" rx="1" fill="#C0C4CC"/>
+                </svg>
+                <span class="cs-file-label mono">엑셀 6종</span>
+              </div>
+              <div class="cs-file">
+                <svg class="cs-file-icon" viewBox="0 0 40 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <rect width="40" height="48" rx="4" fill="white" stroke="#0F8A6B" stroke-width="1.5"/>
+                  <path d="M26 0 L26 12 L40 12" fill="#F6F7F9" stroke="#0F8A6B" stroke-width="1.5"/>
+                  <rect x="8" y="20" width="24" height="2" rx="1" fill="#C0C4CC"/>
+                  <rect x="8" y="26" width="20" height="2" rx="1" fill="#C0C4CC"/>
+                  <rect x="8" y="32" width="16" height="2" rx="1" fill="#C0C4CC"/>
+                </svg>
+                <span class="cs-file-label mono">Word 보고서</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <ol class="cs-steps reveal" aria-label="처리 단계">
+          <li class="cs-step">
+            <span class="cs-step-num mono" aria-hidden="true">01</span>
+            <div class="cs-step-body">
+              <h3 class="cs-step-title">드래그</h3>
+              <p class="cs-step-desc">LMS에서 받은 엑셀을 그대로 끌어다 놓기. 파일 형식을 맞추거나 열을 정리할 필요 없음</p>
+            </div>
+          </li>
+          <li class="cs-step">
+            <span class="cs-step-num mono" aria-hidden="true">02</span>
+            <div class="cs-step-body">
+              <h3 class="cs-step-title">자동 처리</h3>
+              <p class="cs-step-desc">출석 인정·대학 분류·수료 판정·통계 검증을 설정된 기준대로 한 번에</p>
+            </div>
+          </li>
+          <li class="cs-step">
+            <span class="cs-step-num mono" aria-hidden="true">03</span>
+            <div class="cs-step-body">
+              <h3 class="cs-step-title">결과 수령</h3>
+              <p class="cs-step-desc">정리된 엑셀 6종과 대학별 Word 보고서가 지정 폴더에 자동 저장</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- [5] Results — dark band -->
+    <section class="cs-results" aria-label="결과">
+      <div class="cs-results-inner">
+        <div class="cs-results-grid reveal">
+          <div class="cs-stat">
+            <div class="cs-stat-display">
+              <span class="cs-stat-change mono"><span class="cs-stat-before">3일</span> <span class="cs-stat-arrow">→</span> <span class="cs-stat-after">약 10분</span></span>
+            </div>
+            <p class="cs-stat-label">통계 분석 작업</p>
+          </div>
+          <div class="cs-stat">
+            <div class="cs-stat-display">
+              <span class="cs-stat-change mono"><span class="cs-stat-before">일주일</span> <span class="cs-stat-arrow">→</span> <span class="cs-stat-after">약 10분</span></span>
+            </div>
+            <p class="cs-stat-label">보고서 작성 작업</p>
+          </div>
+          <div class="cs-stat">
+            <div class="cs-stat-display">
+              <span class="cs-stat-num mono">0</span>
+            </div>
+            <p class="cs-stat-label">수작업 오류 (판정 기준을 코드가 고정)</p>
+          </div>
+          <div class="cs-stat">
+            <div class="cs-stat-display">
+              <span class="cs-stat-num mono">1년+</span>
+            </div>
+            <p class="cs-stat-label">운영 지속 (현장 요구 반영 업데이트)</p>
+          </div>
+        </div>
+        <p class="cs-results-note">납품 후 끝이 아니라, 1년째 함께 운영하며 비교과 과목·시험 점수 처리 등 현장에서 새로 발생한 요구를 반영해 왔습니다.</p>
+      </div>
+    </section>
+
+    <!-- [6] Technical Details -->
+    <section class="cs-tech" aria-label="기술 상세">
+      <div class="cs-section-inner">
+        <header class="cs-tech-header">
+          <span class="cs-tech-label mono">[ TECH ]&nbsp;&nbsp;기술적으로 어떻게 만들었나</span>
+          <p class="cs-tech-intro">개발 과정이 궁금하시다면 펼쳐보세요. 이 내용을 모두 읽지 않아도 괜찮습니다.</p>
+        </header>
+
+        <details class="cs-tech-item">
+          <summary class="cs-tech-summary">오프라인에서 동작하는 데스크톱 앱입니다</summary>
+          <div class="cs-tech-body">
+            <p>Windows 데스크톱 앱(Electron 기반)으로 만들었습니다. 학생 개인정보가 포함된 데이터를 다루기 때문에 외부 서버로 전송할 수 없었고, 인터넷이 연결되지 않는 PC에서도 실행돼야 했습니다. Electron으로 패키징하면 설치 파일 더블클릭으로 끝나기 때문에, 개발 배경 없는 담당자도 별도 설정 없이 바로 쓸 수 있습니다.</p>
+            <p>화면은 성적 처리 탭과 설문 분석 탭 두 가지로 구성됩니다. 대학 매핑·점수 비율·수료 기준·설문 항목 수 같은 설정은 모두 화면 안에서 바꿀 수 있고, 변경 내용은 자동으로 저장됩니다. 매 학기 기준이 달라져도 코드를 건드리지 않고 담당자가 직접 조정할 수 있도록 설계했습니다.</p>
+          </div>
+        </details>
+
+        <details class="cs-tech-item">
+          <summary class="cs-tech-summary">정확성을 어떻게 보장했나</summary>
+          <div class="cs-tech-body">
+            <p>자동화에서 가장 까다로웠던 건 예외 상황이었습니다. 파일 형식만 맞으면 알아서 되는 부분보다, 실제 운영 중 마주친 예외들을 하나씩 처리하는 과정이 정확성의 핵심이었습니다.</p>
+            <ul class="cs-tech-list">
+              <li><strong>마스킹된 학생 이름 복원</strong> — 과제 파일에서 이름이 가려진 경우, 같은 로그인 ID를 가진 진도 파일에서 실명을 찾아 자동으로 복원합니다.</li>
+              <li><strong>여러 과목 동시 수강</strong> — 한 학생이 여러 과목을 들으면 기록이 섞일 수 있어, 과목과 기간을 함께 묶어 정확히 구분하도록 했습니다.</li>
+              <li><strong>대학 분류</strong> — 로그인 ID의 앞부분으로 소속 대학을 판별하며, 예외는 수동으로 지정할 수 있습니다.</li>
+              <li><strong>수료 판정</strong> — 결석 횟수, 환산 점수, 과제·시험 제출 여부 네 가지를 모두 확인해 자동 판정합니다. 기준이 코드로 고정돼 있어 사람이 매번 판단할 때 생기던 실수가 없습니다.</li>
+              <li><strong>통계 검증</strong> — 사전·사후 설문을 대응표본 t-검정으로 자동 분석하고 유의성을 표기합니다.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="cs-tech-item">
+          <summary class="cs-tech-summary">사용한 기술</summary>
+          <div class="cs-tech-body">
+            <dl class="cs-tech-stack">
+              <div class="cs-tech-stack-item">
+                <dt class="mono">Electron</dt>
+                <dd>Windows 오프라인 데스크톱 앱 패키징. 설치 파일 배포로 비전문 담당자도 바로 사용 가능</dd>
+              </div>
+              <div class="cs-tech-stack-item">
+                <dt class="mono">React · TypeScript</dt>
+                <dd>UI 구성 및 설정 화면. 타입 안정성으로 데이터 처리 오류 사전 차단</dd>
+              </div>
+              <div class="cs-tech-stack-item">
+                <dt class="mono">xlsx-js-style</dt>
+                <dd>엑셀 읽기와 쓰기. 셀 배경·폰트·테두리 등 서식까지 결과 파일에 그대로 적용</dd>
+              </div>
+              <div class="cs-tech-stack-item">
+                <dt class="mono">docx</dt>
+                <dd>Word 보고서 생성. 표·단락 레이아웃을 코드로 제어하면서 기존 서식 보존</dd>
+              </div>
+              <div class="cs-tech-stack-item">
+                <dt class="mono">jstat</dt>
+                <dd>통계 연산 라이브러리. 대응표본 t-검정 등을 안정적으로 처리</dd>
+              </div>
+            </dl>
+          </div>
+        </details>
+
+        <details class="cs-tech-item">
+          <summary class="cs-tech-summary">학생 개인정보는 어떻게 보호했나</summary>
+          <div class="cs-tech-body">
+            <p>프로그램이 외부와 통신하지 않도록 설계했습니다. 파일을 드래그해서 결과를 받는 전 과정이 담당자의 PC 안에서만 처리되고, 학생 데이터는 그 밖으로 나가지 않습니다.</p>
+            <p>개발과 테스트 과정에서도 실제 학생 정보를 사용하지 않았습니다. 이름과 학번을 가명·마스킹 처리한 샘플 파일만으로 모든 기능을 검증했습니다.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- [7] Reproducibility -->
+    <section class="cs-reuse">
+      <div class="cs-section-inner">
+        <p class="cs-reuse-lead">'파일 드래그 → 자동 처리 → 결과 다운로드' 구조는 교육 외 다른 분야 반복 업무에도 그대로 적용됩니다.</p>
+        <ul class="cs-reuse-examples reveal">
+          <li class="cs-reuse-item">
+            <span class="cs-reuse-label mono">기업 사내 교육팀 — 이수율 집계·수료증 발급 자동화</span>
+          </li>
+          <li class="cs-reuse-item">
+            <span class="cs-reuse-label mono">공공기관 연수원 — 학기별 성과 보고서 자동 생성</span>
+          </li>
+          <li class="cs-reuse-item">
+            <span class="cs-reuse-label mono">학원 프랜차이즈 — 다지점 성적 취합·비교 리포트</span>
+          </li>
+        </ul>
+        <p class="cs-reuse-note">핵심 처리 구조가 재사용되므로, 유사한 업무는 더 짧은 기간·비용으로 구축할 수 있습니다.</p>
+      </div>
+    </section>
+
+    <!-- [8] CTA Band -->
+    <section class="r-cta-band">
+      <h2 class="r-cta-h2">매 학기·매 분기 반복하는 그 작업,<br>우리 것도 될까요?</h2>
+      <a href="../index.html#contact" class="r-cta-btn">샘플 파일 보내고 상담받기 →</a>
+      <p class="cs-cta-sub">실제 쓰시는 파일(가명·마스킹본)을 보내주시면 자동화 가능 여부를 무료로 확인해 드립니다.</p>
+    </section>
+
+  </main>
+
+  {{> footer}}
+  {{> ai-widget}}
+  <script type="module" src="/src/js/lms.js"></script>
+</body>
+</html>

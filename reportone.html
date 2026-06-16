@@ -1,0 +1,204 @@
+﻿<!doctype html>
+<html lang="ko">
+<head>
+  {{> head}}
+  <link rel="stylesheet" href="/src/css/pages.css">
+  <link rel="stylesheet" href="/src/css/product.css">
+</head>
+<body>
+  <a class="sr-only" href="#main">본문 바로가기</a>
+
+  {{> header}}
+
+  <main id="main">
+    <!-- 1. Page Header (Hero) -->
+    <header class="r-hero">
+      <div class="r-hero-inner">
+        <span class="r-hero-label mono">PRODUCT — 01</span>
+        <h1 class="r-hero-title">반복되는 보고서 업무,<br>드래그 한 번으로 끝내세요.</h1>
+        <p class="r-hero-desc">
+          매 학기, 매 분기, 매달 똑같이 반복되는 엑셀 및 보고서 작업.<br>
+          이제 파일을 끌어다 놓기만 하면 결과물이 완성되는 맞춤형 자동화 프로그램으로 바꿔드립니다.<br>
+          초기 구축 시부터 '활용성과 확장성'을 깊이 고려하여,<br>
+          향후 실무 환경이 변하더라도 유연하게 대응할 수 있도록 설계합니다.
+        </p>
+        <p class="r-hero-target">
+          <strong>추천 대상:</strong><br>
+          대학 산학협력단 및 교수학습센터 /<br>
+          각종 연수원 및 평생교육원 /<br>
+          정부 보조사업 수행기관 및 협회 /<br>
+          매달 동일한 엑셀 취합 작업을 반복하는 모든 사무실
+        </p>
+      </div>
+    </header>
+
+    <!-- 2. Pricing Table -->
+    <section class="r-pricing container">
+      <table class="r-table">
+        <thead>
+          <tr>
+            <th>상품</th>
+            <th>정식 명칭</th>
+            <th>정가</th>
+            <th>초기 도입가</th>
+            <th>납기</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="상품">리포트원 라이트</td>
+            <td data-label="정식 명칭">설문·성과분석 자동화 프로그램 구축</td>
+            <td data-label="정가"><span class="strike mono">350만원</span></td>
+            <td data-label="초기 도입가"><span class="accent mono">280만원</span></td>
+            <td data-label="납기"><span class="mono">2주</span></td>
+          </tr>
+          <tr>
+            <td data-label="상품">리포트원 스탠다드</td>
+            <td data-label="정식 명칭">반복업무 자동화 프로그램 구축 (기본형)</td>
+            <td data-label="정가"><span class="strike mono">500만원</span></td>
+            <td data-label="초기 도입가"><span class="accent mono">420만원</span></td>
+            <td data-label="납기"><span class="mono">3주</span></td>
+          </tr>
+          <tr>
+            <td data-label="상품">리포트원 풀세트</td>
+            <td data-label="정식 명칭">접수 시스템 및 자동화 프로그램 통합 구축</td>
+            <td data-label="정가"><span class="strike mono">850만원</span></td>
+            <td data-label="초기 도입가"><span class="accent mono">690만원</span></td>
+            <td data-label="납기"><span class="mono">6주</span></td>
+          </tr>
+          <tr>
+            <td data-label="상품">AI 드래프트 (옵션)</td>
+            <td data-label="정식 명칭">AI 기반 분석 코멘트 초안 생성 모듈</td>
+            <td data-label="정가"><span class="strike mono">+250만원</span></td>
+            <td data-label="초기 도입가"><span class="accent mono">+200만원</span></td>
+            <td data-label="납기"><span class="mono">+1~2주</span></td>
+          </tr>
+          <tr>
+            <td data-label="상품">케어원 (구독)</td>
+            <td data-label="정식 명칭">유지보수 및 운영 지원 구독</td>
+            <td data-label="정가"><span class="strike mono">월 12만원</span></td>
+            <td data-label="초기 도입가"><span class="accent mono">월 10만원 (연 계약)</span></td>
+            <td data-label="납기"><span class="mono">—</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="r-table-note mono">* 신규 고객 한정, 사례 공개(익명 가능) 동의 조건. 부가세 별도.</p>
+    </section>
+
+    <!-- 3~5. Package Details -->
+    <section class="r-content container">
+      <!-- Lite -->
+      <article class="r-block">
+        <h2 class="r-h2">리포트원 라이트 <span style="font-weight: 400; color: var(--gray); font-size: 0.8em;">— "설문 분석, 이것부터"</span></h2>
+        <p class="r-target-desc">
+          <strong>추천 대상:</strong> 사전·사후 만족도 및 역량 조사를 매번 수작업으로 분석하여 보고서로 만드는 분들.<br>
+          (정부지원 교육사업의 의무 성과보고를 진행하는 기관에 특히 추천합니다)
+        </p>
+        <ol class="r-list-incl">
+          <li><strong>간편한 데이터 입력:</strong> 사전·사후 설문 파일(엑셀/CSV) 드래그 시 응답 자동 매칭 및 채점</li>
+          <li><strong>자동 통계 분석:</strong> 사전·사후 결과 비교 및 변화의 유의성 검증 지원</li>
+          <li><strong>맞춤형 산출물:</strong> 분석 결과를 기관 보고서 양식(Word 1종) 그대로 자동 작성</li>
+          <li><strong>독립적인 환경:</strong> Windows 설치형 파일 제공 및 오프라인 환경 완벽 동작</li>
+          <li><strong>사후 관리:</strong> 상세 매뉴얼 제공, 사용자 교육 1회, 90일 무상 하자보수 포함</li>
+        </ol>
+      </article>
+
+      <!-- Standard -->
+      <article class="r-block">
+        <h2 class="r-h2">리포트원 스탠다드 <span style="font-weight: 400; color: var(--gray); font-size: 0.8em;">— "가장 많이 찾는 핵심 패키지"</span></h2>
+        <p class="r-target-desc">
+          <strong>추천 대상:</strong> 여러 파일을 취합·집계·판정하여 정기적인 보고서를 생성하는 모든 부서.<br>
+          (출석 및 수료 관리 / 실적 및 정산 / 거래 내역 취합 / 근태 및 이수 관리 등 업종 무관)
+        </p>
+        <ol class="r-list-incl">
+          <li><strong>다중 파일 처리:</strong> 원본 파일(엑셀/CSV) 최대 3종까지 드래그 앤 드롭 입력 및 자동 파싱</li>
+          <li><strong>유연한 규칙 설정:</strong> 취합·집계·판정·분류 규칙 코드화 및 담당자가 직접 기준값을 수정할 수 있는 UI 제공</li>
+          <li><strong>대규모 산출물 생성:</strong> 기존 서식 그대로 엑셀 산출물 최대 6종 또는 Word 양식 1종 자동 생성</li>
+          <li><strong>강력한 보안:</strong> 인터넷이 차단된 보안 PC 지원, 개인정보 등 외부 서버 전송 절대 없음</li>
+          <li><strong>사후 관리:</strong> 상세 매뉴얼 제공, 사용자 교육 1회, 90일 무상 하자보수 포함</li>
+        </ol>
+        <div class="r-quote-accent">
+          <p style="margin:0; font-weight:700; color:var(--ink); margin-bottom:8px;">[명확한 검수 기준 안내]</p>
+          <p style="margin:0;">계약 시 제공받은 샘플 데이터 1세트와 산출물 양식을 기준으로 정상 생성 시 검수가 완료됩니다. <br>납품 후 7영업일 내 이의가 없을 경우 자동으로 완료 처리됩니다.</p>
+        </div>
+      </article>
+
+      <!-- Full-Set -->
+      <article class="r-block">
+        <h2 class="r-h2">리포트원 풀세트 <span style="font-weight: 400; color: var(--gray); font-size: 0.8em;">— "운영 사이클 전체 통합"</span></h2>
+        <p class="r-target-desc">
+          <strong>추천 대상:</strong> 프로그램, 교육, 행사 등을 '모집 → 운영 → 결과보고' 단계로 통합 운영하는 기관.
+        </p>
+        <ol class="r-list-incl">
+          <li><strong>스탠다드 패키지 전체 기능 포함</strong></li>
+          <li><strong>온라인 접수 연동:</strong> 신청 및 접수 웹페이지 제공 (신청 폼, 현황 관리, 명단 다운로드)</li>
+          <li><strong>엔드투엔드 자동화:</strong> 수집된 접수 데이터가 리포트원의 자동화 입력으로 즉시 연결</li>
+        </ol>
+      </article>
+
+      <!-- AI Draft Option -->
+      <article class="r-block">
+        <h2 class="r-h2">옵션: AI 초안 작성 <span style="font-weight: 400; color: var(--gray); font-size: 0.8em;">— "데이터를 넘어 시사점까지"</span></h2>
+        <p class="r-target-desc">
+          산출된 통계를 바탕으로 보고서의 <strong>"분석 및 시사점" 문단 초안</strong>을 AI가 자동으로 작성합니다.<br>
+          (담당자 검토 및 수정을 전제로 하며, 기관의 어조에 맞춘 1회 튜닝이 포함됩니다.)<br>
+          개인정보는 절대 AI에 전달되지 않으며 오직 '집계된 결과값'만 사용합니다. 보안이 엄격한 기관을 위한 로컬 AI 모델 구축은 별도 협의가 필요합니다.
+        </p>
+      </article>
+
+      <!-- Options -->
+      <article class="r-block">
+        <h2 class="r-h2">기타 추가 옵션</h2>
+        <ul class="r-list-incl" style="list-style-type: disc;">
+          <li><strong>입력 파일 1종 추가:</strong> + 40만 원</li>
+          <li><strong>엑셀 산출물 1종 추가:</strong> + 30만 원</li>
+          <li><strong>Word 산출 양식 1종 추가:</strong> + 80만 원</li>
+          <li><strong>통계 분석 모듈 추가:</strong> + 120만 원 (라이트 패키지 외 상품에 적용 시)</li>
+          <li><strong>자동 차트 삽입 기능:</strong> + 60만 원</li>
+        </ul>
+      </article>
+
+      <!-- CareONE -->
+      <article class="r-block" style="border-bottom: none; margin-bottom: 0; padding-bottom: 0;">
+        <h2 class="r-h2">케어원 (유지보수 구독) <span style="font-weight: 400; color: var(--gray); font-size: 0.8em;">— 월 10만 원 (연 단위 계약)</span></h2>
+        <p class="r-target-desc">
+          <strong>• 신속한 오류 대응:</strong> 접수 후 5영업일 이내 착수<br>
+          <strong>• 유연한 변경 지원:</strong> 기준값 및 양식의 소규모 변경 월 1건 무상 지원<br>
+          <strong>• 지속적인 발전:</strong> 연 2회 기능 업데이트 협의 진행<br>
+          <strong>• 전담 고객 지원:</strong> 전화 및 이메일 우선 지원
+        </p>
+      </article>
+    </section>
+
+    <!-- 6. FAQ Block -->
+    <section class="r-faq">
+      <h2>자주 묻는 질문</h2>
+      <details>
+        <summary>우리 업무도 자동화가 되나요?</summary>
+        <p class="faq-answer">네, 대부분의 반복적인 엑셀 및 문서 작업은 자동화가 가능합니다. 현재 실무에서 사용 중이신 원본 샘플 파일(개인정보가 마스킹 처리된 형태)과 최종적으로 도출하셔야 하는 보고서 양식을 저희에게 보내주시면, 도입 가능 여부부터 자동화가 가능한 정확한 범위, 그리고 예상 견적까지 무료로 진단해 드립니다. 문의를 남겨주시면 통상 2영업일 이내에 상세한 답변을 받아보실 수 있습니다.</p>
+      </details>
+      <details>
+        <summary>학생·회원 개인정보가 있는데 외부로 나가지 않나요?</summary>
+        <p class="faq-answer">전혀 나가지 않으니 안심하셔도 됩니다. 리포트원은 클라우드나 웹 서버를 거치지 않고 오직 담당자님의 로컬 PC 내부에서만 독립적으로 동작하도록 설계되었습니다. 따라서 민감한 개인정보나 내부 데이터가 당사나 외부망으로 절대 전송되지 않으며, 망분리로 인해 인터넷이 완전히 차단된 보안 PC 환경에서도 100% 정상적으로 기능합니다. 또한 초기 개발 과정에서도 개인정보가 가명화(마스킹)된 샘플만을 수령하여 안전하게 작업합니다.</p>
+      </details>
+      <details>
+        <summary>업무 규칙이 내년에 바뀌면 다시 만들어야 하나요?</summary>
+        <p class="faq-answer">기본적인 변경사항은 직접 수정하실 수 있도록 설계됩니다. 초기 구축 시부터 '활용성과 확장성'을 깊이 고려하여 시스템을 설계하기 때문에, 핵심적인 비즈니스 로직(기능)에 큰 변경이 없다면 점수, 등급컷, 분류 기준 등의 설정값은 담당자님이 프로그램 화면에서 직접 손쉽게 변경하실 수 있습니다. 이를 통해 향후 업무 환경의 변경사항에도 추가 비용 없이 유연하게 대응하실 수 있습니다. 만약 로직 자체가 완전히 개편되는 대규모 변경이 발생하더라도, 유지보수 서비스인 '케어원' 범위 내에서 처리하거나 합리적인 별도 견적을 통해 신속하게 반영해 드립니다.</p>
+      </details>
+      <details>
+        <summary>견적·계약은 어떻게 진행되나요?</summary>
+        <p class="faq-answer">저희는 투명하고 체계적인 프로세스를 지향합니다. 상담을 통해 상호 합의된 개발 범위를 [확정 개발 기획서]로 상세히 문서화한 후 계약을 체결합니다. 대금 지급은 프로젝트 착수 시 40%, 중간 시연 단계에서 30%, 최종 산출물 검수 완료 시 30%로 분할하여 안정적으로 진행됩니다. 또한 명확한 검수 기준, 표준 단가표, 세부 계약 조건 등은 상단 메뉴의 '진행 방식' 페이지에 모두 투명하게 공개되어 있으므로 계약 전 미리 확인해 보실 수 있습니다.</p>
+      </details>
+    </section>
+
+    <!-- 7. CTA Band -->
+    <section class="r-cta-band">
+      <h2 class="r-cta-h2">지금 반복하고 있는 그 작업, 파일 하나만 보내주세요.</h2>
+      <a href="./index.html#contact" class="r-cta-btn">샘플 보내고 상담받기 →</a>
+    </section>
+  </main>
+  {{> footer}}
+  {{> ai-widget}}
+  <script type="module" src="/src/js/reportone.js"></script>
+</body>
+</html>

@@ -1,0 +1,145 @@
+﻿<!doctype html>
+<html lang="ko">
+<head>
+  {{> head}}
+  <link rel="stylesheet" href="/src/css/pages.css">
+  <link rel="stylesheet" href="/src/css/process.css">
+</head>
+<body>
+  <a class="sr-only" href="#main">본문 바로가기</a>
+
+  {{> header}}
+
+  <main id="main">
+    <!-- 1. Hero -->
+    <header class="r-hero">
+      <div class="r-hero-inner">
+        <span class="r-hero-label mono">PROCESS — GUIDE</span>
+        <h1 class="r-hero-title">외주 절차와 계약 조건, 모두 공개합니다.</h1>
+        <p class="r-hero-desc">외주가 처음이어도 불안하지 않도록, 진행 과정과 표준 계약서를 모두 공개합니다.</p>
+      </div>
+    </header>
+
+    <!-- 2. Process Timeline -->
+    <section class="p-timeline-section container">
+      <h2 class="p-section-title">진행 단계</h2>
+      <div class="p-tl-wrap">
+        <div class="p-tl-item">
+          <span class="p-tl-num mono">01</span>
+          <h3 class="p-tl-title">상담·견적 (무료)</h3>
+          <p class="p-tl-desc">샘플 파일이나 만들고 싶은 모습만 보내주세요. 자동화 가능 범위와 견적을 2영업일 내 무료로 안내드립니다.</p>
+        </div>
+        <div class="p-tl-item">
+          <span class="p-tl-num mono">02</span>
+          <h3 class="p-tl-title">계약·착수금</h3>
+          <p class="p-tl-desc">확정 개발 기획서로 개발 범위를 문서화하고 계약합니다. 착수금(40%)을 받아 개발을 시작합니다.</p>
+        </div>
+        <div class="p-tl-item">
+          <span class="p-tl-num mono">03</span>
+          <h3 class="p-tl-title">개발·중간 확인</h3>
+          <p class="p-tl-desc">중간 시연 후 피드백을 반영합니다. 중간금(30%)을 결제합니다. 범위 변경이 생기면 추가 기획서로 처리합니다.</p>
+        </div>
+        <div class="p-tl-item">
+          <span class="p-tl-num mono">04</span>
+          <h3 class="p-tl-title">납품·잔금</h3>
+          <p class="p-tl-desc">샘플 기준 검수 완료 시 최종 납품합니다. 잔금(30%)과 함께 케어원 구독 여부를 결정합니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Deal Terms Table -->
+    <section class="r-pricing container">
+      <h2 class="p-section-title">결제 조건</h2>
+      <table class="r-table">
+        <thead>
+          <tr>
+            <th>단계</th>
+            <th>시점</th>
+            <th>비율</th>
+            <th>비고</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="단계">착수금</td>
+            <td data-label="시점">계약 체결 후</td>
+            <td data-label="비율"><span class="mono">40%</span></td>
+            <td data-label="비고">개발 착수 전 수령</td>
+          </tr>
+          <tr>
+            <td data-label="단계">중간금</td>
+            <td data-label="시점">중간 시연 후</td>
+            <td data-label="비율"><span class="mono">30%</span></td>
+            <td data-label="비고">피드백 반영 전 수령</td>
+          </tr>
+          <tr>
+            <td data-label="단계">잔금</td>
+            <td data-label="시점">검수 완료 후</td>
+            <td data-label="비율"><span class="mono">30%</span></td>
+            <td data-label="비고">납품 기준일로부터 7영업일 내 이의 없으면 자동 완료</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 4. Public Documents -->
+    <section class="p-docs-section">
+      <div class="p-docs-header">
+        <h2 class="p-docs-title">공개 문서</h2>
+        <p class="p-docs-desc">계약 전에 모든 서류를 검토하실 수 있습니다. 숨겨진 조항 없이 공개합니다.</p>
+      </div>
+      <div class="docs-grid">
+        <div class="doc-card">
+          <span class="doc-label mono">DOC</span>
+          <h3 class="doc-title">표준 계약서</h3>
+          <p class="doc-desc">기관명·금액·납기만 채우면 그대로 쓸 수 있는 westone 표준 개발 용역 계약서입니다. 계약 전에 미리 검토하세요.</p>
+          <a href="./index.html#contact" class="doc-btn">계약서 요청하기 →</a>
+        </div>
+        <div class="doc-card">
+          <span class="doc-label mono">DOC</span>
+          <h3 class="doc-title">확정 개발 기획서</h3>
+          <p class="doc-desc">계약 전 범위를 확정하는 기획서 양식입니다. 이 문서로 개발 범위를 명문화해 추후 범위 분쟁을 방지합니다.</p>
+          <a href="./index.html#contact" class="doc-btn">양식 요청하기 →</a>
+        </div>
+        <div class="doc-card">
+          <span class="doc-label mono">DOC</span>
+          <h3 class="doc-title">검수 기준서</h3>
+          <p class="doc-desc">납품 후 검수 기준을 명시한 문서입니다. 샘플 데이터 기준 정상 산출이 검수 완료 조건이며, 7영업일 내 이의 없으면 자동 완료됩니다.</p>
+          <a href="./index.html#contact" class="doc-btn">기준서 요청하기 →</a>
+        </div>
+      </div>
+      <p class="docs-note mono">* 모든 문서는 상담 시 제공됩니다. 부가세 별도.</p>
+    </section>
+
+    <!-- 5. FAQ -->
+    <section class="r-faq">
+      <h2>자주 묻는 질문</h2>
+      <details>
+        <summary>계약서 조건은 협상 가능한가요?</summary>
+        <p>기본 결제 조건(착수 40% / 중간 30% / 잔금 30%)과 하자보수 기간(90일)은 표준 적용이 원칙입니다. 발주처 내부 품의 절차가 있는 경우, 단계별 결제 시점 조율은 가능합니다.</p>
+      </details>
+      <details>
+        <summary>세금계산서는 언제 발행하나요?</summary>
+        <p>착수금·중간금·잔금 각 결제 단계별로 해당 금액에 대한 세금계산서를 발행합니다. 계약서에 각 발행 시점이 명시됩니다.</p>
+      </details>
+      <details>
+        <summary>견적·계약 전에 NDA(비밀유지계약)를 체결할 수 있나요?</summary>
+        <p>네, 샘플 파일 검토 전에 NDA 체결이 필요하신 경우 표준 NDA 양식을 제공해 드립니다. 상담 시 말씀해 주세요.</p>
+      </details>
+      <details>
+        <summary>개발 기간 중 요구사항이 바뀌면 어떻게 되나요?</summary>
+        <p>범위 변경은 추가 확정 개발 기획서로 처리하며, 추가 비용과 일정을 별도로 협의합니다. 계약서에 명시된 원래 범위의 변경은 상호 합의 없이 적용되지 않습니다.</p>
+      </details>
+    </section>
+
+    <!-- 6. CTA Band -->
+    <section class="r-cta-band">
+      <h2 class="r-cta-h2">계약서 확인 후, 바로 문의해 주세요.</h2>
+      <a href="./index.html#contact" class="r-cta-btn">문의하기 →</a>
+    </section>
+  </main>
+  {{> footer}}
+  {{> ai-widget}}
+  <script type="module" src="/src/js/process.js"></script>
+</body>
+</html>

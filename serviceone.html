@@ -1,0 +1,210 @@
+﻿<!doctype html>
+<html lang="ko">
+<head>
+  {{> head}}
+  <link rel="stylesheet" href="/src/css/pages.css">
+  <link rel="stylesheet" href="/src/css/product.css">
+</head>
+<body>
+  <a class="sr-only" href="#main">본문 바로가기</a>
+
+  {{> header}}
+
+  <main id="main">
+    <!-- 1. Page Header (Hero) -->
+    <header class="r-hero">
+      <div class="r-hero-inner">
+        <span class="r-hero-label mono">PRODUCT — 02</span>
+        <h1 class="r-hero-title">만드는 팀과<br>운영을 책임지는 팀이 같은 팀.</h1>
+        <p class="r-hero-desc">
+          홈페이지와 쇼핑몰부터, 매장 주문 시스템 같은 맞춤 솔루션까지.<br>
+          템플릿을 찍어내는 곳이 아니라, 전문 개발팀이 처음부터 직접 만듭니다.<br>
+          그래서 압도적인 속도와 검색 노출(SEO)은 물론,<br>
+          나중에 필요해질 기능 확장(예약·접수·업무 자동화 연동)까지 문제없습니다.<br>
+          납품 후에도 '케어원' 구독을 통해 든든하게 곁에 남습니다.
+        </p>
+        <p class="r-hero-target">
+          <strong>추천 대상:</strong><br>
+          회사 소개 홈페이지가 필요한 소기업·기관·협회 /<br>
+          온라인 판매를 시작하려는 브랜드·소상공인 /<br>
+          예약·접수·회원 기능이 필요한 사업장
+        </p>
+      </div>
+    </header>
+
+    <!-- 2. Pricing Table -->
+    <section class="r-pricing container">
+      <table class="r-table">
+        <thead>
+          <tr>
+            <th>상품</th>
+            <th>정식 명칭</th>
+            <th>정가</th>
+            <th>초기 도입가</th>
+            <th>납기</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="상품">서비스원 베이직</td>
+            <td data-label="정식 명칭">반응형 브랜드 홈페이지 구축 (5페이지)</td>
+            <td data-label="정가"><span class="strike mono">280만원</span></td>
+            <td data-label="초기 도입가"><span class="accent mono">220만원</span></td>
+            <td data-label="납기"><span class="mono">2주</span></td>
+          </tr>
+          <tr>
+            <td data-label="상품">서비스원 스토어</td>
+            <td data-label="정식 명칭">온라인 쇼핑몰 구축</td>
+            <td data-label="정가"><span class="strike mono">550만원</span></td>
+            <td data-label="초기 도입가"><span class="accent mono">450만원</span></td>
+            <td data-label="납기"><span class="mono">4주</span></td>
+          </tr>
+          <tr>
+            <td data-label="상품">서비스원 프로</td>
+            <td data-label="정식 명칭">맞춤형 웹 서비스 구축 (예약·접수·회원)</td>
+            <td data-label="정가"><span class="strike mono">800만원~</span></td>
+            <td data-label="초기 도입가"><span class="accent mono">650만원~</span></td>
+            <td data-label="납기"><span class="mono">6주~</span></td>
+          </tr>
+          <tr>
+            <td data-label="상품">운영 자동화 연동 (옵션)</td>
+            <td data-label="정식 명칭">주문·정산 보고서 자동화 (리포트원 연동)</td>
+            <td data-label="정가"><span class="strike mono">+300만원~</span></td>
+            <td data-label="초기 도입가"><span class="accent mono">+250만원~</span></td>
+            <td data-label="납기"><span class="mono">+2주</span></td>
+          </tr>
+          <tr>
+            <td data-label="상품">케어원 (구독)</td>
+            <td data-label="정식 명칭">유지보수·호스팅 관리 구독</td>
+            <td data-label="정가"><span class="strike mono">월 15만원</span></td>
+            <td data-label="초기 도입가"><span class="accent mono">월 12만원 (연 계약)</span></td>
+            <td data-label="납기"><span class="mono">—</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="r-table-note mono">* 신규 고객 한정, 사례 공개(익명 가능) 동의 조건. 부가세 별도.</p>
+    </section>
+
+    <!-- 3~5. Package Details -->
+    <section class="r-content container">
+      <!-- ServiceONE Basic -->
+      <article class="r-block">
+        <h2 class="r-h2">서비스원 베이직 <span style="font-weight: 400; color: var(--gray); font-size: 0.8em;">— "회사의 얼굴, 2주 안에"</span></h2>
+        <p class="r-target-desc">
+          <strong>추천 대상:</strong> 검색했을 때 신뢰감을 주는 제대로 된 홈페이지가 필요한 회사·기관·협회.
+        </p>
+        <ol class="r-list-incl">
+          <li><strong>핵심 5페이지 구성:</strong> 메인, 회사 소개, 서비스/사업 안내, 문의 폼, 오시는 길 (모바일 반응형 기본 탑재)</li>
+          <li><strong>맞춤형 디자인:</strong> 맞춤 디자인 시안 1종 제공 및 2회 수정 진행</li>
+          <li><strong>기반 환경 세팅:</strong> 맞춤 도메인 연결 및 웹 호스팅 환경 구축</li>
+          <li><strong>SEO 최적화:</strong> 네이버 서치어드바이저 및 구글 검색엔진 기본 등록</li>
+          <li><strong>사후 관리:</strong> 상세 운영 매뉴얼 제공 및 90일 무상 하자보수 지원</li>
+        </ol>
+      </article>
+
+      <!-- ServiceONE Store -->
+      <article class="r-block">
+        <h2 class="r-h2">서비스원 스토어 <span style="font-weight: 400; color: var(--gray); font-size: 0.8em;">— "당장 판매가 가능한 상태로 납품합니다"</span></h2>
+        <p class="r-target-desc">
+          <strong>추천 대상:</strong> 본격적인 온라인 판매를 시작하려는 브랜드 및 소상공인.<br>
+          (단순히 만들어만 놓은 쇼핑몰이 아니라, 즉시 결제가 되고 배송을 시작할 수 있는 완벽한 쇼핑몰을 원하시는 분)
+        </p>
+        <ol class="r-list-incl">
+          <li><strong>체계적인 기획:</strong> 사이트맵 및 페이지 구성안 확정 후 구축 착수 (투명한 검수 기준 적용)</li>
+          <li><strong>풀패키지 디자인:</strong> 메인, 상품목록/상세, 장바구니/결제, 소개/공지 등 전반적인 반응형 구축 (시안 1종 + 수정 2회)</li>
+          <li><strong>판매 인프라 세팅:</strong> PG(카드결제) 연동 신청 전면 지원, 배송비 및 교환/반품 정책 페이지 구성, 판매자 정보 표기</li>
+          <li><strong>상품 초기 세팅:</strong> 최초 상품 최대 <strong>20개</strong> 등록 대행 서비스 제공 및 담당자 직접 등록 교육 지원</li>
+          <li><strong>기본 사양 포함:</strong> 도메인 연결, SEO 기본 등록, 맞춤 운영 매뉴얼 및 90일 무상 하자보수 포함</li>
+        </ol>
+        <div class="r-quote-accent">
+          <p style="margin:0; font-weight:700; color:var(--ink); margin-bottom:8px;">[구축 방식 안내]</p>
+          <p style="margin:0;">기본형은 시장에서 검증된 쇼핑몰 플랫폼을 기반으로 빠르고 안정적으로 구축해 드립니다. <br>완전한 자체 맞춤 개발이 필요한 특수한 비즈니스 구조일 경우, '서비스원 프로'를 통해 유연하게 설계해 드립니다.</p>
+        </div>
+      </article>
+
+      <!-- ServiceONE Pro -->
+      <article class="r-block">
+        <h2 class="r-h2">서비스원 프로 <span style="font-weight: 400; color: var(--gray); font-size: 0.8em;">— "우리 비즈니스에 완벽히 맞춘 맞춤형 웹"</span></h2>
+        <p class="r-target-desc">
+          <strong>추천 대상:</strong> 특수한 예약, 신청·접수, 고도화된 회원 관리, 복잡한 관리자 페이지 등 기성 솔루션만으로는 해결되지 않는 업무용 맞춤 웹이 필요한 분들.
+        </p>
+        <ol class="r-list-incl">
+          <li><strong>핵심 맞춤 설계:</strong> 비즈니스 핵심 맞춤 기능 <strong>최대 3개까지</strong> 집중 설계 및 자체 개발</li>
+          <li><strong>맞춤형 디자인:</strong> 서비스의 결에 맞는 맞춤형 디자인 시안 1종 및 수정 2회 진행</li>
+          <li><strong>운영 지원:</strong> 전용 서버 세팅, 담당자 관리자 페이지 교육 실시 및 90일 무상 하자보수 포함</li>
+        </ol>
+      </article>
+
+      <!-- Operation Automation Option -->
+      <article class="r-block">
+        <h2 class="r-h2">옵션: 운영 자동화 연동 <span style="font-weight: 400; color: var(--gray); font-size: 0.8em;">— "업무를 줄여주는 westone만의 방식"</span></h2>
+        <p class="r-target-desc">
+          쇼핑몰 등 서비스를 오픈하면 주문 취합, 정산, 재고 정리라는 새로운 반복 업무가 생겨납니다.<br>
+          쏟아지는 판매 데이터를 <strong>드래그 앤 드롭 한 번으로 완벽한 정산·매출 보고서로 자동 변환</strong>해 주는 '리포트원' 솔루션을 구축 단계에서 연동해 드립니다.<br>
+          <span style="color: var(--accent); font-weight: 600;">만든 개발팀이, 향후 발생할 실무진의 운영 업무 스트레스까지 줄여드리는 것 — 이것이 westone의 차별화된 방식입니다.</span><br>
+          <span style="font-size: 0.9em; color: var(--gray);">* 서비스원 스토어 및 서비스원 프로 진행 고객 전용 제공</span>
+        </p>
+      </article>
+
+      <!-- Options -->
+      <article class="r-block">
+        <h2 class="r-h2">기타 추가 옵션</h2>
+        <ul class="r-list-incl" style="list-style-type: disc;">
+          <li><strong>메뉴/페이지 추가:</strong> + 25만 원 (페이지당)</li>
+          <li><strong>상품 등록 대행 추가:</strong> + 15만 원 (10개 단위)</li>
+          <li><strong>상품 상세페이지 디자인:</strong> + 40만 원 (1종 기획 및 디자인)</li>
+          <li><strong>예약 및 문의 접수 기능:</strong> + 80만 원</li>
+          <li><strong>다국어(영문) 버전 세팅:</strong> + 150만 원</li>
+          <li><strong>네이버 스마트스토어 동시 입점 세팅:</strong> + 60만 원</li>
+        </ul>
+      </article>
+
+      <!-- CareONE -->
+      <article class="r-block" style="border-bottom: none; margin-bottom: 0; padding-bottom: 0;">
+        <h2 class="r-h2">케어원 (유지보수 및 호스팅 구독) <span style="font-weight: 400; color: var(--gray); font-size: 0.8em;">— 월 12만 원 (연 단위 계약)</span></h2>
+        <p class="r-target-desc">
+          <strong>• 통합 인프라 관리:</strong> 서버 트래픽 관리, 도메인 갱신 및 보안 인증서(SSL) 무상 관리<br>
+          <strong>• 신속한 오류 대응:</strong> 서비스 장애 및 버그 접수 후 5영업일 이내 우선 착수<br>
+          <strong>• 유연한 콘텐츠 운영:</strong> 사이트 내 텍스트, 이미지, 배너 등 소규모 수정 월 1건 무상 지원<br>
+          <strong>• 마케팅 지원:</strong> 신규 기획전 및 이벤트 랜딩페이지 구성 연 2건 우선 협의 진행<br>
+          <strong>• 전담 고객 지원:</strong> 전화 및 이메일 전담 우선 지원 제공
+        </p>
+      </article>
+    </section>
+
+    <!-- 6. FAQ Block -->
+    <section class="r-faq">
+      <h2>자주 묻는 질문</h2>
+      <details>
+        <summary>100만 원짜리 업체도 있던데, 왜 가격이 다른가요?</summary>
+        <p class="faq-answer">초저가 웹사이트의 경우, 정해진 기성 템플릿에 로고와 텍스트만 교체하는 이른바 '공장형' 제작 방식이 대부분입니다. 이런 방식은 당장은 저렴해 보일 수 있으나, 추후 비즈니스 확장에 따른 기능 추가가 불가능하거나 문제가 생겼을 때 유지보수 연락이 두절되는 경우가 빈번합니다. 반면 westone은 전문 개발팀이 비즈니스 목적에 맞게 직접 설계하고 구축합니다. 개발 범위, 명확한 검수 기준, 90일 무상 하자보수 의무를 계약서에 투명하게 명시하며, 납품 후에도 '케어원' 구독 서비스를 통해 지속적인 성장을 돕는 파트너로 남습니다.</p>
+      </details>
+      <details>
+        <summary>사진이나 문구가 아직 없는데 시작할 수 있나요?</summary>
+        <p class="faq-answer">네, 가능합니다. 전체적인 사이트 구조 설계와 메인 레이아웃 디자인 작업은 먼저 착수할 수 있습니다. 다만, 실제 웹사이트 오픈을 위해서는 텍스트나 이미지 등의 최종 콘텐츠가 준비되어야 합니다. 계약 단계에서 무리가 가지 않는 선으로 콘텐츠 제공 일정을 함께 조율해 드리며, 만약 내부적으로 자료 준비가 어려우시다면 전문적인 기획 및 상세페이지 디자인 제작 옵션을 통해 저희가 직접 도움을 드릴 수도 있습니다.</p>
+      </details>
+      <details>
+        <summary>디자인이 마음에 안 들면 어떻게 하나요?</summary>
+        <p class="faq-answer">이러한 불상사를 방지하기 위해 저희는 단계별 승인(컨펌) 제도를 운영합니다. 본격적인 개발에 들어가기 전, 디자인 시안 단계에서 2회의 꼼꼼한 수정 피드백을 거쳐 고객님과 디자인 방향성을 완벽하게 동기화합니다. 고객님께서 시안을 최종 승인하신 후에야 실제 코드 개발이 시작되므로, 작업이 모두 끝난 완성 단계에서 '처음부터 전부 다시 만들어야 하는' 비효율적이고 소모적인 상황을 구조적으로 완벽히 차단하고 있습니다.</p>
+      </details>
+      <details>
+        <summary>쇼핑몰 운영은 처음인데 결제나 신고 절차는 어떻게 하나요?</summary>
+        <p class="faq-answer">쇼핑몰 오픈에 필수적인 PG(전자결제대행) 가입이나 통신판매업 신고 등은 법적으로 대표자 본인 명의로 직접 진행하셔야 하는 행정 절차입니다. 하지만 처음 해보시는 분들도 전혀 헤매지 않으시도록, 언제 어떤 서류를 준비해서 어느 기관에 제출하셔야 하는지 단계별 상세 가이드라인을 제공해 드립니다. 진행 중 막히는 부분이 생기면 전담 매니저가 함께 확인하며 도와드리며, 실제로 지금까지 이 행정 절차 단계에서 오픈을 포기하신 고객님은 단 한 분도 안 계십니다.</p>
+      </details>
+      <details>
+        <summary>사이트를 오픈하고 나면 끝인가요?</summary>
+        <p class="faq-answer">절대 그렇지 않습니다. 납품 직후 90일간의 무상 하자보수를 기본으로 보장해 드리며, 이후에도 유지보수 구독 서비스인 '케어원'을 통해 안정적인 서버 관리부터 콘텐츠 수정, 신규 기획전 세팅까지 든든한 사내 IT 파트너처럼 계속 함께합니다. 또한, 쇼핑몰 성장에 따라 주문 건수가 늘어나면서 필연적으로 발생하는 복잡한 정산 및 주문 정리 업무의 경우, 자사의 업무 자동화 솔루션인 '리포트원' 연동을 통해 실무진의 피로도를 획기적으로 낮춰드릴 수 있습니다.</p>
+      </details>
+    </section>
+
+    <!-- 7. CTA Band -->
+    <section class="r-cta-band">
+      <h2 class="r-cta-h2">지금 파는 방식과 만들고 싶은 모습만 알려주세요.<br>구축 방식부터 비용까지, 무료로 상담드립니다.</h2>
+      <a href="./index.html#contact" class="r-cta-btn">무료 상담 신청 →</a>
+    </section>
+  </main>
+  {{> footer}}
+  {{> ai-widget}}
+  <script type="module" src="/src/js/webone.js"></script>
+</body>
+</html>

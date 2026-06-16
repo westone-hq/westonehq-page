@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  {{> head}}
+  <link rel="stylesheet" href="/src/css/index.css">
+</head>
+
+<body>
+  <a class="sr-only" href="#main">본문 바로가기</a>
+
+  {{> header}}
+
+  <main id="main">
+    <!-- SECTION P2: hero -->
+    
+    <section class="hero" id="hero">
+      <div class="container hero-container">
+        <div class="hero-content">
+          <span class="hero-label mono hero-fade hero-fade-1">[ 01 / 06 ] AUTOMATION · WEBSERVICE</span>
+          <h1 class="hero-title hero-fade hero-fade-2">복잡한 반복 업무는<br>프로그램으로,<br>확장하는 비즈니스는<br>웹 서비스로.</h1>
+          <p class="hero-desc hero-fade hero-fade-3">업무 자동화와 웹 서비스를 통해,<br>비즈니스 운영의 파트너가 되어드리는 2인 개발팀 westone입니다.</p>
+          <div class="hero-cta hero-fade hero-fade-4">
+            <a href="#packages" class="hero-btn hero-btn-primary">패키지 알아보기 <span class="hero-arrow">→</span></a>
+          </div>
+        </div>
+        <div class="hero-signature" role="img" aria-label="복잡한 엑셀 파일들이 10분 만에 깔끔한 보고서로 자동 변환되는 과정">
+          <div class="sig-graphic" aria-hidden="true">
+            <div class="sig-files">
+              <div class="sig-file sig-file-1">
+                <div class="sig-file-inner"></div>
+              </div>
+              <div class="sig-file sig-file-2">
+                <div class="sig-file-inner"></div>
+              </div>
+              <div class="sig-file sig-file-3">
+                <div class="sig-file-inner"></div>
+              </div>
+            </div>
+            <div class="sig-center-wrap">
+              <div class="sig-text sig-text-before">ONE CLICK</div>
+              <div class="sig-text sig-text-after">DONE</div>
+              <div class="sig-arrow">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </div>
+              <svg class="sig-result" width="48" height="64" viewBox="0 0 48 64" fill="none" stroke="var(--ink)"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <!-- Document body with folded corner (white fill to cover arrow if any) -->
+                <path d="M8 4 H32 L44 16 V56 C44 58.2 42.2 60 40 60 H8 C5.8 60 4 58.2 4 56 V8 C4 5.8 5.8 4 8 4 Z"
+                  fill="#ffffff"></path>
+                <path d="M32 4 V16 H44" fill="#f8fafc"></path>
+                <!-- Cyan accent bar chart -->
+                <rect x="14" y="24" width="4" height="12" fill="var(--accent)" stroke="none"></rect>
+                <rect x="22" y="20" width="4" height="16" fill="var(--accent)" stroke="none"></rect>
+                <rect x="30" y="28" width="4" height="8" fill="var(--accent)" stroke="none"></rect>
+                <line x1="12" y1="38" x2="36" y2="38" stroke="var(--line-dark)"></line>
+                <!-- Text lines -->
+                <line x1="14" y1="46" x2="34" y2="46" stroke="var(--line-dark)"></line>
+                <line x1="14" y1="52" x2="26" y2="52" stroke="var(--line-dark)"></line>
+              </svg>
+            </div>
+            <div class="sig-mouse-wrap">
+              <svg class="sig-mouse" width="48" height="72" viewBox="0 0 40 64" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--ink);">
+                <path class="sig-mouse-btn" d="M4 20 L4 16 C4 9.37 9.37 4 16 4 L20 4 L20 24 L4 24 Z" fill="transparent"
+                  stroke="none"></path>
+                <rect x="4" y="4" width="32" height="56" rx="16"></rect>
+                <path d="M4 24 L36 24"></path>
+                <path d="M20 4 L20 24"></path>
+                <line x1="20" y1="10" x2="20" y2="16"></line>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-decor mono" aria-hidden="true">
+        // build once,<br>// run every quarter
+      </div>
+    </section>
+    
+    <section class="pkg" id="packages">
+      <div class="container">
+        <header class="pkg-header">
+          <span class="pkg-label mono">[ 02 / 06 ] WHAT WE BUILD</span>
+          <h2 class="pkg-title">두 가지를 만듭니다.</h2>
+          <p class="pkg-desc">반복 업무를 줄이는 프로그램과, 비즈니스를 여는 웹.</p>
+        </header>
+
+        <div class="pkg-grid">
+          <a href="reportone.html" class="pkg-card" id="reportone">
+            <div class="pkg-card-top">
+              <span class="pkg-card-label mono">REPORTONE</span>
+              <span class="pkg-card-arrow" aria-hidden="true">→</span>
+            </div>
+            <h3 class="pkg-card-title">반복되는 보고서 업무, 드래그 한 번 으로.</h3>
+            <p class="pkg-card-body">매 분기 똑같이 반복되던 자료조사/통계/보고서 작업을 전용 프로그램으로.<br>며칠 씩 걸리던 작업이 클릭하나로 단축됩니다.</p>
+            <div class="pkg-card-badge-wrap" style="gap: 6px;">
+              <span class="pkg-card-badge">업무 자동화</span>
+              <span class="pkg-card-badge">데이터 처리</span>
+              <span class="pkg-card-badge">반복 작업</span>
+            </div>
+            <div class="pkg-card-line" aria-hidden="true"></div>
+            <div class="pkg-card-bottom">
+              <span class="pkg-card-cta">상세 보기</span>
+            </div>
+          </a>
+
+          <a href="serviceone.html" class="pkg-card" id="serviceone">
+            <div class="pkg-card-top">
+              <span class="pkg-card-label mono">SERVICEONE</span>
+              <span class="pkg-card-arrow" aria-hidden="true">→</span>
+            </div>
+            <h3 class="pkg-card-title">비즈니스가 시작되는 맞춤형 웹 서비스.</h3>
+            <p class="pkg-card-body">홈페이지와 쇼핑몰부터, 매장 주문 시스템 같은 맞춤 솔루션까지. 초기 기획부터 확장 가능한 웹 서비스를 개발팀이 직접 구축합니다.</p>
+            <div class="pkg-card-badge-wrap" style="gap: 6px;">
+              <span class="pkg-card-badge">웹·쇼핑몰</span>
+              <span class="pkg-card-badge">예약·접수</span>
+              <span class="pkg-card-badge">서비스 런칭</span>
+            </div>
+            <div class="pkg-card-line" aria-hidden="true"></div>
+            <div class="pkg-card-bottom">
+              <span class="pkg-card-cta">상세 보기</span>
+            </div>
+          </a>
+        </div>
+
+      </div>
+    </section>
+    
+    <section class="stats" aria-label="주요 지표">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stats-item">
+            <span class="stats-value mono">Zero</span>
+            <p class="stats-desc">단순 반복 업무에 낭비되는 시간 0시간</p>
+          </div>
+          <div class="stats-item">
+            <span class="stats-value mono">2~6주</span>
+            <p class="stats-desc">내 비즈니스에 딱 맞는 웹 서비스가 런칭되기까지</p>
+          </div>
+          <div class="stats-item">
+            <span class="stats-value mono">90일</span>
+            <p class="stats-desc">모든 프로젝트에 기본 제공되는 무상 하자보수 기간</p>
+          </div>
+          <div class="stats-item">
+            <span class="stats-value mono">100%</span>
+            <p class="stats-desc">숨겨진 추가 비용 없이 가격과 계약 조건 투명 공개</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="case" id="cases">
+      <div class="container">
+        <header class="case-header">
+          <span class="case-label mono">[ 03 / 06 ] CASES</span>
+          <h2 class="case-title">결과로 말합니다.</h2>
+          <p class="case-desc">단순한 외주 결과물이 아닌, 비즈니스 현장에서 활약 중인 실제 성과입니다.</p>
+        </header>
+
+        <div class="case-grid">
+          <a href="./cases/lms.html" class="case-card case-card-active">
+            <div class="case-card-top">
+              <span class="case-chip mono">교육 · 자동화</span>
+            </div>
+            <h3 class="case-card-title">매 학기 며칠 걸리던 보고서 업무, 드래그 한 번 10분이 됐습니다</h3>
+            <p class="case-card-body">13개 대학 연합 교육과정 — 출석·설문 보고서 자동화, 1년째 케어원으로 운영 중입니다.</p>
+            <div class="case-line" aria-hidden="true"></div>
+            <div class="case-card-bottom">
+              <span class="case-meta mono">4주 · 리포트원 스탠다드</span>
+              <span class="case-cta">사례 읽기 <span class="case-arrow">→</span></span>
+            </div>
+          </a>
+
+          <a href="./cases/kiosk.html" class="case-card case-card-active">
+            <div class="case-card-top">
+              <span class="case-chip mono">F&amp;B · 매장 시스템</span>
+            </div>
+            <h3 class="case-card-title">동네 분식점의 주문을, 손님이 직접.</h3>
+            <p class="case-card-body">분식점 '나무미' — 손님 셀프 주문부터 주방 상태관리·매출 이력까지, 인터넷 없이 매장 안에서 동작합니다.</p>
+            <div class="case-line" aria-hidden="true"></div>
+            <div class="case-card-bottom">
+              <span class="case-meta mono">[ CASE 02 ] · 서비스원 프로</span>
+              <span class="case-cta">사례 읽기 <span class="case-arrow">→</span></span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+    
+    <section class="proc" id="process">
+      <div class="container">
+        <header class="proc-header">
+          <span class="proc-label mono">[ 04 / 06 ] HOW WE WORK</span>
+          <h2 class="proc-title">가격도 계약 조건도, 먼저 공개합니다.</h2>
+          <p class="proc-desc">외주가 처음이어도 불안하지 않도록, 모든 과정을 문서로 약속합니다.</p>
+        </header>
+
+        <div class="proc-grid">
+          <div class="proc-step">
+            <div class="proc-step-num-wrap">
+              <span class="proc-step-num mono">01</span>
+              <div class="proc-line" aria-hidden="true"></div>
+            </div>
+            <div class="proc-step-content">
+              <h3 class="proc-step-title">상담·견적 (무료)</h3>
+              <p class="proc-step-desc">샘플 파일이나 만들고 싶은 모습만 보내주세요.</p>
+            </div>
+          </div>
+
+          <div class="proc-step">
+            <div class="proc-step-num-wrap">
+              <span class="proc-step-num mono">02</span>
+              <div class="proc-line" aria-hidden="true"></div>
+            </div>
+            <div class="proc-step-content">
+              <h3 class="proc-step-title">계약·범위 확정</h3>
+              <p class="proc-step-desc">확정 개발 기획서로 기능을 문서로 못 박습니다.</p>
+            </div>
+          </div>
+
+          <div class="proc-step">
+            <div class="proc-step-num-wrap">
+              <span class="proc-step-num mono">03</span>
+              <div class="proc-line" aria-hidden="true"></div>
+            </div>
+            <div class="proc-step-content">
+              <h3 class="proc-step-title">개발·중간 시연</h3>
+              <p class="proc-step-desc">주 1회 진행을 공유하고, 중간 시연 후 중도금을 받습니다.</p>
+            </div>
+          </div>
+
+          <div class="proc-step">
+            <div class="proc-step-num-wrap">
+              <span class="proc-step-num mono">04</span>
+              <div class="proc-line" aria-hidden="true"></div>
+            </div>
+            <div class="proc-step-content">
+              <h3 class="proc-step-title">검수·납품·교육</h3>
+              <p class="proc-step-desc">샘플 기준으로 검수하고, 90일 하자보수와 케어원으로 이어집니다.</p>
+            </div>
+          </div>
+        </div>
+
+        <footer class="proc-footer">
+          <p class="proc-meta mono">대금 40 / 30 / 30 <span aria-hidden="true">&nbsp;·&nbsp;</span> 검수 7영업일 <span
+              aria-hidden="true">&nbsp;·&nbsp;</span> 표준 계약서 전문 공개</p>
+          <a href="./process.html" class="proc-cta">진행 방식 자세히 보기 + 계약서 <span class="proc-arrow">→</span></a>
+        </footer>
+      </div>
+    </section>
+    <!-- SECTION P7: about -->
+    
+    <section class="about" id="about">
+      <div class="container">
+        <div class="about-grid">
+          <!-- Left: Team -->
+          <div class="about-team">
+            <span class="about-label mono">[ 05 / 06 ] TEAM</span>
+            <h2 class="about-team-title">소수 정예, 압도적인 책임감.</h2>
+            <p class="about-team-desc">상담부터 기획, 개발, 그리고 유지보수까지. 실무진 두 명이 모든 과정을 직접 책임집니다. 불필요한 소통 단계를 없애 속도를 높이고, 만든 사람이
+              끝까지 책임지는 구조를 완성했습니다.</p>
+
+            <div class="about-members">
+              <div class="about-member">
+                <div class="about-member-avatar" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                  </svg>
+                </div>
+                <div class="about-member-info">
+                  <p class="about-member-name">박건준</p>
+                  <p class="about-member-role">사업 총괄 · 제품 기획</p>
+                </div>
+              </div>
+              <div class="about-member">
+                <div class="about-member-avatar" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                  </svg>
+                </div>
+                <div class="about-member-info">
+                  <p class="about-member-name">박희정</p>
+                  <p class="about-member-role">개발 총괄 · 고객 기획</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Books -->
+          <div class="about-books">
+            <span class="about-label mono">BOOKS</span>
+            <p class="about-books-desc">개발 현장의 경험을 책으로도 정리했습니다.</p>
+
+            <div class="about-books-grid">
+              <a href="#" class="about-book">
+                <!-- 표지 이미지 교체 -->
+                <div class="about-book-cover">
+                  <span class="about-book-cover-placeholder mono">COVER</span>
+                </div>
+                <h3 class="about-book-title"><!-- COPY NEEDED: 도서명 --></h3>
+                <p class="about-book-meta"><!-- COPY NEEDED: 출판 정보 --></p>
+              </a>
+
+              <a href="#" class="about-book">
+                <!-- 표지 이미지 교체 -->
+                <div class="about-book-cover">
+                  <span class="about-book-cover-placeholder mono">COVER</span>
+                </div>
+                <h3 class="about-book-title"><!-- COPY NEEDED: 도서명 --></h3>
+                <p class="about-book-meta"><!-- COPY NEEDED: 출판 정보 --></p>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="contact" id="contact">
+      <div class="container contact-grid">
+        <div class="contact-copy">
+          <span class="contact-label mono">[ 06 / 06 ] CONTACT</span>
+          <h2 class="contact-title">지금 반복하고 있는 그 작업,<br>파일 하나만 보내주세요.</h2>
+          <p class="contact-desc">자동화 가능 여부와 견적을 무료로 안내드립니다. 웹 사이트 상담도 같은 폼으로 받으며, 온라인(화상) 및 대면 미팅 중 편하신 방식으로 진행 가능합니다.</p>
+          <p class="contact-direct mono">or &nbsp;<a
+              href="mailto:westone251113@gmail.com">westone251113@gmail.com</a></p>
+        </div>
+
+        <div class="contact-form-wrap">
+          <!-- Formsubmit 이메일 전송 엔드포인트 -->
+          <form class="contact-form" id="contactForm" action="https://formsubmit.co/westone251113@gmail.com" method="POST"
+            enctype="multipart/form-data">
+            <div class="contact-field">
+              <label class="contact-field-label mono" for="c_name">이름 <span class="contact-req">*</span></label>
+              <input type="text" id="c_name" name="name" class="contact-input" required>
+            </div>
+
+            <div class="contact-field">
+              <label class="contact-field-label mono" for="c_contact">연락처 <span class="contact-req">*</span></label>
+              <input type="text" id="c_contact" name="contact" class="contact-input" placeholder="이메일 또는 휴대폰" required>
+            </div>
+
+            <div class="contact-field">
+              <label class="contact-field-label mono" for="c_interest">관심 분야</label>
+              <select id="c_interest" name="interest" class="contact-select">
+                <option value="자동화 시스템">자동화 시스템</option>
+                <option value="웹 서비스">웹 서비스</option>
+                <option value="아직 모름">아직 모름</option>
+              </select>
+            </div>
+
+            <div class="contact-field">
+              <label class="contact-field-label mono" for="c_message">내용 <span class="contact-req">*</span></label>
+              <textarea id="c_message" name="message" class="contact-textarea" rows="4" required></textarea>
+            </div>
+
+            <div class="contact-field">
+              <span class="contact-field-label mono">파일 첨부 (선택)</span>
+              <div class="contact-file-custom">
+                <input type="file" id="c_file" name="file" class="contact-file-input"
+                  accept=".xlsx,.xls,.csv,.pdf,.png">
+                <span class="contact-file-text mono">+ 파일 첨부 (선택)</span>
+              </div>
+            </div>
+
+            <button type="submit" class="contact-submit">상담 신청 보내기</button>
+            <div class="contact-state-msg contact-state-error" aria-hidden="true" id="contactErrorMsg">
+              전송에 실패했습니다. westone251113@gmail.com 로 보내주세요.
+            </div>
+            <p class="contact-disclaimer mono">보내주신 파일은 상담 목적으로만 사용하며, 가명·마스킹 처리된 샘플을 권장합니다.</p>
+          </form>
+
+          <div class="contact-state-msg contact-state-success" aria-hidden="true" id="contactSuccessMsg">
+            접수되었습니다. 1~2영업일 내 회신드립니다.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Marquee strip: 제품 라인업이 흐르는 띠 (장식) -->
+    
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span class="marquee-item mono">AUTOMATION<span class="sep">·</span></span>
+        <span class="marquee-item mono">WEB APPS<span class="sep">·</span></span>
+        <span class="marquee-item mono">DATA SCRAPING<span class="sep">·</span></span>
+        <span class="marquee-item mono">DASHBOARDS<span class="sep">·</span></span>
+        <span class="marquee-item mono">API SYNC<span class="sep">·</span></span>
+        <span class="marquee-item mono">MACROS<span class="sep">·</span></span>
+        <span class="marquee-item mono">EFFICIENCY<span class="sep">·</span></span>
+        <span class="marquee-item mono">AUTOMATION<span class="sep">·</span></span>
+        <span class="marquee-item mono">WEB APPS<span class="sep">·</span></span>
+        <span class="marquee-item mono">DATA SCRAPING<span class="sep">·</span></span>
+        <span class="marquee-item mono">DASHBOARDS<span class="sep">·</span></span>
+        <span class="marquee-item mono">API SYNC<span class="sep">·</span></span>
+        <span class="marquee-item mono">MACROS<span class="sep">·</span></span>
+        <span class="marquee-item mono">EFFICIENCY<span class="sep">·</span></span>
+      </div>
+    </div>
+
+  </main>
+  {{> footer}}
+  {{> ai-widget}}
+  <script type="module" src="/src/js/index.js"></script>
+</body>
+</html>
