@@ -37,27 +37,6 @@ const activeObserver = new IntersectionObserver((entries) => {
 })
 
 // ── Contact form ──────────────────────────────────────────────────────────
-const fileInput  = document.getElementById('c_file')
-const fileText   = document.querySelector('.contact-file-text')
-
-fileInput?.addEventListener('change', (e) => {
-  const file = e.target.files[0]
-  if (file) {
-    if (file.size > 10 * 1024 * 1024) {
-      alert('10MB 이하의 파일만 첨부 가능합니다.')
-      fileInput.value = ''
-      fileText.textContent = '+ 파일 첨부 (선택)'
-      fileText.style.color = ''
-    } else {
-      fileText.textContent = file.name
-      fileText.style.color = '#ffffff'
-    }
-  } else {
-    fileText.textContent = '+ 파일 첨부 (선택)'
-    fileText.style.color = ''
-  }
-})
-
 const contactForm  = document.getElementById('contactForm')
 const submitBtn    = document.querySelector('.contact-submit')
 const successMsg   = document.getElementById('contactSuccessMsg')
