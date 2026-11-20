@@ -44,6 +44,21 @@ const submitBtn    = document.querySelector('.contact-submit')
 const successMsg   = document.getElementById('contactSuccessMsg')
 const errorMsg     = document.getElementById('contactErrorMsg')
 
+// ── 패키지 페이지에서 넘어오면 관심 패키지를 미리 고른다 (?interest=키) ──
+const INTEREST_BY_KEY = {
+  agent: 'AI 에이전트·AX 구축',
+  automation: '업무 자동화',
+  web: '웹사이트·웹 플랫폼',
+  app: '앱·웹앱',
+  unity: 'Unity·인터랙티브',
+  server: '서버·데이터',
+  education: '강의·교육',
+  maintenance: '유지보수·운영 지원',
+}
+const interestKey = new URLSearchParams(location.search).get('interest')
+const interestSelect = contactForm?.elements.namedItem('interest')
+if (interestSelect && INTEREST_BY_KEY[interestKey]) interestSelect.value = INTEREST_BY_KEY[interestKey]
+
 contactForm?.addEventListener('submit', async (e) => {
   e.preventDefault()
   const endpoint = import.meta.env.VITE_FORM_ENDPOINT_URL ?? contactForm.getAttribute('action')
