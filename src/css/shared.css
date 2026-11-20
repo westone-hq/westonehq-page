@@ -292,23 +292,88 @@ body.w-page {
 .h3 { font-size: 19px; line-height: 1.4; letter-spacing: -.02em; font-weight: 600; }
 .small { font-size: 14px; line-height: 1.55; color: var(--w-ink-2); }
 
-/* ── 진행 단계 띠 (process-steps 조각) ── */
+/* ── 진행 단계 (process-steps 조각): 단계 버튼 = 탭, 아래 설명 칸 ── */
 .steps {
   display: grid; grid-template-columns: repeat(9, minmax(0, 1fr));
   border: 1px solid var(--w-line); border-radius: 12px; overflow: hidden; background: #fff;
-  counter-reset: w-step;
 }
-.steps li {
-  padding: 16px 14px 18px; border-left: 1px solid var(--w-line);
-  counter-increment: w-step; font-size: 14px; font-weight: 600; line-height: 1.35;
+.steps [role="tab"] {
+  display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start;
+  text-align: left; padding: 16px 14px 18px; border-left: 1px solid var(--w-line);
+  font-size: 14px; font-weight: 600; line-height: 1.35; color: var(--w-ink); background: #fff;
+  transition: background-color .15s, color .15s;
 }
-.steps li:first-child { border-left: 0; }
-.steps li::before { content: counter(w-step); display: block; font-size: 13px; font-weight: 500; color: var(--w-green); margin-bottom: 10px; }
+.steps [role="tab"]:first-child { border-left: 0; }
+.steps [role="tab"]:hover { background: var(--w-tile); }
+.steps [role="tab"][aria-selected="true"] { background: var(--w-ink); color: #fff; }
+.steps [role="tab"]:focus-visible { outline: 2px solid var(--w-green); outline-offset: -4px; border-radius: 0; }
+.step-no { display: block; font-size: 13px; font-weight: 500; color: var(--w-green); margin-bottom: 10px; }
+.steps [aria-selected="true"] .step-no { color: var(--w-green-hi); }
 @media (max-width: 1080px) {
   .steps { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .steps li:nth-child(3n + 1) { border-left: 0; }
-  .steps li:nth-child(n + 4) { border-top: 1px solid var(--w-line); }
+  .steps [role="tab"]:nth-child(3n + 1) { border-left: 0; }
+  .steps [role="tab"]:nth-child(n + 4) { border-top: 1px solid var(--w-line); }
 }
+@media (max-width: 640px) {
+  /* 좁은 화면: 한 줄로 두고 가로로 스크롤 */
+  .steps { display: flex; overflow-x: auto; scrollbar-width: none; overscroll-behavior-x: contain; }
+  .steps::-webkit-scrollbar { display: none; }
+  .steps [role="tab"]:nth-child(n) { flex: 0 0 auto; white-space: nowrap; padding: 12px 16px 14px; border-top: 0; border-left: 1px solid var(--w-line); }
+  .steps [role="tab"]:first-child { border-left: 0; }
+  .step-no { margin-bottom: 6px; }
+}
+
+.step-panel { padding-top: 22px; }
+.step-panel:focus-visible { outline: 2px solid var(--w-green); outline-offset: 4px; border-radius: 6px; }
+.step-desc { font-size: 16.5px; line-height: 1.65; letter-spacing: -.01em; }
+.step-fig { margin: 18px 0 0; }
+.step-fig figcaption { margin-top: 10px; font-size: 13.5px; color: var(--w-ink-2); }
+
+/* 다이어그램 틀: 드래그 이동, 확대 1~4배 (process-steps.js) */
+.dg {
+  position: relative; height: 560px; overflow: hidden;
+  border: 1px solid var(--w-line); border-radius: 14px; background: #fff;
+  cursor: grab; touch-action: none; user-select: none; -webkit-user-select: none;
+}
+.dg.grabbing { cursor: grabbing; }
+.dg:focus-visible { outline: 2px solid var(--w-green); outline-offset: 3px; }
+.dg img { position: absolute; left: 0; top: 0; width: 100%; max-width: none; height: auto; pointer-events: none; }
+.dg-ctrl {
+  position: absolute; top: 10px; right: 10px; display: flex; gap: 2px; padding: 3px;
+  background: rgba(255, 255, 255, .94); border: 1px solid var(--w-line); border-radius: 10px;
+  cursor: default;
+}
+.dg-ctrl button {
+  display: grid; place-items: center; width: 32px; height: 32px; border-radius: 7px;
+  font-size: 19px; line-height: 1; color: var(--w-ink);
+}
+.dg-ctrl button:hover:not(:disabled) { background: var(--w-tile-2); }
+.dg-ctrl button:disabled { color: var(--w-ink-3); cursor: default; }
+.dg-ctrl svg { width: 15px; height: 15px; }
+
+/* 매뉴얼 쪽 이미지: 누르면 크게 보기 */
+.manual a { display: block; border: 1px solid var(--w-line); border-radius: 8px; overflow: hidden; background: #fff; cursor: zoom-in; }
+.manual img { width: 100%; height: auto; }
+.manual.one a { width: min(280px, 100%); }
+.manual-pages { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; max-width: 880px; }
+@media (max-width: 640px) {
+  .dg { height: 420px; }
+  .manual-pages { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* ── 이미지 크게 보기 (lightbox.js) ── */
+.lightbox {
+  width: min(1200px, calc(100vw - 32px)); max-width: none; max-height: calc(100vh - 32px);
+  padding: 0; border: 0; border-radius: 12px; background: #fff; overflow: auto;
+}
+.lightbox.tall { width: min(760px, calc(100vw - 32px)); }
+.lightbox::backdrop { background: rgba(18, 23, 21, .72); }
+.lightbox img { display: block; width: 100%; height: auto; }
+.lightbox-close {
+  position: sticky; top: 10px; float: right; margin: 10px 10px -48px 0; z-index: 1;
+  width: 38px; height: 38px; border-radius: 50%; background: var(--w-ink); color: #fff; font-size: 20px; line-height: 1;
+}
+.lightbox-cap { padding: 12px 16px; font-size: 14px; color: var(--w-ink-2); border-top: 1px solid var(--w-line); }
 
 /* ── 설계 문서 뷰어 ── */
 .uml { border: 1px solid var(--w-line); border-radius: 14px; overflow: hidden; background: #fff; }

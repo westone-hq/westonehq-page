@@ -1,11 +1,15 @@
 import { initHeader, initMobileMenu, initAIWidget } from './shared.js'
 import { initHeroBlueprint } from './hero-blueprint.js'
 import { initMainSections } from './main-sections.js'
+import { initProcessSteps } from './process-steps.js'
+import { initLightbox } from './lightbox.js'
 
 initHeader()
 initMobileMenu()
 initHeroBlueprint()
 initMainSections()
+initProcessSteps()
+initLightbox()
 
 // ===== WESTONE AI 위젯: 다음 업데이트 시 활성화 예정. 아래 블록 주석 해제하면 부활 =====
 /*

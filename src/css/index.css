@@ -177,8 +177,8 @@
 /* ============================================================
    진행 방식
    ============================================================ */
-.plan { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: 40px; margin-top: 40px; align-items: start; }
-.principles { display: grid; gap: 18px; }
+.plan { margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--w-line); }
+.principles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px 40px; }
 .principles b { display: block; font-size: 15.5px; font-weight: 600; }
 .principles span { font-size: 14.5px; color: var(--w-ink-2); }
 
@@ -298,7 +298,7 @@
 }
 
 @media (max-width: 860px) {
-  .plan, .team, .faq, .contact { grid-template-columns: 1fr; }
+  .principles, .team, .faq, .contact { grid-template-columns: 1fr; }
   .clients { flex-direction: column; align-items: flex-start; gap: 14px; }
   .clients .cl-list { width: 100%; }
   .cases-head { display: none; }

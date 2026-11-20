@@ -1,7 +1,7 @@
 // ── 메인 페이지 섹션 동작 ─────────────────────────────────────────────────
 // 1) 함께한 곳: 7곳을 넘으면 흐르는 띠로 바꾼다
 // 2) #case-… 링크: 해당 케이스 아코디언을 연다
-// 3) 설계 문서: 탭 전환과 iframe 지연 로드
+// 3) 설계 문서 iframe 뷰어: 탭 전환과 지연 로드 (지금은 OTIS 케이스 페이지만 쓴다)
 
 const reduceMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
@@ -108,5 +108,4 @@ export function initUmlViewer() {
 export function initMainSections() {
   initClients()
   initCaseLinks()
-  initUmlViewer()
 }

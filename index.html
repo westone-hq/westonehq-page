@@ -200,29 +200,16 @@
       <h2 class="h2" id="process-title">진행 방식</h2>
       {{> process-steps}}
       <div class="plan">
-        <div>
-          <ul class="principles">
-            <li><b>만들기 전에 먼저 보여드립니다</b><span>화면 구성과 기능 범위를 시각화 자료와 설계 문서로 정리해 함께 확인합니다.</span></li>
-            <li><b>담당 개발자가 직접 소통합니다</b><span>카카오톡 프로젝트 방에서 진행 상황을 공유하고 주요 결정을 빠르게 협의합니다.</span></li>
-            <li><b>예산과 일정에 맞춥니다</b><span>불필요한 기능은 덜어내고 현실적인 방향을 제안드립니다.</span></li>
-          </ul>
-          <div class="docs">
-            <!-- 계약서 수정이 끝날 때까지 링크를 걸지 않는다 -->
-            <div class="doc"><i aria-hidden="true"></i>표준 계약서<span>정리 중</span></div>
-          </div>
+        <ul class="principles">
+          <li><b>만들기 전에 먼저 보여드립니다</b><span>화면 구성과 기능 범위를 시각화 자료와 설계 문서로 정리해 함께 확인합니다.</span></li>
+          <li><b>담당 개발자가 직접 소통합니다</b><span>카카오톡 프로젝트 방에서 진행 상황을 공유하고 주요 결정을 빠르게 협의합니다.</span></li>
+          <li><b>예산과 일정에 맞춥니다</b><span>불필요한 기능은 덜어내고 현실적인 방향을 제안드립니다.</span></li>
+        </ul>
+        <!-- 표준 계약서: 수정이 끝나면 주석을 풀고 링크를 건다
+        <div class="docs">
+          <div class="doc"><i aria-hidden="true"></i>표준 계약서<span>정리 중</span></div>
         </div>
-        <div class="uml">
-          <div class="uml-bar">
-            <div class="uml-tabs" role="tablist" aria-label="설계 문서 종류">
-              <button type="button" role="tab" id="uml-tab-1" aria-controls="uml-frame" aria-selected="true" data-src="/uml/otis_usecase.html">유즈케이스</button>
-              <button type="button" role="tab" id="uml-tab-2" aria-controls="uml-frame" aria-selected="false" tabindex="-1" data-src="/uml/otis_act_UC03.html">액티비티</button>
-              <button type="button" role="tab" id="uml-tab-3" aria-controls="uml-frame" aria-selected="false" tabindex="-1" data-src="/uml/otis_seq_UC03.html">시퀀스</button>
-            </div>
-            <a id="uml-open" href="/uml/otis_usecase.html" target="_blank" rel="noopener">새 창에서 크게 보기</a>
-          </div>
-          <iframe id="uml-frame" role="tabpanel" aria-labelledby="uml-tab-1" data-src="/uml/otis_usecase.html" title="OTIS V-Check 설계 문서"></iframe>
-          <p class="uml-cap">OTIS V-Check 앱의 설계 문서입니다. 유즈케이스 1장, 액티비티 18장, 시퀀스 13장으로 이루어져 있습니다.</p>
-        </div>
+        -->
       </div>
     </section>
 
