@@ -55,30 +55,6 @@ const pageData = {
     isIndex: false,
     basePath: './',
   },
-  '/reportone.html': {
-    title: '리포트원 — 반복업무 자동화 | westone',
-    description: '원클릭으로 엑셀, PDF, 웹 데이터 취합과 문서 생성을 처리합니다.',
-    ogTitle: '리포트원 — 반복업무 자동화 | westone',
-    ogUrl: `${SITE}/reportone.html`,
-    isIndex: false,
-    basePath: './',
-  },
-  '/serviceone.html': {
-    title: '서비스원 — 웹사이트·쇼핑몰·맞춤 시스템 구축 | westone',
-    description: '홈페이지와 쇼핑몰부터 매장 주문 시스템 같은 맞춤 솔루션까지. 전문 개발팀이 처음부터 직접 만듭니다.',
-    ogTitle: '서비스원 — 웹사이트·쇼핑몰·맞춤 시스템 구축 | westone',
-    ogUrl: `${SITE}/serviceone.html`,
-    isIndex: false,
-    basePath: './',
-  },
-  '/cases/kiosk.html': {
-    title: '케이스 — 동네 분식점 매장 주문 시스템 | westone',
-    description: '소규모 분식점에서 도입한 멀티플랫폼 매장 주문 시스템. 손님 셀프 주문부터 주방 상태관리·매출 이력까지, 인터넷 없이 동작합니다.',
-    ogTitle: '케이스 — 동네 분식점 매장 주문 시스템 | westone',
-    ogUrl: `${SITE}/cases/kiosk.html`,
-    isIndex: false,
-    basePath: '../',
-  },
   ...Object.fromEntries(PACKAGES.map(p => detail('packages', p))),
   ...Object.fromEntries(CASES.map(c => detail('cases', c))),
 }
@@ -86,9 +62,6 @@ const pageData = {
 const input = {
   index: resolve(__dirname, 'index.html'),
   process: resolve(__dirname, 'process.html'),
-  reportone: resolve(__dirname, 'reportone.html'),
-  serviceone: resolve(__dirname, 'serviceone.html'),
-  cases_kiosk: resolve(__dirname, 'cases/kiosk.html'),
 }
 for (const [key] of PACKAGES) input[`packages_${key}`] = resolve(__dirname, `packages/${key}.html`)
 for (const [key] of CASES) input[`cases_${key}`] = resolve(__dirname, `cases/${key}.html`)
