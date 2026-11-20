@@ -104,10 +104,10 @@
 .say b { font-weight: 600; margin-right: 6px; color: var(--w-green); }
 
 /* ── 케이스 상단 전체 영상 (case-film 조각, case-film.js) ──
-   .case-film       본문 칼럼 안의 틀. live 일 때 높이 = 줄어드는 거리 + 줄어든 높이 (JS)
+   .case-film       본문 칼럼 안의 틀. 높이 = 보이는 칸 높이 (꽉 찬 뒤에는 + 고정 거리) (JS)
    .case-film-stick live 일 때 sticky (헤더 아래). 높이는 지금 칸 높이 (JS)
-   .case-film-box   검은 칸. 너비·높이·모서리를 JS 가 줄인다. 칼럼 밖 화면 가로 전체까지 나간다
-   .case-film-frame iframe 자리. 가장 큰 영상 크기로 한 번 정하고 transform 으로만 줄인다 */
+   .case-film-box   검은 칸. 본문 칼럼 크기에서 화면 가로 전체 × (화면 - 헤더)까지 JS 가 키운다
+   .case-film-frame iframe 자리. 꽉 찬 영상 크기로 한 번 정하고 transform 으로만 줄인다 */
 html:has([data-case-film]) { overflow-anchor: none; }
 .case-film-rule { margin: 32px 0 0; border: 0; border-top: 1px solid var(--w-line); }
 
@@ -123,20 +123,14 @@ html:has([data-case-film]) { overflow-anchor: none; }
 .case-film-poster { object-fit: cover; }
 .case-film-poster[hidden] { display: none; }
 
-/* JS 있음: 최종 크기를 계산 전에 CSS 로 먼저 잡는다 (구분선 바로 아래, 화면 가로 전체) */
-@media (prefers-reduced-motion: no-preference) {
-  .case-film.film-js { margin-top: 0; aspect-ratio: auto; height: calc(100svh - var(--header-h)); }
-  .case-film.film-js .case-film-box {
-    width: 100vw; margin-left: calc(50% - 50vw); border-radius: 0;
-    height: calc(100svh - var(--header-h));
-  }
-  .case-film.film-js .case-film-stick { height: calc(100svh - var(--header-h)); }
-}
+/* JS 있음·640px 이하: 화면 가로 전체 16:9 를 계산 전에 CSS 로 먼저 잡는다
+   (그보다 넓으면 처음 크기는 위의 본문 칼럼 16:9 그대로) */
 @media (max-width: 640px) and (prefers-reduced-motion: no-preference) {
-  .case-film.film-js,
-  .case-film.film-js .case-film-stick,
-  .case-film.film-js .case-film-box { height: 56.25vw; }
+  .case-film.film-js { aspect-ratio: auto; height: 56.25vw; }
+  .case-film.film-js .case-film-stick { height: 56.25vw; }
+  .case-film.film-js .case-film-box { width: 100vw; margin-left: calc(50% - 50vw); height: 56.25vw; border-radius: 0; }
 }
+.case-film.live { aspect-ratio: auto; }
 .case-film.live .case-film-stick { position: sticky; top: var(--header-h); }
 
 /* 등장: intro(닫힘, 아래 본문 숨김) → opening(칸 0 → 최종 높이, 영상은 위에서 떨어짐) → 끝 */
