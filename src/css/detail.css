@@ -104,28 +104,33 @@
 .say b { font-weight: 600; margin-right: 6px; color: var(--w-green); }
 
 /* ── 케이스 상단 전체 영상 (case-film 조각, case-film.js) ──
-   .case-film 은 본문 너비. 안의 .case-film-box 는 큰 크기로 고정하고
-   transform 으로 옮기고 줄인다. 틀 높이는 JS 가 줄어든 높이에 맞춘다. */
+   .case-film       본문 칼럼 안의 틀. live 일 때 높이 = 줄어드는 거리 + 줄어든 높이 (JS)
+   .case-film-stick live 일 때 sticky (헤더 아래). 높이는 지금 칸 높이 (JS)
+   .case-film-box   검은 칸. 너비·높이·모서리를 JS 가 줄인다. 칼럼 밖 화면 가로 전체까지 나간다
+   .case-film-frame iframe 자리. 가장 큰 영상 크기로 한 번 정하고 transform 으로만 줄인다 */
 html:has([data-case-film]) { overflow-anchor: none; }
 .case-film { position: relative; margin-top: 40px; aspect-ratio: 16 / 9; }
-.case-film.live { aspect-ratio: auto; }
-.case-film-box {
-  position: absolute; top: 0; left: 0; z-index: 5; width: 100%; height: 100%;
-  transform-origin: 0 0;
+.case-film.live, .case-film.wide { aspect-ratio: auto; }
+.case-film.live { margin-top: 32px; }
+.case-film.wide { margin-top: 28px; }
+.case-film-stick { position: relative; z-index: 5; height: 100%; }
+.case-film.live .case-film-stick { position: sticky; top: 64px; }
+.case-film-box { position: relative; width: 100%; height: 100%; overflow: hidden; background: #000; border-radius: 14px; }
+/* 들어올 때 한 번만 떨어지듯. 첫 그림부터 걸리도록 CSS 로 두고, 끝나면 JS 가 .dropped 로 끈다 */
+@media (min-width: 641px) and (prefers-reduced-motion: no-preference) {
+  .case-film-box:not(.dropped) { animation: case-film-drop .6s cubic-bezier(.22, .61, .36, 1) both; }
 }
-.case-film-frame {
-  position: absolute; inset: 0; overflow: hidden;
-  border-radius: 14px; background: #0b0c0c;
-}
-.case-film-frame img,
-.case-film-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
-.case-film-frame img { object-fit: cover; }
-.case-film-frame iframe { pointer-events: none; }
+@keyframes case-film-drop { from { opacity: 0; transform: translateY(-32px); } }
+.case-film-frame { position: absolute; top: 0; left: 0; width: 100%; height: 100%; transform-origin: 0 0; }
+.case-film-frame iframe,
+.case-film-poster { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.case-film-frame iframe { pointer-events: none; background: #000; }
+.case-film-poster { object-fit: cover; }
+.case-film-poster[hidden] { display: none; }
 .case-film-pp {
   position: absolute; right: 14px; bottom: 14px; z-index: 1;
   display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%;
   background: rgba(18, 23, 21, .72); color: #fff;
-  transform: scale(calc(1 / var(--s, 1))); transform-origin: 100% 100%;
   transition: background-color .15s;
 }
 .case-film-pp:hover { background: var(--w-ink); }
@@ -134,27 +139,6 @@ html:has([data-case-film]) { overflow-anchor: none; }
 .case-film-pp.paused .i-pause { display: none; }
 .case-film-pp.paused .i-play { display: block; }
 .case-film-pp:focus-visible { outline: 2px solid var(--w-green-hi); outline-offset: 3px; }
-
-/* 큰 영상이 왼쪽 목록과 겹치는 동안 목록을 숨긴다 */
-.side-in { transition: opacity .2s; }
-.side-in.under-film { opacity: 0; pointer-events: none; }
-
-/* 제목 옆 "영상에서 보기 0:10" */
-.seek-row { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; }
-.dt-sec > .seek-row { margin-bottom: 22px; }
-.dt-sec > .seek-row > h2 { font-size: 22px; font-weight: 650; letter-spacing: -.02em; line-height: 1.35; }
-.film-seek {
-  display: inline-flex; align-items: center; gap: 6px; height: 28px; padding: 0 11px 0 9px;
-  border: 1px solid var(--w-line-2); border-radius: 999px; background: #fff;
-  font-size: 12.5px; font-weight: 600; color: var(--w-ink-2); white-space: nowrap;
-  transition: border-color .15s, color .15s;
-}
-.film-seek::before {
-  content: ""; width: 0; height: 0; border-style: solid; border-width: 4.5px 0 4.5px 7px;
-  border-color: transparent transparent transparent currentColor;
-}
-.film-seek:hover { border-color: var(--w-ink); color: var(--w-ink); }
-.film-seek span { font-variant-numeric: tabular-nums; color: var(--w-green); }
 
 /* ============================================================
    케이스 본문 공통 구성 (2026-11-20)

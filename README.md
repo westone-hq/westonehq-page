@@ -23,7 +23,7 @@ westone은 웹사이트·앱·업무 자동화·AI 에이전트를 만들고, �
 | `/cases/*.html` | 케이스 스터디 5장: lms, sunstone, otis, welfare, education |
 | `/process.html` | 진행 방식 안내(옛 디자인, 아직 유지) |
 
-상세 페이지 13장은 왼쪽 목록 + 본문의 같은 틀을 쓴다. 패키지 상세의 "상담 신청" 버튼은 `index.html?interest=키#contact` 로 가서 문의 폼의 관심 패키지를 미리 고른다.
+패키지 상세는 왼쪽 목록 + 본문, 케이스 상세는 가운데 한 칼럼(880px)이다. 패키지 상세의 "상담 신청" 버튼은 `index.html?interest=키#contact` 로 가서 문의 폼의 관심 패키지를 미리 고른다.
 
 ## 프로젝트 구조
 
@@ -45,7 +45,7 @@ westonehq-page/
 │   │   ├── shared.js       # 헤더·모바일 메뉴 등
 │   │   ├── hero-blueprint.js, main-sections.js   # 메인 히어로 그림, 함께한 곳·케이스 목록
 │   │   ├── process-steps.js  # 진행 방식 9단계 탭, 다이어그램 확대·이동
-│   │   ├── case-film.js      # 케이스 상단 전체 영상 (크기 줄이기, 일시정지, 시각 이동)
+│   │   ├── case-film.js      # 케이스 상단 전체 영상 (전체 화면에서 본문 크기로, 일시정지, 스틸)
 │   │   └── lightbox.js       # 이미지 크게 보기
 │   └── partials/           # Handlebars 조각
 │       ├── head.hbs, header.hbs, footer.hbs
@@ -75,7 +75,7 @@ westonehq-page/
 ### 영상 (`public/films/`)
 
 `index.html?embed=1` 은 소리 없이 저절로 재생하고 끝나면 처음부터 반복한다.
-같은 origin 의 부모 창에서 `postMessage` 로 `{type:'pause'}`, `{type:'play'}`, `{type:'seek', t:초}` 를 보낼 수 있다. `&paused=1` 이면 멈춘 채로 시작한다.
+같은 origin 의 부모 창에서 `postMessage` 로 `{type:'pause'}`, `{type:'play'}` 를 보낼 수 있다. `&paused=1` 이면 멈춘 채로 시작한다.
 
 ## 시작하기
 
