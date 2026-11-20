@@ -3,29 +3,6 @@
    색·글꼴 값은 shared.css의 --w- 변수를 쓴다.
    ============================================================ */
 
-/* ── 바탕 ── */
-body.w-page {
-  background: var(--w-bg);
-  color: var(--w-ink);
-  font-family: var(--w-sans);
-  font-size: 16px;
-  line-height: 1.65;
-  word-break: keep-all;
-  overflow-wrap: break-word;
-}
-
-:where(.w-page main) :where(h1, h2, h3, p) { margin: 0; text-wrap: balance; }
-
-.w-page main :focus-visible { outline: 2px solid var(--w-green); outline-offset: 3px; border-radius: 6px; }
-.w-page ::selection { background: var(--w-green); color: #fff; }
-
-.nw { white-space: nowrap; }
-
-.sec { padding: clamp(72px, 9vw, 112px) var(--w-pad); border-top: 1px solid var(--w-line); }
-.sec-tile { background: var(--w-tile); }
-.h2 { font-size: clamp(26px, 3vw, 36px); line-height: 1.3; letter-spacing: -.03em; font-weight: 650; margin-bottom: 40px; }
-.h3 { font-size: 19px; line-height: 1.4; letter-spacing: -.02em; font-weight: 600; }
-.small { font-size: 14px; line-height: 1.55; color: var(--w-ink-2); }
 
 /* ============================================================
    히어로: 도면
@@ -196,18 +173,6 @@ body.w-page {
 /* ============================================================
    진행 방식
    ============================================================ */
-.steps {
-  display: grid; grid-template-columns: repeat(9, minmax(0, 1fr));
-  border: 1px solid var(--w-line); border-radius: 12px; overflow: hidden; background: #fff;
-  counter-reset: w-step;
-}
-.steps li {
-  padding: 16px 14px 18px; border-left: 1px solid var(--w-line);
-  counter-increment: w-step; font-size: 14px; font-weight: 600; line-height: 1.35;
-}
-.steps li:first-child { border-left: 0; }
-.steps li::before { content: counter(w-step); display: block; font-size: 13px; font-weight: 500; color: var(--w-green); margin-bottom: 10px; }
-
 .plan { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: 40px; margin-top: 40px; align-items: start; }
 .principles { display: grid; gap: 18px; }
 .principles b { display: block; font-size: 15.5px; font-weight: 600; }
@@ -225,20 +190,6 @@ body.w-page {
   background: var(--w-ink); box-shadow: 0 5px 0 var(--w-ink), 0 10px 0 var(--w-ink);
 }
 .doc span { margin-left: auto; font-size: 12.5px; font-weight: 500; color: var(--w-ink-3); }
-
-.uml { border: 1px solid var(--w-line); border-radius: 14px; overflow: hidden; background: #fff; }
-.uml-bar {
-  display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
-  padding: 10px; border-bottom: 1px solid var(--w-line); background: var(--w-tile);
-}
-.uml-tabs { display: flex; gap: 6px; flex-wrap: wrap; }
-.uml-tabs button { font-size: 13.5px; font-weight: 600; padding: 7px 12px; border-radius: 8px; color: var(--w-ink-2); }
-.uml-tabs button:hover { color: var(--w-ink); }
-.uml-tabs button[aria-selected="true"] { background: #fff; color: var(--w-ink); box-shadow: 0 0 0 1px var(--w-line-2); }
-.uml-bar a { margin-left: auto; font-size: 13px; color: var(--w-ink-2); padding: 0 6px; }
-.uml-bar a:hover { color: var(--w-ink); }
-.uml iframe { display: block; width: 100%; height: 500px; border: 0; background: #fff; }
-.uml-cap { padding: 14px 16px; font-size: 13.5px; color: var(--w-ink-2); border-top: 1px solid var(--w-line); }
 
 /* ============================================================
    출시 서비스
@@ -283,10 +234,6 @@ body.w-page {
 .people b { font-weight: 650; margin-right: 8px; }
 
 .books-title { margin-bottom: 18px; }
-.books { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-.book img { width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 8px; border: 1px solid var(--w-line); }
-.book b { display: block; font-size: 15px; font-weight: 600; margin-top: 12px; }
-.book .btn { margin-top: 10px; height: 38px; font-size: 13.5px; width: 100%; }
 
 /* ============================================================
    자주 묻는 질문
@@ -344,9 +291,6 @@ body.w-page {
    ============================================================ */
 @media (max-width: 1080px) {
   .pkg-grid { grid-template-columns: 1fr; }
-  .steps { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .steps li:nth-child(3n + 1) { border-left: 0; }
-  .steps li:nth-child(n + 4) { border-top: 1px solid var(--w-line); }
 }
 
 @media (max-width: 860px) {
@@ -362,7 +306,6 @@ body.w-page {
   .case-in > div { grid-column: 1; }
   .rel-row { grid-template-columns: 52px minmax(0, 1fr) auto; row-gap: 6px; }
   .rel-row p { grid-column: 2 / -1; }
-  .uml iframe { height: 420px; }
 }
 
 @media (max-width: 560px) {
@@ -372,12 +315,4 @@ body.w-page {
   .pkg-links { order: 3; }
   .contact-form { grid-template-columns: 1fr; }
   .form-card { padding: 20px; }
-}
-
-/* ============================================================
-   동작 줄이기: 모든 애니메이션·전환을 끄고 완성 상태로
-   ============================================================ */
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  *, *::before, *::after { animation: none !important; transition: none !important; }
 }

@@ -266,7 +266,82 @@ body.menu-open .mobile-overlay { opacity: 1; pointer-events: auto; visibility: v
 }
 
 /* ============================================================
-   7. AI Widget
+   7. 새 디자인 바탕 (.w-page: 메인·상세 페이지)
+   ============================================================ */
+/* ── 바탕 ── */
+body.w-page {
+  background: var(--w-bg);
+  color: var(--w-ink);
+  font-family: var(--w-sans);
+  font-size: 16px;
+  line-height: 1.65;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+:where(.w-page main) :where(h1, h2, h3, p) { margin: 0; text-wrap: balance; }
+
+.w-page main :focus-visible { outline: 2px solid var(--w-green); outline-offset: 3px; border-radius: 6px; }
+.w-page ::selection { background: var(--w-green); color: #fff; }
+
+.nw { white-space: nowrap; }
+
+.sec { padding: clamp(72px, 9vw, 112px) var(--w-pad); border-top: 1px solid var(--w-line); }
+.sec-tile { background: var(--w-tile); }
+.h2 { font-size: clamp(26px, 3vw, 36px); line-height: 1.3; letter-spacing: -.03em; font-weight: 650; margin-bottom: 40px; }
+.h3 { font-size: 19px; line-height: 1.4; letter-spacing: -.02em; font-weight: 600; }
+.small { font-size: 14px; line-height: 1.55; color: var(--w-ink-2); }
+
+/* ── 진행 단계 띠 (process-steps 조각) ── */
+.steps {
+  display: grid; grid-template-columns: repeat(9, minmax(0, 1fr));
+  border: 1px solid var(--w-line); border-radius: 12px; overflow: hidden; background: #fff;
+  counter-reset: w-step;
+}
+.steps li {
+  padding: 16px 14px 18px; border-left: 1px solid var(--w-line);
+  counter-increment: w-step; font-size: 14px; font-weight: 600; line-height: 1.35;
+}
+.steps li:first-child { border-left: 0; }
+.steps li::before { content: counter(w-step); display: block; font-size: 13px; font-weight: 500; color: var(--w-green); margin-bottom: 10px; }
+@media (max-width: 1080px) {
+  .steps { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .steps li:nth-child(3n + 1) { border-left: 0; }
+  .steps li:nth-child(n + 4) { border-top: 1px solid var(--w-line); }
+}
+
+/* ── 설계 문서 뷰어 ── */
+.uml { border: 1px solid var(--w-line); border-radius: 14px; overflow: hidden; background: #fff; }
+.uml-bar {
+  display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
+  padding: 10px; border-bottom: 1px solid var(--w-line); background: var(--w-tile);
+}
+.uml-tabs { display: flex; gap: 6px; flex-wrap: wrap; }
+.uml-tabs button { font-size: 13.5px; font-weight: 600; padding: 7px 12px; border-radius: 8px; color: var(--w-ink-2); }
+.uml-tabs button:hover { color: var(--w-ink); }
+.uml-tabs button[aria-selected="true"] { background: #fff; color: var(--w-ink); box-shadow: 0 0 0 1px var(--w-line-2); }
+.uml-bar a { margin-left: auto; font-size: 13px; color: var(--w-ink-2); padding: 0 6px; }
+.uml-bar a:hover { color: var(--w-ink); }
+.uml iframe { display: block; width: 100%; height: 500px; border: 0; background: #fff; }
+.uml-cap { padding: 14px 16px; font-size: 13.5px; color: var(--w-ink-2); border-top: 1px solid var(--w-line); }
+@media (max-width: 860px) {
+  .uml iframe { height: 420px; }
+}
+
+/* ── 교재 카드 ── */
+.books { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.book img { width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 8px; border: 1px solid var(--w-line); }
+.book b { display: block; font-size: 15px; font-weight: 600; margin-top: 12px; }
+.book .btn { margin-top: 10px; height: 38px; font-size: 13.5px; width: 100%; }
+
+/* ── 동작 줄이기: 모든 애니메이션·전환을 끄고 완성 상태로 ── */
+@media (prefers-reduced-motion: reduce) {
+  html:has(body.w-page) { scroll-behavior: auto; }
+  .w-page *, .w-page *::before, .w-page *::after { animation: none !important; transition: none !important; }
+}
+
+/* ============================================================
+   8. AI Widget
    ============================================================ */
 .aiw-wrapper { position: fixed; right: 24px; bottom: 24px; z-index: 1100; font-family: var(--font-mono); }
 
@@ -362,7 +437,7 @@ body.menu-open .mobile-overlay { opacity: 1; pointer-events: auto; visibility: v
 }
 
 /* ============================================================
-   8. Scroll Reveal
+   9. Scroll Reveal
    ============================================================ */
 .reveal {
   opacity: 0;

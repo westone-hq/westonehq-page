@@ -1,0 +1,30 @@
+<nav class="side" aria-label="케이스 스터디 목록">
+  <div class="side-in">
+    <p class="side-title">케이스 스터디</p>
+    <div class="side-group">
+      <p class="side-group-title">업무 자동화</p>
+      <ul class="side-list">
+        <li><a href="{{basePath}}cases/lms.html"{{#if (eq pageKey "lms")}} aria-current="page"{{/if}}>13개 대학 보고서 자동화</a></li>
+      </ul>
+    </div>
+    <div class="side-group">
+      <p class="side-group-title">앱·웹앱</p>
+      <ul class="side-list">
+        <li><a href="{{basePath}}cases/sunstone.html"{{#if (eq pageKey "sunstone")}} aria-current="page"{{/if}}>Sunstone</a></li>
+        <li><a href="{{basePath}}cases/otis.html"{{#if (eq pageKey "otis")}} aria-current="page"{{/if}}>OTIS V-Check</a></li>
+      </ul>
+    </div>
+    <div class="side-group">
+      <p class="side-group-title">서버·데이터</p>
+      <ul class="side-list">
+        <li><a href="{{basePath}}cases/welfare.html"{{#if (eq pageKey "welfare")}} aria-current="page"{{/if}}>돌봄 일지 앱 서버</a></li>
+      </ul>
+    </div>
+    <div class="side-group">
+      <p class="side-group-title">강의·교육</p>
+      <ul class="side-list">
+        <li><a href="{{basePath}}cases/education.html"{{#if (eq pageKey "education")}} aria-current="page"{{/if}}>직업훈련 과정 강의</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>

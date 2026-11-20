@@ -1,0 +1,8 @@
+{{!-- 페이지 끝 문의 띠. 사용: {{> cta-contact key="agent"}} (label로 버튼 문구를 바꿀 수 있다) --}}
+<section class="cta" aria-labelledby="cta-title">
+  <h2 class="cta-title" id="cta-title">설명만 명확히 해주시면,<br>업무에 맞는 형태로 구현해 드립니다</h2>
+  <div class="cta-actions">
+    <a class="btn btn-dark" href="{{basePath}}index.html?interest={{key}}#contact">{{#if label}}{{label}}{{else}}이 패키지로 상담 신청하기{{/if}}</a>
+    <a class="link" href="mailto:westone251113@gmail.com">westone251113@gmail.com</a>
+  </div>
+</section>

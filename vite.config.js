@@ -63,6 +63,9 @@ export default defineConfig({
       context(pagePath) {
         return pageData[pagePath] ?? {}
       },
+      helpers: {
+        eq: (a, b) => a === b,
+      },
     }),
   ],
   build: {
