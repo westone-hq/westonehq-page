@@ -61,6 +61,7 @@
   --w-serif: 'MaruBuri', 'Noto Serif KR', serif;
   --w-sans: 'Pretendard Variable', Pretendard, -apple-system, sans-serif;
   --w-frame: 1240px;
+  --header-h: 64px;
   --w-pad: clamp(20px, 5vw, 64px);
 }
 

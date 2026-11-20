@@ -1,18 +1,22 @@
 // ── 케이스 상단 전체 영상 (case-film 조각) ─────────────────────────────────
-// 1) 처음: 헤더 아래 화면 전체(가로 전체, 높이 = 화면 - 헤더). 검은 칸 안에 영상 16:9 가운데(contain).
-//    들어오면 한 번만 위에서 살짝 떨어지듯 자리 잡는다.
+// 1) 등장(처음 한 번): 제목과 구분선만 보이다가 약 0.6초 뒤 구분선 아래로 칸이 열리고(높이 0 → 최종),
+//    영상은 위에서 떨어지듯 들어온다. 영상은 이때 0초부터 재생, 다 열리면 아래 본문을 보인다.
+//    등장 중 스크롤하면(새로고침·뒤로 가기의 스크롤 복원 포함) 바로 끝난 상태로 넘긴다.
+//    intro·film-js 클래스는 조각 안의 인라인 스크립트가 첫 그림 전에 붙인다.
+//    최종 크기: 헤더 아래 화면 전체(가로 전체, 높이 = 화면 - 헤더). 검은 칸 안에 영상 16:9 가운데(contain).
 // 2) 칸 위쪽이 헤더 아래에 닿으면 sticky 로 고정, 고정된 채 스크롤 약 60svh 동안
 //    본문 칼럼(16:9) 크기로 줄고, 다 줄면 고정이 풀려 본문과 함께 올라간다.
 //    iframe 크기는 큰 크기로 한 번만 정하고 transform: scale() 로만 줄인다.
 //    검은 칸(.case-film-box)은 너비·높이·모서리를 함께 줄인다.
 //    고정 구간 길이: 바깥 틀(.case-film) 높이 = 줄어드는 거리 + 줄어든 높이.
-// 3) 640px 이하: 고정·줄이기·떨어지기 없이 화면 가로 전체 16:9.
+// 3) 640px 이하: 같은 순서로 열리되 화면 가로 전체 16:9, 고정·줄이기 없음.
 //    동작 줄이기: 처음부터 본문 칼럼 크기, 멈춘 상태, 스틸(poster)을 덮어 둔다.
 // 4) 일시정지/재생 버튼(영상 오른쪽 아래), 화면 밖에서는 잠시 멈춤.
 
 const HEADER = 64   // 고정 헤더 높이
 const SHRINK = 0.6  // 줄어드는 구간: 화면 높이의 60%
 const RADIUS = 14   // 다 줄었을 때 모서리 (기존 카드 반경)
+const OPEN_AT = 600 // 페이지에 들어온 뒤 칸이 열리기 시작하는 때(ms)
 
 export function initCaseFilm() {
   const root = document.querySelector('[data-case-film]')
@@ -28,17 +32,18 @@ export function initCaseFilm() {
 
   // ── 재생 상태 ──
   let userPaused = mqReduce.matches // 동작 줄이기면 멈춘 채로 시작
+  let waiting = root.classList.contains('intro') // 칸이 열리기 전: 불러만 두고 멈춤
   let inView = true
   const send = (msg) => iframe.contentWindow?.postMessage(msg, location.origin)
-  const syncPlay = () => send({ type: userPaused || !inView ? 'pause' : 'play' })
+  const syncPlay = () => send({ type: userPaused || waiting || !inView ? 'pause' : 'play' })
   const syncBtn = () => {
     btn.setAttribute('aria-label', userPaused ? '영상 재생' : '영상 일시정지')
     btn.classList.toggle('paused', userPaused)
   }
 
-  if (poster && userPaused) poster.hidden = false
+  if (poster) poster.hidden = !userPaused // 스틸은 멈춘 채 시작할 때만
   iframe.addEventListener('load', syncPlay, { once: true })
-  iframe.src = iframe.dataset.src + (userPaused ? '&paused=1' : '')
+  iframe.src = iframe.dataset.src + (userPaused || waiting ? '&paused=1' : '')
   btn.hidden = false
   syncBtn()
 
@@ -112,7 +117,28 @@ export function initCaseFilm() {
   mqNarrow.addEventListener?.('change', measure)
   measure()
 
-  // 들어올 때 떨어지는 동작(CSS)은 처음 한 번만. 끝나면 다시 걸리지 않게 끈다
-  box.addEventListener('animationend', () => box.classList.add('dropped'), { once: true })
-  if (mode !== 'live') box.classList.add('dropped')
+  // ── 등장 ──
+  if (!waiting) return
+  const body = root.closest('.dt-body')
+  let timer = 0
+  const finish = () => {
+    if (!waiting && !root.classList.contains('opening')) return
+    clearTimeout(timer)
+    removeEventListener('scroll', onScroll)
+    root.classList.remove('intro', 'opening')
+    body?.classList.remove('film-intro')
+    if (waiting) { waiting = false; syncPlay() }
+  }
+  const onScroll = () => finish()
+  const open = () => {
+    if (mode === 'col') return finish()
+    waiting = false
+    syncPlay() // 0초에서 멈춰 있던 영상을 칸이 열리는 순간부터 재생
+    root.classList.remove('intro')
+    root.classList.add('opening')
+    box.addEventListener('animationend', (e) => { if (e.target === box) finish() })
+  }
+  addEventListener('scroll', onScroll, { passive: true })
+  if (scrollY > 0) finish() // 이미 내려와 있으면(스크롤 복원) 등장 없이
+  else timer = setTimeout(open, Math.max(0, OPEN_AT - performance.now()))
 }

@@ -109,30 +109,52 @@
    .case-film-box   검은 칸. 너비·높이·모서리를 JS 가 줄인다. 칼럼 밖 화면 가로 전체까지 나간다
    .case-film-frame iframe 자리. 가장 큰 영상 크기로 한 번 정하고 transform 으로만 줄인다 */
 html:has([data-case-film]) { overflow-anchor: none; }
-.case-film { position: relative; margin-top: 40px; aspect-ratio: 16 / 9; }
-.case-film.live, .case-film.wide { aspect-ratio: auto; }
-.case-film.live { margin-top: 32px; }
-.case-film.wide { margin-top: 28px; }
+.case-film-rule { margin: 32px 0 0; border: 0; border-top: 1px solid var(--w-line); }
+
+/* JS 없음·동작 줄이기: 본문 칼럼 16:9 */
+.case-film { position: relative; margin-top: 24px; aspect-ratio: 16 / 9; }
 .case-film-stick { position: relative; z-index: 5; height: 100%; }
-.case-film.live .case-film-stick { position: sticky; top: 64px; }
 .case-film-box { position: relative; width: 100%; height: 100%; overflow: hidden; background: #000; border-radius: 14px; }
-/* 들어올 때 한 번만 떨어지듯. 첫 그림부터 걸리도록 CSS 로 두고, 끝나면 JS 가 .dropped 로 끈다 */
-@media (min-width: 641px) and (prefers-reduced-motion: no-preference) {
-  .case-film-box:not(.dropped) { animation: case-film-drop .6s cubic-bezier(.22, .61, .36, 1) both; }
-}
-@keyframes case-film-drop { from { opacity: 0; transform: translateY(-32px); } }
+.case-film-fall { position: absolute; inset: 0; }
 .case-film-frame { position: absolute; top: 0; left: 0; width: 100%; height: 100%; transform-origin: 0 0; }
 .case-film-frame iframe,
 .case-film-poster { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 .case-film-frame iframe { pointer-events: none; background: #000; }
 .case-film-poster { object-fit: cover; }
 .case-film-poster[hidden] { display: none; }
+
+/* JS 있음: 최종 크기를 계산 전에 CSS 로 먼저 잡는다 (구분선 바로 아래, 화면 가로 전체) */
+@media (prefers-reduced-motion: no-preference) {
+  .case-film.film-js { margin-top: 0; aspect-ratio: auto; height: calc(100svh - var(--header-h)); }
+  .case-film.film-js .case-film-box {
+    width: 100vw; margin-left: calc(50% - 50vw); border-radius: 0;
+    height: calc(100svh - var(--header-h));
+  }
+  .case-film.film-js .case-film-stick { height: calc(100svh - var(--header-h)); }
+}
+@media (max-width: 640px) and (prefers-reduced-motion: no-preference) {
+  .case-film.film-js,
+  .case-film.film-js .case-film-stick,
+  .case-film.film-js .case-film-box { height: 56.25vw; }
+}
+.case-film.live .case-film-stick { position: sticky; top: var(--header-h); }
+
+/* 등장: intro(닫힘, 아래 본문 숨김) → opening(칸 0 → 최종 높이, 영상은 위에서 떨어짐) → 끝 */
+.case-film.intro .case-film-box { height: 0 !important; }
+.case-film.intro .case-film-fall { opacity: 0; }
+.case-film.opening .case-film-box { animation: case-film-open .7s cubic-bezier(.22, .61, .36, 1) both; }
+.case-film.opening .case-film-fall { animation: case-film-fall .7s cubic-bezier(.22, .61, .36, 1) both; }
+@keyframes case-film-open { from { height: 0; } }
+@keyframes case-film-fall { from { opacity: 0; transform: translateY(-40px); } }
+.dt-body.film-intro .case-film ~ * { visibility: hidden; }
+
 .case-film-pp {
   position: absolute; right: 14px; bottom: 14px; z-index: 1;
   display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%;
   background: rgba(18, 23, 21, .72); color: #fff;
   transition: background-color .15s;
 }
+.case-film-pp[hidden] { display: none; }
 .case-film-pp:hover { background: var(--w-ink); }
 .case-film-pp svg { width: 16px; height: 16px; }
 .case-film-pp .i-play,
@@ -153,7 +175,7 @@ html:has([data-case-film]) { overflow-anchor: none; }
 .case-overview dt { font-size: 14px; color: var(--w-ink-3); line-height: 1.55; }
 .case-overview dd { margin: 0; font-size: 15px; font-weight: 600; line-height: 1.55; }
 
-.case-film-note { margin-top: 12px; font-size: 13.5px; line-height: 1.5; color: var(--w-ink-3); }
+.case-film-note { margin-top: 12px; font-size: 14px; line-height: 1.55; color: var(--w-ink-2); }
 
 .case-source-ref {
   font-size: 13px; font-weight: 600; color: var(--w-green); white-space: nowrap;
