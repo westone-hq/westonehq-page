@@ -23,7 +23,7 @@ westone은 웹사이트·앱·업무 자동화·AI 에이전트를 만들고, �
 | `/cases/*.html` | 케이스 스터디 5장: lms, sunstone, otis, welfare, education |
 | `/process.html` | 진행 방식 안내(옛 디자인, 아직 유지) |
 
-패키지 상세는 왼쪽 목록 + 본문, 케이스 상세는 가운데 한 칼럼(880px)이다. 패키지 상세의 "상담 신청" 버튼은 `index.html?interest=키#contact` 로 가서 문의 폼의 관심 패키지를 미리 고른다.
+상세 페이지 13장은 사이드바 없이 가운데 한 칼럼(880px)이고, 맨 아래 이전·다음 링크로 오간다. 패키지 상세의 "상담 신청" 버튼은 `index.html?interest=키#contact` 로 가서 문의 폼의 관심 패키지를 미리 고른다.
 
 ## 프로젝트 구조
 
@@ -45,14 +45,14 @@ westonehq-page/
 │   │   ├── shared.js       # 헤더·모바일 메뉴 등
 │   │   ├── hero-blueprint.js, main-sections.js   # 메인 히어로 그림, 함께한 곳·케이스 목록
 │   │   ├── process-steps.js  # 진행 방식 9단계 탭, 다이어그램 확대·이동
-│   │   ├── case-film.js      # 케이스 상단 전체 영상 (전체 화면에서 본문 크기로, 일시정지, 스틸)
+│   │   ├── case-film.js      # 케이스 상단 영상 (본문 크기에서 스크롤하면 화면 전체로, 일시정지, 스틸)
 │   │   └── lightbox.js       # 이미지 크게 보기
 │   └── partials/           # Handlebars 조각
 │       ├── head.hbs, header.hbs, footer.hbs
 │       ├── process-steps.hbs           # 진행 방식 9단계 (메인·패키지 상세 공통)
 │       ├── case-film.hbs               # 케이스 상단 전체 영상
 │       ├── cta-contact.hbs             # 상세 페이지 아래 상담 신청 띠
-│       ├── side-nav-packages.hbs, side-nav-cases.hbs   # 상세 왼쪽 목록
+│       ├── side-nav-packages.hbs, side-nav-cases.hbs   # 상세 왼쪽 목록 (지금은 쓰지 않음)
 │       └── ai-widget.hbs               # AI 위젯 (지금은 꺼 둠)
 ├── public/                 # 그대로 복사되는 정적 파일
 │   ├── _redirects          # 옛 주소 → 새 주소 (301)
