@@ -5,6 +5,9 @@
 
 /* ── 틀: 왼쪽 사이드 + 본문 ── */
 .dt { display: grid; grid-template-columns: 240px minmax(0, 1fr); }
+/* 한 칼럼(케이스): 사이드 없이 본문 880px 를 가운데로 */
+.dt.dt-one { grid-template-columns: minmax(0, 1fr); }
+.dt-one .dt-body { width: 100%; max-width: calc(880px + var(--w-pad) * 2); margin-inline: auto; }
 
 .side { border-right: 1px solid var(--w-line); padding: 40px 16px 40px 20px; }
 .side-in { position: sticky; top: 96px; }
