@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  {{> head}}
+  <link rel="stylesheet" href="/src/css/detail.css">
+</head>
+
+<body class="w-page">
+  <a class="sr-only" href="#main">본문 바로가기</a>
+
+  {{> header}}
+
+  <main id="main" class="frame">
+    <div class="dt">
+      {{> side-nav-cases}}
+
+      <article class="dt-body">
+        <nav class="crumb" aria-label="현재 위치">
+          <a href="../index.html">메인</a><span aria-hidden="true">/</span><a href="../index.html#cases">케이스 스터디</a>
+        </nav>
+        <header class="dt-head">
+          <p class="dt-tag">앱·웹앱</p>
+          <h1>Sunstone</h1>
+          <p class="dt-lead">차에 있지만 잘 쓰이지 않는 기능을 필요한 순간에 먼저 권하고, 말 한마디로 켜고 끄는 차량 루틴 앱입니다.</p>
+          <dl class="overview">
+            <div><dt>분야</dt><dd>앱·웹앱</dd></div>
+            <div><dt>형태</dt><dd>Android 차량용 앱 (Pleos Connect)</dd></div>
+            <div><dt>상태</dt><dd>v1.0.0 공개</dd></div>
+          </dl>
+        </header>
+
+        <section class="dt-sec" aria-labelledby="s-problem">
+          <h2 id="s-problem">문제</h2>
+          <div class="feat">
+            <div class="prose">
+              <p>세차 모드, 차일드락, 시트 메모리처럼 차에는 잘 만든 기능이 많습니다. 그런데 설정 메뉴 깊숙이 있거나, 켜는 조건을 몰라서, 혹은 여러 개를 하나씩 눌러야 해서 잘 쓰이지 않습니다.</p>
+            </div>
+            <figure class="film">
+              <div class="film-bar"><span>여는 장면</span><a href="/films/sunstone/index.html" target="_blank" rel="noopener">전체 영상 보기</a></div>
+              <div class="film-frame">
+                <img src="/images/cases/sunstone/sun_9.5.jpg" alt="Sunstone 소개 영상의 여는 장면" width="1600" height="900" loading="lazy">
+                <iframe data-src="/films/sunstone/index.html?embed=1&amp;from=0&amp;to=10" title="Sunstone 소개 영상, 여는 장면 구간" tabindex="-1" aria-hidden="true"></iframe>
+              </div>
+            </figure>
+          </div>
+        </section>
+
+        <section class="dt-sec" aria-labelledby="s-solve">
+          <h2 id="s-solve">해결</h2>
+          <p class="note-lead">필요한 순간에 한 가지만 근거와 함께 권하고, 한 번의 대답으로 여러 설정을 차례로 맞춘 뒤, 볼일이 끝나면 원래대로 돌려놓습니다. 카드는 운전석 쪽 구역에만 뜨고 오른쪽 내비 화면은 그대로입니다.</p>
+          <div class="feats">
+            <div class="feat">
+              <div>
+                <span class="feat-no">출장 가는 길</span>
+                <h3>주유·세차 제안과 세차 모드</h3>
+                <p>목적지를 말하면 길안내를 시작합니다. 연료가 25% 이하이거나 주행 가능 거리가 모자라면 주유소를 찾아 한 번만 묻고, 세차한 지 14일이 넘었고 3일 안에 비 예보가 없으면 세차도 함께 묻습니다.</p>
+                <p>세차 입구에서는 창문 닫기, 와이퍼 끄기, 내기 순환, 문 잠금을 한 번에 맞추고, 다시 출발하면 원래대로 돌려놓습니다. 사이드미러 접기처럼 앱이 할 수 없는 단계는 카드에 "직접"으로 보여 줍니다.</p>
+                <p class="say"><b>이렇게 말하면</b>"세차할게"</p>
+              </div>
+              <figure class="film">
+                <div class="film-bar"><span>영상 10–37초</span><a href="/films/sunstone/index.html" target="_blank" rel="noopener">전체 영상 보기</a></div>
+                <div class="film-frame">
+                  <img src="/images/cases/sunstone/sun_24.5.jpg" alt="주유하고 세차할까요? 카드. 근거 칸에 연료, 세차일, 날씨가 보인다" width="1600" height="900" loading="lazy">
+                  <iframe data-src="/films/sunstone/index.html?embed=1&amp;from=10&amp;to=37" title="Sunstone 소개 영상, 출장 가는 길 구간" tabindex="-1" aria-hidden="true"></iframe>
+                </div>
+              </figure>
+            </div>
+
+            <div class="feat">
+              <div>
+                <span class="feat-no">아이 등원길</span>
+                <h3>차일드락</h3>
+                <p>유치원으로 길안내를 시작하면 "아이 타고 있나요?"로 권하고, 대답을 받으면 뒷창 잠금·문 잠금·공조를 맞춥니다. 주행 중 뒷자리 안전벨트가 풀리면 알리고, 도착해 P단이 되면 뒷창 잠금을 풉니다.</p>
+                <p>뒷문 차일드락은 차량 SDK에 기능이 없어, 문 안쪽 스위치로 걸도록 짧게 안내합니다.</p>
+                <p class="say"><b>이렇게 말하면</b>"응, 잠가 줘"</p>
+              </div>
+              <figure class="film">
+                <div class="film-bar"><span>영상 37.6–58초</span><a href="/films/sunstone/index.html" target="_blank" rel="noopener">전체 영상 보기</a></div>
+                <div class="film-frame">
+                  <img src="/images/cases/sunstone/sun_46.jpg" alt="아이 등원길 장면의 차 그림" width="1600" height="900" loading="lazy">
+                  <iframe data-src="/films/sunstone/index.html?embed=1&amp;from=37.6&amp;to=58" title="Sunstone 소개 영상, 아이 등원길 구간" tabindex="-1" aria-hidden="true"></iframe>
+                </div>
+              </figure>
+            </div>
+
+            <div class="feat">
+              <div>
+                <span class="feat-no">시트 맞추기</span>
+                <h3>시트 메모리</h3>
+                <p>"앞으로 조금", "등받이 세워 줘"처럼 말로 조금씩 맞추고, "됐어"라고 하면 이름을 물어 그 이름으로 기억합니다. "옆에 희정이 앉았어"라고 하면 조수석을 저장된 자세로 맞춥니다.</p>
+                <p class="say"><b>이렇게 말하면</b>"시트 좀 맞춰 줘"</p>
+              </div>
+              <figure class="film">
+                <div class="film-bar"><span>영상 58.5–66초</span><a href="/films/sunstone/index.html" target="_blank" rel="noopener">전체 영상 보기</a></div>
+                <div class="film-frame">
+                  <img src="/images/cases/sunstone/sun_63.jpg" alt="사람별로 저장된 시트 자세 네 개" width="1600" height="900" loading="lazy">
+                  <iframe data-src="/films/sunstone/index.html?embed=1&amp;from=58.5&amp;to=66" title="Sunstone 소개 영상, 시트 맞추기 구간" tabindex="-1" aria-hidden="true"></iframe>
+                </div>
+              </figure>
+            </div>
+          </div>
+        </section>
+
+        <section class="dt-sec" aria-labelledby="s-how">
+          <h2 id="s-how">어떻게 만들었나</h2>
+          <dl class="tech">
+            <div><dt>앱</dt><dd>Kotlin, Jetpack Compose로 만든 Android 차량용 앱(Pleos Connect)</dd></div>
+            <div><dt>차량 제어</dt><dd>Pleos Vehicle SDK로 창문·와이퍼·내기 순환·문 잠금·공조·시트를 맞추고, 바꾸기 전 값을 기억했다가 되돌립니다</dd></div>
+            <div><dt>길안내</dt><dd>Pleos NaviHelper로 경로를 시작하고 주유소를 경유지로 넣습니다</dd></div>
+            <div><dt>음성</dt><dd>Pleos TextToSpeech·SpeechToText를 기기 안에서 처리합니다</dd></div>
+            <div><dt>화면</dt><dd>왼쪽 운전석 구역에 카드만 띄우고, 오른쪽 내비 화면은 그대로 둡니다</dd></div>
+          </dl>
+        </section>
+
+        <section class="dt-sec" aria-labelledby="s-verify">
+          <h2 id="s-verify">검증 방식</h2>
+          <div class="prose">
+            <p>Pleos Connect v2.1.0 에뮬레이터에서 차량 제어(창문·와이퍼·공조·문 잠금), 내비 경로·경유지, 음성 출력이 SDK로 동작하는지 확인했습니다. 시연에서는 차 상태 값(기어·속도·연료·세차일 등)을 장면마다 넣어 같은 흐름을 재현했고, 그 밖의 갈래는 차 없이 돌리는 단위 테스트로 확인했습니다.</p>
+          </div>
+        </section>
+
+        <section class="dt-sec" aria-labelledby="s-shots">
+          <h2 id="s-shots">결과 화면</h2>
+          <div class="gallery">
+            <figure><a class="zoom" href="/images/cases/sunstone/sun_9.5.jpg"><img src="/images/cases/sunstone/sun_9.5.jpg" alt="여는 장면" width="1600" height="900" loading="lazy"></a><figcaption>여는 장면</figcaption></figure>
+            <figure><a class="zoom" href="/images/cases/sunstone/sun_24.5.jpg"><img src="/images/cases/sunstone/sun_24.5.jpg" alt="주유하고 세차할까요? 카드" width="1600" height="900" loading="lazy"></a><figcaption>주유와 세차를 함께 묻는 카드. 근거 칸에 연료·세차일·날씨</figcaption></figure>
+            <figure><a class="zoom" href="/images/cases/sunstone/sun_28.jpg"><img src="/images/cases/sunstone/sun_28.jpg" alt="세차 모드를 맞추는 카드" width="1600" height="900" loading="lazy"></a><figcaption>세차 모드: 창문, 와이퍼, 내기 순환, 문 잠금을 차례로 맞추고 미러는 "직접"</figcaption></figure>
+            <figure><a class="zoom" href="/images/cases/sunstone/sun_46.jpg"><img src="/images/cases/sunstone/sun_46.jpg" alt="아이 등원길 장면의 차 그림" width="1600" height="900" loading="lazy"></a><figcaption>아이 등원길 장면</figcaption></figure>
+          </div>
+        </section>
+
+        <section class="dt-sec" aria-labelledby="s-pkg">
+          <h2 id="s-pkg">관련 패키지</h2>
+          <div class="works">
+            <article class="work">
+              <div>
+                <span class="tag">패키지</span>
+                <h3>앱·웹앱</h3>
+                <p>스마트폰 앱과 설치 없이 쓰는 웹앱을 만듭니다.</p>
+              </div>
+              <a class="link" href="../packages/app.html">자세히 보기</a>
+            </article>
+          </div>
+        </section>
+
+        <nav class="pager" aria-label="다른 케이스">
+          <a class="prev" href="lms.html"><span>이전 케이스</span><b>13개 대학 보고서 자동화</b></a>
+          <a class="next" href="otis.html"><span>다음 케이스</span><b>OTIS V-Check</b></a>
+        </nav>
+      </article>
+    </div>
+
+    {{> cta-contact key="app" label="비슷한 작업 상담 신청하기"}}
+  </main>
+  {{> footer}}
+  <script type="module" src="/src/js/detail.js"></script>
+</body>
+
+</html>

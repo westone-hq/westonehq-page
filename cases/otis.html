@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  {{> head}}
+  <link rel="stylesheet" href="/src/css/detail.css">
+</head>
+
+<body class="w-page">
+  <a class="sr-only" href="#main">본문 바로가기</a>
+
+  {{> header}}
+
+  <main id="main" class="frame">
+    <div class="dt">
+      {{> side-nav-cases}}
+
+      <article class="dt-body">
+        <nav class="crumb" aria-label="현재 위치">
+          <a href="../index.html">메인</a><span aria-hidden="true">/</span><a href="../index.html#cases">케이스 스터디</a>
+        </nav>
+        <header class="dt-head">
+          <p class="dt-tag">앱·웹앱</p>
+          <h1>OTIS V-Check</h1>
+          <p class="dt-lead">전용 장비 대신 설치 기사의 휴대폰으로 승강기 진동·소음을 재고, 규격 리포트를 만들어 메일로 보내는 현장 앱입니다.</p>
+          <dl class="overview">
+            <div><dt>기관</dt><dd>OTIS</dd></div>
+            <div><dt>분야</dt><dd>앱·웹앱</dd></div>
+            <div><dt>형태</dt><dd>Android 현장 앱 (Flutter)</dd></div>
+            <div><dt>상태</dt><dd>현장 배포 중</dd></div>
+          </dl>
+        </header>
+
+        <section class="dt-sec" aria-labelledby="s-problem">
+          <h2 id="s-problem">문제</h2>
+          <div class="prose">
+            <p>승강기의 진동·소음·속도·거리를 검증하는 측정은 전용 장비로만 해 왔습니다. 현장 설치 기사가 늘 가지고 다니는 휴대폰으로 같은 측정을 하고, 규격에 맞는 리포트까지 현장에서 보낼 수 있어야 했습니다.</p>
+          </div>
+        </section>
+
+        <section class="dt-sec" aria-labelledby="s-solve">
+          <h2 id="s-solve">해결</h2>
+          <div class="feats">
+            <div class="feat solo">
+              <div>
+                <span class="feat-no">측정</span>
+                <h3>휴대폰을 카 바닥에 놓고 잽니다</h3>
+                <p>현장 정보(제번·현장명·층·운전 방향·기종)를 입력하고 측정을 시작합니다. 휴대폰을 뒤집어 카 바닥 중앙에 놓고 운행하면 3축 진동과 소음을 함께 기록하고, 운행이 끝나면 볼륨키를 눌러 측정을 끝냅니다. 입력한 현장 정보는 기기에 남아 다음 측정에 그대로 쓰입니다.</p>
+              </div>
+            </div>
+
+            <div class="feat">
+              <div>
+                <span class="feat-no">결과</span>
+                <h3>결과 지표를 확인하고 비교합니다</h3>
+                <p>결과 화면에서 소음, X·Y·Z 진동, 최대 속도, 운행 거리를 확인합니다. 다른 측정과 비교하거나, 같은 조건으로 바로 다시 잴 수 있습니다.</p>
+              </div>
+              <figure class="shot">
+                <a class="zoom" href="/images/cases/otis/otis-1.jpg"><img src="/images/cases/otis/otis-1.jpg" alt="리포트 1쪽: 지표 표와 판정" width="579" height="819" loading="lazy"></a>
+                <figcaption>레퍼런스 리포트 1쪽: 지표와 판정. 현장 정보는 임의 값입니다</figcaption>
+              </figure>
+            </div>
+
+            <div class="feat">
+              <div>
+                <span class="feat-no">리포트</span>
+                <h3>규격 리포트 PDF를 만들어 메일로 보냅니다</h3>
+                <p>측정 결과로 OTIS TUNE 규격의 PDF 리포트를 만들고, 앱에서 바로 메일로 보냅니다. 앞쪽에는 지표와 판정이, 다음 쪽에는 진동·소음 차트가 들어갑니다.</p>
+              </div>
+              <figure class="shot">
+                <a class="zoom" href="/images/cases/otis/otis-2.jpg"><img src="/images/cases/otis/otis-2.jpg" alt="리포트 2쪽: 진동과 소음 차트" width="579" height="819" loading="lazy"></a>
+                <figcaption>레퍼런스 리포트 2쪽: 3축 진동과 소음 차트. 현장 정보는 임의 값입니다</figcaption>
+              </figure>
+            </div>
+
+            <div class="feat solo">
+              <div>
+                <span class="feat-no">배포</span>
+                <h3>명단 엑셀만 올리면 새 버전이 준비됩니다</h3>
+                <p>관리자가 작업자 명단 엑셀을 올리고 GitHub에서 "새 버전 준비"를 실행하면, 명단 변환부터 검사, 서명한 APK 빌드, 릴리스 초안까지 자동으로 준비됩니다. 운영자 PC에는 개발 도구가 필요 없고, 게시는 담당자가 첨부 파일을 확인한 뒤 직접 합니다.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="dt-sec" aria-labelledby="s-how">
+          <h2 id="s-how">어떻게 만들었나</h2>
+          <dl class="tech">
+            <div><dt>앱</dt><dd>Flutter로 화면을 만들고, 센서와 소음 수집은 Kotlin 네이티브 코드로 처리합니다</dd></div>
+            <div><dt>신호 처리</dt><dd>필터와 재표본 등 처리 순서를 SciPy로 만든 정본과 대조해 맞췄습니다</dd></div>
+            <div><dt>구조</dt><dd>domain·adapter·service·ui 층으로 나누고, 층 사이 규칙을 테스트로 고정했습니다</dd></div>
+            <div><dt>릴리스</dt><dd>GitHub Actions로 서명한 APK와 릴리스 초안을 만듭니다</dd></div>
+          </dl>
+        </section>
+
+        <section class="dt-sec" aria-labelledby="s-uml">
+          <h2 id="s-uml">설계 문서</h2>
+          <div class="uml">
+            <div class="uml-bar">
+              <div class="uml-tabs" role="tablist" aria-label="설계 문서 종류">
+                <button type="button" role="tab" id="uml-tab-1" aria-controls="uml-frame" aria-selected="true" data-src="/uml/otis_usecase.html">유즈케이스</button>
+                <button type="button" role="tab" id="uml-tab-2" aria-controls="uml-frame" aria-selected="false" tabindex="-1" data-src="/uml/otis_act_UC03.html">액티비티</button>
+                <button type="button" role="tab" id="uml-tab-3" aria-controls="uml-frame" aria-selected="false" tabindex="-1" data-src="/uml/otis_seq_UC03.html">시퀀스</button>
+              </div>
+              <a id="uml-open" href="/uml/otis_usecase.html" target="_blank" rel="noopener">새 창에서 크게 보기</a>
+            </div>
+            <iframe id="uml-frame" role="tabpanel" aria-labelledby="uml-tab-1" data-src="/uml/otis_usecase.html" title="OTIS V-Check 설계 문서"></iframe>
+            <p class="uml-cap">유즈케이스 1장, 액티비티 18장, 시퀀스 13장으로 이루어져 있습니다.</p>
+          </div>
+        </section>
+
+        <section class="dt-sec" aria-labelledby="s-verify">
+          <h2 id="s-verify">검증 방식</h2>
+          <div class="feat">
+            <div class="prose">
+              <p>SciPy로 만든 기준값을 테스트 자료로 두고, 앱의 신호 처리 결과와 대조했습니다.</p>
+              <p>기존 측정 장비와 같은 운행을 함께 측정해 진동과 소음 곡선을 비교했습니다.</p>
+            </div>
+            <figure class="shot">
+              <a class="zoom" href="/images/cases/otis/otiscmp.jpg"><img src="/images/cases/otis/otiscmp.jpg" alt="세트별 운행 구간 비교. 왼쪽 수직 진동, 오른쪽 소음" width="1200" height="1280" loading="lazy"></a>
+              <figcaption>같은 운행의 기존 측정 기록과 휴대폰 측정 비교. 왼쪽 수직 진동, 오른쪽 소음</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section class="dt-sec" aria-labelledby="s-shots">
+          <h2 id="s-shots">결과 화면</h2>
+          <div class="gallery tall">
+            <figure><a class="zoom" href="/images/cases/otis/otis-1.jpg"><img src="/images/cases/otis/otis-1.jpg" alt="리포트 1쪽" width="579" height="819" loading="lazy"></a><figcaption>레퍼런스 리포트 1쪽 (임의 값으로 만든 예시)</figcaption></figure>
+            <figure><a class="zoom" href="/images/cases/otis/otis-2.jpg"><img src="/images/cases/otis/otis-2.jpg" alt="리포트 2쪽" width="579" height="819" loading="lazy"></a><figcaption>레퍼런스 리포트 2쪽 (임의 값으로 만든 예시)</figcaption></figure>
+          </div>
+        </section>
+
+        <section class="dt-sec" aria-labelledby="s-pkg">
+          <h2 id="s-pkg">관련 패키지</h2>
+          <div class="works">
+            <article class="work">
+              <div>
+                <span class="tag">패키지</span>
+                <h3>앱·웹앱</h3>
+                <p>스마트폰 앱과 설치 없이 쓰는 웹앱을 만듭니다.</p>
+              </div>
+              <a class="link" href="../packages/app.html">자세히 보기</a>
+            </article>
+          </div>
+        </section>
+
+        <nav class="pager" aria-label="다른 케이스">
+          <a class="prev" href="sunstone.html"><span>이전 케이스</span><b>Sunstone</b></a>
+          <a class="next" href="welfare.html"><span>다음 케이스</span><b>돌봄 일지 앱 서버</b></a>
+        </nav>
+      </article>
+    </div>
+
+    {{> cta-contact key="app" label="비슷한 작업 상담 신청하기"}}
+  </main>
+  {{> footer}}
+  <script type="module" src="/src/js/detail.js"></script>
+</body>
+
+</html>

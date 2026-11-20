@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  {{> head}}
+  <link rel="stylesheet" href="/src/css/detail.css">
+</head>
+
+<body class="w-page">
+  <a class="sr-only" href="#main">본문 바로가기</a>
+
+  {{> header}}
+
+  <main id="main" class="frame">
+    <div class="dt">
+      {{> side-nav-cases}}
+
+      <article class="dt-body">
+        <nav class="crumb" aria-label="현재 위치">
+          <a href="../index.html">메인</a><span aria-hidden="true">/</span><a href="../index.html#cases">케이스 스터디</a>
+        </nav>
+        <header class="dt-head">
+          <p class="dt-tag">강의·교육</p>
+          <h1>직업훈련 과정 강의</h1>
+          <p class="dt-lead">직업훈련 과정에서 AI 활용과 개발을 가르칩니다. 강의 교재는 전체본을 무료로 공개했습니다.</p>
+          <!-- 확인 필요: 과정명, 기간, 수강 인원 (자료 없음, 비워 둠) -->
+          <dl class="overview">
+            <div><dt>기관</dt><dd>일산직업능력개발원</dd></div>
+            <div><dt>분야</dt><dd>강의·교육</dd></div>
+            <div><dt>형태</dt><dd>직업훈련 과정 강의</dd></div>
+            <div><dt>상태</dt><dd>진행 중</dd></div>
+          </dl>
+        </header>
+
+        <section class="dt-sec" aria-labelledby="s-class">
+          <h2 id="s-class">강의 내용</h2>
+          <ul class="checks">
+            <li>직업훈련 과정에서 AI 활용과 개발을 가르칩니다</li>
+            <li>비전공 수강생 눈높이에 맞춘 실습 중심으로 진행합니다</li>
+            <li>강의 교재 2권은 전체본을 무료로 공개했습니다</li>
+          </ul>
+        </section>
+
+        <section class="dt-sec" aria-labelledby="s-books">
+          <h2 id="s-books">강의 교재</h2>
+          <div class="books dt-books">
+            <div class="book">
+              <img src="/images/ai-todo-cover.webp" alt="따라만드는 프로그램, AI를 활용한 ToDo앱 표지" width="600" height="894" loading="lazy">
+              <b>AI를 활용한 ToDo앱</b>
+              <a class="btn btn-light" href="/ebook/ebook-ai-todo-full.pdf" download>무료로 받기</a>
+            </div>
+            <div class="book">
+              <img src="/images/qr-kiosk-cover.webp" alt="따라만드는 프로그램, QR로 주문받는 키오스크 표지" width="600" height="895" loading="lazy">
+              <b>QR로 주문받는 키오스크</b>
+              <a class="btn btn-light" href="/ebook/ebook-qr-kiosk-full.pdf" download>무료로 받기</a>
+            </div>
+          </div>
+        </section>
+
+        <section class="dt-sec" aria-labelledby="s-pkg">
+          <h2 id="s-pkg">관련 패키지</h2>
+          <div class="works">
+            <article class="work">
+              <div>
+                <span class="tag">패키지</span>
+                <h3>강의·교육</h3>
+                <p>현장에서 바로 쓰는 AI와 개발을 가르칩니다.</p>
+              </div>
+              <a class="link" href="../packages/education.html">자세히 보기</a>
+            </article>
+          </div>
+        </section>
+
+        <nav class="pager" aria-label="다른 케이스">
+          <a class="prev" href="welfare.html"><span>이전 케이스</span><b>돌봄 일지 앱 서버</b></a>
+        </nav>
+      </article>
+    </div>
+
+    {{> cta-contact key="education" label="강의 상담 신청하기"}}
+  </main>
+  {{> footer}}
+  <script type="module" src="/src/js/detail.js"></script>
+</body>
+
+</html>
