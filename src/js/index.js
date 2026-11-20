@@ -1,7 +1,11 @@
-import { initHeader, initMobileMenu, initAIWidget, initScrollReveal } from './shared.js'
+import { initHeader, initMobileMenu, initAIWidget } from './shared.js'
+import { initHeroBlueprint } from './hero-blueprint.js'
+import { initMainSections } from './main-sections.js'
 
 initHeader()
 initMobileMenu()
+initHeroBlueprint()
+initMainSections()
 
 // ===== WESTONE AI 위젯: 다음 업데이트 시 활성화 예정. 아래 블록 주석 해제하면 부활 =====
 /*
@@ -16,8 +20,6 @@ initAIWidget({
 })
 */
 
-initScrollReveal('.pkg-header, .pkg-card, .case-header, .case-card, .proc-header, .proc-step, .about-team, .about-books, .contact-copy, .contact-form-wrap')
-
 // ── Section active spy ────────────────────────────────────────────────────
 const activeObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
@@ -31,7 +33,7 @@ const activeObserver = new IntersectionObserver((entries) => {
   })
 }, { rootMargin: '-20% 0px -60% 0px', threshold: 0 })
 
-;['packages', 'cases', 'process', 'about', 'contact'].forEach(id => {
+;['packages', 'cases', 'releases', 'process', 'contact'].forEach(id => {
   const el = document.getElementById(id)
   if (el) activeObserver.observe(el)
 })

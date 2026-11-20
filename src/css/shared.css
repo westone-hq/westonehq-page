@@ -41,6 +41,27 @@
   --badge-text: #0F6E56;
   --shadow-float: 0 4px 16px rgba(23, 24, 27, 0.14);
   --shadow-overlay: 0 12px 36px rgba(23, 24, 27, 0.24);
+
+  /* 새 디자인 값 (메인 개편). 위의 기존 값은 다른 페이지가 쓰므로 그대로 둔다 */
+  --w-bg: #FFFFFF;
+  --w-tile: #FAF8F5;
+  --w-tile-2: #F2F0EA;
+  --w-line: #E4E1DA;
+  --w-line-2: #D3CFC6;
+  --w-ink: #121715;
+  --w-ink-2: rgba(18, 23, 21, .6);
+  --w-ink-3: rgba(18, 23, 21, .42);
+  --w-green: #0C8C5E;
+  --w-green-hi: #18E299;
+  --w-green-soft: #E7F4EE;
+  --w-px1: #00B8E6;
+  --w-px2: #F26DD3;
+  --w-px3: #F2B92E;
+  --w-px4: #27C26A;
+  --w-serif: 'MaruBuri', 'Noto Serif KR', serif;
+  --w-sans: 'Pretendard Variable', Pretendard, -apple-system, sans-serif;
+  --w-frame: 1240px;
+  --w-pad: clamp(20px, 5vw, 64px);
 }
 
 /* ============================================================
@@ -103,108 +124,114 @@ button { font-family: inherit; cursor: pointer; border: none; background: transp
 }
 
 /* ============================================================
-   4. Header & Navigation
+   4. 공통 요소 (새 디자인: 버튼·링크·페이지 틀)
+   ============================================================ */
+.frame {
+  max-width: var(--w-frame);
+  margin-inline: auto;
+  border-left: 1px solid var(--w-line);
+  border-right: 1px solid var(--w-line);
+}
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  height: 44px; padding: 0 20px; border-radius: 8px;
+  font-family: var(--w-sans); font-size: 15px; font-weight: 600; line-height: 1;
+  white-space: nowrap; cursor: pointer;
+  transition: background-color .15s, border-color .15s, color .15s;
+}
+.btn-dark { background: var(--w-ink); color: #fff; border: 1px solid var(--w-ink); }
+.btn-dark:hover { background: #2a312e; border-color: #2a312e; }
+.btn-light { background: #fff; color: var(--w-ink); border: 1px solid var(--w-line-2); }
+.btn-light:hover { border-color: var(--w-ink); }
+.btn:disabled { opacity: .55; cursor: default; }
+
+.link {
+  font-size: 14px; font-weight: 600; color: var(--w-ink);
+  border-bottom: 1px solid var(--w-line-2); padding-bottom: 1px;
+  transition: border-color .15s;
+}
+.link:hover { border-color: var(--w-ink); }
+.link.green { color: var(--w-green); border-color: rgba(12, 140, 94, .35); }
+.link.green:hover { border-color: var(--w-green); }
+.link.off { color: var(--w-ink-3); border-color: transparent; pointer-events: none; font-weight: 500; }
+
+/* ============================================================
+   5. Header & Navigation
    ============================================================ */
 main { padding-top: 64px; }
 
 .global-header {
-  position: fixed; top: 0; left: 0; width: 100%; height: 64px;
-  background-color: rgba(255, 255, 255, 0.85);
-  backdrop-filter: saturate(1.2) blur(8px);
-  -webkit-backdrop-filter: saturate(1.2) blur(8px);
-  z-index: 1000; display: flex; align-items: center;
-  transition: border-color var(--ease-snap);
-  border-bottom: 1px solid transparent;
+  position: fixed; top: 0; left: 0; width: 100%; height: 64px; z-index: 1000;
+  background-color: rgba(255, 255, 255, .9);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--w-line);
+  font-family: var(--w-sans);
 }
 
-.global-header.is-scrolled { border-bottom: 1px solid var(--accent-faint); }
-
-.header-container { width: 100%; display: flex; align-items: center; justify-content: space-between; }
+.header-in {
+  max-width: var(--w-frame); height: 100%; margin-inline: auto;
+  display: flex; align-items: center; gap: 36px;
+  padding: 0 var(--w-pad);
+  border-left: 1px solid var(--w-line);
+  border-right: 1px solid var(--w-line);
+}
 
 .header-logo {
-  font-weight: 600;
-  font-size: 18px;
-  letter-spacing: 0.08em;
-  text-transform: lowercase;
+  font-size: 20px; font-weight: 750; letter-spacing: -.04em; color: var(--w-ink);
 }
 
-.header-desktop-nav { display: flex; align-items: center; gap: 32px; }
-.header-menu-list { display: flex; gap: 24px; align-items: center; }
+.header-desktop-nav { margin-right: auto; }
+.header-menu-list { display: flex; gap: 26px; align-items: center; }
 
 .header-menu-link {
-  font-size: 15px; color: var(--gray); padding-block: 8px;
-  position: relative; transition: color var(--ease-snap);
+  font-size: 15px; font-weight: 500; color: var(--w-ink-2);
+  transition: color .15s;
 }
-
-.header-menu-link::after {
-  content: ""; position: absolute; left: 0; bottom: -1px; width: 100%; height: 1px;
-  background-color: var(--ink); transform: scaleX(0); transform-origin: left;
-  transition: transform var(--ease-snap);
-}
-
 .header-menu-link:hover,
-.header-menu-link[aria-current="true"] { color: var(--ink); }
+.header-menu-link[aria-current="true"] { color: var(--w-ink); }
 
-.header-menu-link:hover::after,
-.header-menu-link[aria-current="true"]::after { transform: scaleX(1); }
+.header-cta-btn { height: 38px; padding: 0 16px; font-size: 14px; }
 
-.header-cta-btn {
-  display: inline-flex; align-items: center; justify-content: center;
-  height: var(--btn-h-sm); padding: 0 18px;
-  background-color: transparent; color: var(--accent);
-  border: 1px solid var(--accent); border-radius: var(--radius);
-  font-size: 15px; font-weight: 600;
-  transition: background-color var(--ease-snap), color var(--ease-snap);
-}
-
-.header-cta-btn:hover { background-color: var(--accent); color: #ffffff; }
-
-/* ============================================================
-   5. Mobile Toggle & Overlay
-   ============================================================ */
-.mobile-toggle { display: none; width: 24px; height: 24px; position: relative; z-index: 1002; }
+/* ── Mobile Toggle & Overlay ── */
+.mobile-toggle { display: none; width: 24px; height: 24px; position: relative; flex-shrink: 0; }
 
 .mobile-toggle-line {
   position: absolute; left: 0; width: 24px; height: 2px;
-  background-color: var(--ink);
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-              background-color 0.3s ease-out,
-              top 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: var(--w-ink);
+  transition: transform .3s cubic-bezier(.4, 0, .2, 1), top .3s cubic-bezier(.4, 0, .2, 1);
 }
-
 .mobile-toggle-line.top { top: 7px; }
 .mobile-toggle-line.bottom { top: 15px; }
-.mobile-toggle[aria-expanded="true"] .mobile-toggle-line { background-color: #ffffff; }
 .mobile-toggle[aria-expanded="true"] .mobile-toggle-line.top { top: 11px; transform: rotate(45deg); }
 .mobile-toggle[aria-expanded="true"] .mobile-toggle-line.bottom { top: 11px; transform: rotate(-45deg); }
 
+/* 헤더 아래로 펼쳐서, 헤더의 닫기 버튼이 계속 보이게 한다 */
 .mobile-overlay {
-  position: fixed; inset: 0; background-color: var(--ink); z-index: 1001;
-  display: flex; flex-direction: column; padding: 80px 24px 40px;
+  position: fixed; top: 64px; left: 0; right: 0; bottom: 0; z-index: 999;
+  background-color: var(--w-bg);
+  display: flex; flex-direction: column; padding: 24px var(--w-pad) 40px;
+  font-family: var(--w-sans);
   opacity: 0; pointer-events: none; visibility: hidden;
-  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-              visibility 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity .3s cubic-bezier(.4, 0, .2, 1), visibility .3s cubic-bezier(.4, 0, .2, 1);
 }
 
 body.menu-open { overflow: hidden; }
 body.menu-open .mobile-overlay { opacity: 1; pointer-events: auto; visibility: visible; }
 .mobile-overlay > nav { flex-grow: 1; }
-.mobile-menu-list { display: flex; flex-direction: column; gap: 24px; margin-bottom: auto; }
-.mobile-menu-link { font-size: 28px; font-weight: 600; color: #ffffff; display: inline-block; }
-
-.mobile-cta-btn {
-  display: flex; width: 100%; justify-content: center; align-items: center;
-  height: var(--btn-h-lg); background-color: transparent;
-  color: var(--accent); border: 1px solid var(--accent); border-radius: var(--radius);
-  font-size: 16px; font-weight: 600; margin-bottom: 32px;
-  transition: background-color var(--ease-snap), color var(--ease-snap);
+.mobile-menu-list { display: flex; flex-direction: column; }
+.mobile-menu-link {
+  display: block; padding: 16px 0; border-bottom: 1px solid var(--w-line);
+  font-size: 22px; font-weight: 650; letter-spacing: -.03em; color: var(--w-ink);
 }
+.mobile-cta-btn { display: flex; width: 100%; height: 52px; font-size: 16px; margin-bottom: 24px; }
+.mobile-copy { margin: 0; font-size: 12.5px; color: var(--w-ink-3); text-align: center; }
 
-.mobile-cta-btn:hover { background-color: var(--accent); color: #ffffff; }
-.mobile-copy { font-size: 12px; color: var(--gray); text-align: center; }
-
-@media (max-width: 768px) {
+@media (max-width: 860px) {
   .header-desktop-nav { display: none; }
+  .header-in { gap: 16px; }
+  .header-logo { margin-right: auto; }
   .mobile-toggle { display: block; }
 }
 
@@ -212,24 +239,30 @@ body.menu-open .mobile-overlay { opacity: 1; pointer-events: auto; visibility: v
    6. Footer
    ============================================================ */
 .footer {
-  background-color: var(--ink);
-  border-top: 1px solid var(--line-dark);
-  padding: 40px 0;
-  color: #ffffff;
+  background-color: var(--w-bg);
+  border-top: 1px solid var(--w-line);
+  font-family: var(--w-sans);
+  font-size: 13.5px; color: var(--w-ink-2);
 }
 
-.footer-top { display: flex; justify-content: space-between; align-items: flex-start; }
+.footer-in {
+  max-width: var(--w-frame); margin-inline: auto;
+  padding: 32px var(--w-pad) 40px;
+  border-left: 1px solid var(--w-line);
+  border-right: 1px solid var(--w-line);
+}
+
+.footer-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; }
 .footer-brand { display: flex; flex-direction: column; }
-.footer-logo { font-size: 16px; font-weight: 600; color: #ffffff; }
-.footer-info { font-size: 12px; color: rgba(255, 255, 255, 0.4); line-height: 1.6; margin: 12px 0 0 0; }
-.footer-nav { display: flex; gap: 24px; align-items: center; }
-.footer-nav a { font-size: 13px; color: rgba(255, 255, 255, 0.5); transition: color var(--ease-snap); }
-.footer-nav a:hover, .footer-nav a:focus-visible { color: #ffffff; }
-.footer-bottom { font-size: 12px; color: rgba(255, 255, 255, 0.35); margin: 40px 0 0 0; }
+.footer-logo { font-size: 17px; font-weight: 750; letter-spacing: -.04em; color: var(--w-ink); }
+.footer-info { font-size: 13.5px; line-height: 1.7; margin: 10px 0 0; color: var(--w-ink-2); }
+.footer-nav { display: flex; flex-wrap: wrap; gap: 8px 22px; align-items: center; }
+.footer-nav a { color: var(--w-ink-2); transition: color .15s; }
+.footer-nav a:hover, .footer-nav a:focus-visible { color: var(--w-ink); }
+.footer-bottom { font-size: 13.5px; color: var(--w-ink-3); margin: 28px 0 0; }
 
 @media (max-width: 768px) {
-  .footer-top { flex-direction: column; gap: 32px; }
-  .footer-nav { flex-wrap: wrap; gap: 16px 24px; }
+  .footer-top { flex-direction: column; gap: 20px; }
 }
 
 /* ============================================================

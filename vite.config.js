@@ -7,9 +7,9 @@ const __dirname = fileURLToPath(new URL('.', import.meta.url))
 
 const pageData = {
   '/index.html': {
-    title: 'westone — 비즈니스를 돕는 자동화와 웹',
-    description: '업무 자동화와 웹 서비스. 단순한 개발을 넘어, 비즈니스 운영의 반복 업무까지 덜어드리는 2인 개발팀 westone입니다.',
-    ogTitle: 'westone — 비즈니스를 돕는 자동화와 웹 서비스',
+    title: 'westone — 만들고, 연결하고, 가르치는 개발팀',
+    description: '웹사이트·앱·업무 자동화·AI 에이전트를 만드는 IT 개발팀. 현직 개발자와 AI 강사가 상담부터 납품 후 교육까지 직접 맡습니다.',
+    ogTitle: 'westone — 만들고, 연결하고, 가르치는 개발팀',
     ogUrl: 'https://www.westonehq.com/',
     isIndex: true,
     basePath: './',
