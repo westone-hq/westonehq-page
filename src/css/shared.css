@@ -328,7 +328,7 @@ body.w-page {
   .uml iframe { height: 420px; }
 }
 
-/* ── 교재 카드 ── */
+/* ── eBook 카드 ── */
 .books { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .book img { width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 8px; border: 1px solid var(--w-line); }
 .book b { display: block; font-size: 15px; font-weight: 600; margin-top: 12px; }

@@ -85,9 +85,8 @@
    함께한 곳: 7곳을 넘으면 흐르는 띠가 된다
    ============================================================ */
 .clients { padding: 28px var(--w-pad); border-top: 1px solid var(--w-line); display: flex; align-items: center; gap: 32px; }
-.clients h2 { font-size: 14px; font-weight: 600; color: var(--w-ink-3); white-space: nowrap; flex-shrink: 0; }
 .cl-list { flex: 1; min-width: 0; }
-.cl-items { display: flex; flex-wrap: wrap; gap: 10px 40px; align-items: center; }
+.cl-items { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 40px; align-items: center; }
 .cl {
   font-size: clamp(16px, 1.5vw, 19px); font-weight: 700; letter-spacing: -.03em;
   color: var(--w-ink-2); white-space: nowrap; transition: color .15s;
@@ -132,6 +131,11 @@
 /* ============================================================
    케이스 스터디: 아코디언
    ============================================================ */
+/* 열 머리글: summary 와 같은 칸 나눔 */
+.cases-head {
+  display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 3fr) minmax(0, 2fr) 24px;
+  gap: 20px; padding: 0 4px 10px; font-size: 13px; color: var(--w-ink-3);
+}
 .cases { border-top: 1px solid var(--w-ink); }
 .case { border-bottom: 1px solid var(--w-line); interpolate-size: allow-keywords; }
 .case summary {
@@ -221,7 +225,7 @@
 .state.field { background: var(--w-tile-2); color: var(--w-ink); }
 
 /* ============================================================
-   팀 · 교재
+   팀 · eBook
    ============================================================ */
 .team { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: 56px; align-items: start; }
 .points { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
@@ -297,6 +301,7 @@
   .plan, .team, .faq, .contact { grid-template-columns: 1fr; }
   .clients { flex-direction: column; align-items: flex-start; gap: 14px; }
   .clients .cl-list { width: 100%; }
+  .cases-head { display: none; }
   .case summary { grid-template-columns: minmax(0, 1fr) 24px; row-gap: 4px; }
   .case .tag { grid-column: 1; }
   .case-ttl { grid-column: 1; grid-row: 2; }

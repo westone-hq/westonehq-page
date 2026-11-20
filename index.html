@@ -27,8 +27,7 @@
     </section>
 
     <!-- 함께한 곳: 목록에 한 줄만 더하면 된다. 7곳을 넘으면 main-sections.js가 흐르는 띠로 바꾼다 -->
-    <section class="clients" aria-labelledby="clients-title">
-      <h2 id="clients-title">함께한 곳</h2>
+    <section class="clients" aria-label="함께한 곳">
       <div class="cl-list" id="cl-list">
         <ul class="cl-items">
           <li><a class="cl" href="#case-otis">OTIS</a></li>
@@ -151,9 +150,10 @@
     <!-- 케이스 스터디: 메인에서는 목록만, 영상은 각 케이스 페이지에서 -->
     <section class="sec sec-tile" id="cases" aria-labelledby="cases-title">
       <h2 class="h2" id="cases-title">케이스 스터디</h2>
+      <div class="cases-head" aria-hidden="true"><span>패키지</span><span>프로젝트</span><span>대상</span></div>
       <div class="cases">
         <details class="case" id="case-sunstone" name="case" open>
-          <summary><span class="tag">앱·웹앱</span><span class="case-ttl">Sunstone</span><span class="org">차량용 앱</span><span class="chev" aria-hidden="true"></span></summary>
+          <summary><span class="tag">앱·웹앱</span><span class="case-ttl">Sunstone</span><span class="org">현대자동차</span><span class="chev" aria-hidden="true"></span></summary>
           <div class="case-in"><div>
             <p>차에 있지만 잘 쓰이지 않는 기능을 필요한 순간에 먼저 권하고, 말 한마디로 켜고 끄는 차량 루틴 앱입니다.</p>
             <div class="facts"><div>형태<b>Android 차량용 앱</b></div><div>기능<b>세차 모드, 차일드락, 시트 메모리</b></div><div>상태<b>v1.0.0 공개</b></div></div>
@@ -169,7 +169,7 @@
           </div></div>
         </details>
         <details class="case" id="case-lms" name="case">
-          <summary><span class="tag">업무 자동화</span><span class="case-ttl">13개 대학 보고서 자동화</span><span class="org">한국고등직업협회</span><span class="chev" aria-hidden="true"></span></summary>
+          <summary><span class="tag">업무 자동화</span><span class="case-ttl">대학 보고서 자동화 시스템</span><span class="org">한국고등직업협회</span><span class="chev" aria-hidden="true"></span></summary>
           <div class="case-in"><div>
             <p>출석·과제·설문 파일을 끌어다 놓으면 엑셀 산출물과 대학별 Word 보고서가 만들어지는 프로그램입니다.</p>
             <div class="facts"><div>형태<b>Windows 프로그램</b></div><div>결과물<b>엑셀 6종, Word 보고서</b></div><div>상태<b>운영 중</b></div></div>
@@ -177,9 +177,9 @@
           </div></div>
         </details>
         <details class="case" id="case-welfare" name="case">
-          <summary><span class="tag">서버·데이터</span><span class="case-ttl">돌봄 일지 앱 서버</span><span class="org">원광장애인통합복지관</span><span class="chev" aria-hidden="true"></span></summary>
+          <summary><span class="tag">서버·데이터</span><span class="case-ttl">돌봄 일지</span><span class="org">원광장애인통합복지관</span><span class="chev" aria-hidden="true"></span></summary>
           <div class="case-in"><div>
-            <p>돌봄 일지 작성과 인수인계를 위한 앱의 서버와 데이터베이스를 만들었습니다.</p>
+            <p>돌봄 일지를 쓰고 다음 근무자에게 인수인계하는 앱입니다.</p>
             <div class="facts"><div>형태<b>API 서버, 데이터베이스</b></div></div>
             <a class="link green" href="cases/welfare.html">케이스 스터디 읽기</a>
           </div></div>
@@ -187,7 +187,7 @@
         <details class="case" id="case-education" name="case">
           <summary><span class="tag">강의·교육</span><span class="case-ttl">직업훈련 과정 강의</span><span class="org">일산직업능력개발원</span><span class="chev" aria-hidden="true"></span></summary>
           <div class="case-in"><div>
-            <p>직업훈련 과정에서 AI 활용과 개발을 가르칩니다. 강의 교재는 전체본을 무료로 공개했습니다.</p>
+            <p>직업훈련 과정에서 Flutter 앱 개발과 AI 활용을 강의합니다.</p>
             <div class="facts"><div>형태<b>직업훈련 과정 강의</b></div><div>상태<b>진행 중</b></div></div>
             <a class="link green" href="cases/education.html">케이스 스터디 읽기</a>
           </div></div>
@@ -257,7 +257,7 @@
       </div>
     </section>
 
-    <!-- 팀 · 교재 -->
+    <!-- 팀 · eBook -->
     <section class="sec sec-tile" id="team" aria-labelledby="team-title">
       <div class="team">
         <div>
@@ -271,7 +271,7 @@
           <div class="people"><div><b>박건준</b>사업 총괄, 제품 기획</div><div><b>박희정</b>개발 총괄, 고객 기획</div></div>
         </div>
         <div>
-          <h3 class="h3 books-title">강의 교재 전체본 무료 공개</h3>
+          <h3 class="h3 books-title">eBook 전체본 무료 공개</h3>
           <div class="books">
             <div class="book">
               <img src="/images/ai-todo-cover.webp" alt="따라만드는 프로그램, AI를 활용한 ToDo앱 표지" width="600" height="894" loading="lazy">
