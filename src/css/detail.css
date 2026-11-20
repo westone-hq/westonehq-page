@@ -153,6 +153,45 @@ html:has([data-case-film]) { overflow-anchor: none; }
 .film-seek:hover { border-color: var(--w-ink); color: var(--w-ink); }
 .film-seek span { font-variant-numeric: tabular-nums; color: var(--w-green); }
 
+/* ============================================================
+   케이스 본문 공통 구성 (2026-11-20)
+   제목 섹션(개요 표) → 상단 영상 + 한 줄 → 과제 → 프로젝트 설명
+   → 핵심 기능 → 결과 → 후기(있을 때만) → 관련 패키지·이전/다음
+   ============================================================ */
+.case-overview { margin: 32px 0 0; border-top: 1px solid var(--w-ink); max-width: 46em; }
+.case-overview div {
+  display: grid; grid-template-columns: 7.5em minmax(0, 1fr); gap: 16px;
+  padding: 12px 2px; border-bottom: 1px solid var(--w-line);
+}
+.case-overview dt { font-size: 14px; color: var(--w-ink-3); line-height: 1.55; }
+.case-overview dd { margin: 0; font-size: 15px; font-weight: 600; line-height: 1.55; }
+
+.case-film-note { margin-top: 12px; font-size: 13.5px; line-height: 1.5; color: var(--w-ink-3); }
+
+.case-source-ref {
+  font-size: 13px; font-weight: 600; color: var(--w-green); white-space: nowrap;
+  border-bottom: 1px solid currentColor; vertical-align: 1px;
+}
+.case-source-ref:hover { color: var(--w-ink); }
+.case-source { margin-top: 8px; font-size: 13px; line-height: 1.5; color: var(--w-ink-3); }
+
+.case-features { display: grid; gap: 40px; }
+.case-feature { display: grid; grid-template-columns: minmax(0, 55fr) minmax(0, 45fr); gap: 32px; align-items: start; }
+.case-feature figure { margin: 0; }
+.case-feature a { display: block; border: 1px solid var(--w-line); border-radius: 12px; overflow: hidden; background: #fff; cursor: zoom-in; }
+.case-feature img { width: 100%; height: auto; }
+.case-feature h3 { font-size: 19px; font-weight: 650; letter-spacing: -.02em; line-height: 1.4; }
+.case-feature p { margin-top: 10px; font-size: 15.5px; line-height: 1.7; color: var(--w-ink-2); }
+
+.case-result { display: grid; gap: 8px; max-width: 46em; padding-left: 1.2em; list-style: disc; }
+.case-result li { font-size: 16px; line-height: 1.7; color: var(--w-ink-2); }
+.case-result li::marker { color: var(--w-ink-3); }
+
+@media (max-width: 640px) {
+  .case-feature { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  .case-overview div { grid-template-columns: 6em minmax(0, 1fr); gap: 12px; }
+}
+
 /* 이미지 한 장 + 설명 */
 .shot { margin: 0; }
 .shot a { display: block; border: 1px solid var(--w-line); border-radius: 14px; overflow: hidden; background: #fff; cursor: zoom-in; }
