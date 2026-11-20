@@ -1,0 +1,18 @@
+{{!--
+  케이스 상단 전체 영상. 제목 섹션(.dt-head) 바로 아래에 둔다.
+  쓰는 법: {{> case-film src="/films/이름/index.html?embed=1" title="… 소개 영상" poster="/images/…jpg"}}
+  - 처음에는 한 화면에 들어오는 가장 큰 크기, 스크롤하면 본문 너비로 줄어든다 (detail.js initCaseFilm)
+  - 본문의 .film-seek 버튼(data-seek="초")을 누르면 이 영상이 그 시각으로 간다
+--}}
+<div class="case-film" data-case-film>
+  <div class="case-film-box">
+    <div class="case-film-frame">
+      {{#if poster}}<img src="{{poster}}" alt="" width="1600" height="900">{{/if}}
+      <iframe data-src="{{src}}" title="{{title}}" tabindex="-1" aria-hidden="true"></iframe>
+    </div>
+    <button type="button" class="case-film-pp" aria-label="영상 일시정지" hidden>
+      <svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 3h2.5v10H4.5zM9 3h2.5v10H9z" fill="currentColor"/></svg>
+      <svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 2.8v10.4L13.2 8z" fill="currentColor"/></svg>
+    </button>
+  </div>
+</div>

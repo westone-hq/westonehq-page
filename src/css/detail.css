@@ -100,22 +100,58 @@
 }
 .say b { font-weight: 600; margin-right: 6px; color: var(--w-green); }
 
-/* 영상 구간 */
-.film { margin: 0; }
-.film-bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 8px; font-size: 13px; color: var(--w-ink-3); }
-.film-bar a { color: var(--w-ink-2); border-bottom: 1px solid var(--w-line-2); }
-.film-bar a:hover { color: var(--w-ink); border-color: var(--w-ink); }
-.film-frame {
-  position: relative; aspect-ratio: 16 / 9; overflow: hidden;
-  border: 1px solid var(--w-line); border-radius: 14px; background: #0b0c0c;
+/* ── 케이스 상단 전체 영상 (case-film 조각, case-film.js) ──
+   .case-film 은 본문 너비. 안의 .case-film-box 는 큰 크기로 고정하고
+   transform 으로 옮기고 줄인다. 틀 높이는 JS 가 줄어든 높이에 맞춘다. */
+html:has([data-case-film]) { overflow-anchor: none; }
+.case-film { position: relative; margin-top: 40px; aspect-ratio: 16 / 9; }
+.case-film.live { aspect-ratio: auto; }
+.case-film-box {
+  position: absolute; top: 0; left: 0; z-index: 5; width: 100%; height: 100%;
+  transform-origin: 0 0;
 }
-.film-frame img,
-.film-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
-.film-frame img { object-fit: cover; }
-.film-frame iframe { pointer-events: none; }
-@media (prefers-reduced-motion: reduce) {
-  .film-frame iframe { display: none; }
+.case-film-frame {
+  position: absolute; inset: 0; overflow: hidden;
+  border-radius: 14px; background: #0b0c0c;
 }
+.case-film-frame img,
+.case-film-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.case-film-frame img { object-fit: cover; }
+.case-film-frame iframe { pointer-events: none; }
+.case-film-pp {
+  position: absolute; right: 14px; bottom: 14px; z-index: 1;
+  display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%;
+  background: rgba(18, 23, 21, .72); color: #fff;
+  transform: scale(calc(1 / var(--s, 1))); transform-origin: 100% 100%;
+  transition: background-color .15s;
+}
+.case-film-pp:hover { background: var(--w-ink); }
+.case-film-pp svg { width: 16px; height: 16px; }
+.case-film-pp .i-play,
+.case-film-pp.paused .i-pause { display: none; }
+.case-film-pp.paused .i-play { display: block; }
+.case-film-pp:focus-visible { outline: 2px solid var(--w-green-hi); outline-offset: 3px; }
+
+/* 큰 영상이 왼쪽 목록과 겹치는 동안 목록을 숨긴다 */
+.side-in { transition: opacity .2s; }
+.side-in.under-film { opacity: 0; pointer-events: none; }
+
+/* 제목 옆 "영상에서 보기 0:10" */
+.seek-row { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; }
+.dt-sec > .seek-row { margin-bottom: 22px; }
+.dt-sec > .seek-row > h2 { font-size: 22px; font-weight: 650; letter-spacing: -.02em; line-height: 1.35; }
+.film-seek {
+  display: inline-flex; align-items: center; gap: 6px; height: 28px; padding: 0 11px 0 9px;
+  border: 1px solid var(--w-line-2); border-radius: 999px; background: #fff;
+  font-size: 12.5px; font-weight: 600; color: var(--w-ink-2); white-space: nowrap;
+  transition: border-color .15s, color .15s;
+}
+.film-seek::before {
+  content: ""; width: 0; height: 0; border-style: solid; border-width: 4.5px 0 4.5px 7px;
+  border-color: transparent transparent transparent currentColor;
+}
+.film-seek:hover { border-color: var(--w-ink); color: var(--w-ink); }
+.film-seek span { font-variant-numeric: tabular-nums; color: var(--w-green); }
 
 /* 이미지 한 장 + 설명 */
 .shot { margin: 0; }

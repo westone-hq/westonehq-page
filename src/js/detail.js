@@ -1,6 +1,6 @@
 // ── 상세 페이지 (packages/*, cases/*) ──────────────────────────────────────
 // 1) 사이드 목록: 지금 보는 페이지 표시, 모바일 칩 줄에서 그 칩이 보이게
-// 2) 영상 구간: 화면에 들어오면 재생, 나가면 멈춤. 동작 줄이기면 정지 이미지
+// 2) 케이스 상단 전체 영상 (case-film.js)
 // 3) 이미지 크게 보기 (lightbox.js)
 // 4) 설계 문서 뷰어(OTIS): 탭·지연 로드
 // 5) 진행 순서 9단계 (process-steps.js, 패키지 페이지)
@@ -9,8 +9,7 @@ import { initHeader, initMobileMenu } from './shared.js'
 import { initUmlViewer } from './main-sections.js'
 import { initLightbox } from './lightbox.js'
 import { initProcessSteps } from './process-steps.js'
-
-const reduceMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches
+import { initCaseFilm } from './case-film.js'
 
 function initSideNav() {
   const links = [...document.querySelectorAll('.side-list a')]
@@ -31,24 +30,10 @@ function initSideNav() {
   }
 }
 
-function initFilms() {
-  const frames = [...document.querySelectorAll('.film-frame iframe[data-src]')]
-  if (!frames.length || reduceMotion()) return // 동작 줄이기: 정지 이미지만 둔다
-
-  const start = f => { if (f.dataset.on !== '1') { f.src = f.dataset.src; f.dataset.on = '1' } }
-  const stop = f => { if (f.dataset.on === '1') { f.src = 'about:blank'; f.dataset.on = '0' } }
-
-  if (!('IntersectionObserver' in window)) { frames.forEach(start); return }
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => (e.isIntersecting ? start(e.target) : stop(e.target)))
-  }, { rootMargin: '120px 0px', threshold: 0 })
-  frames.forEach(f => io.observe(f))
-}
-
 initHeader()
 initMobileMenu()
 initSideNav()
-initFilms()
+initCaseFilm()
 initLightbox()
 initUmlViewer()
 initProcessSteps()

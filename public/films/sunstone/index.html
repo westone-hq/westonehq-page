@@ -545,9 +545,23 @@ if (EMBED) {
   document.head.appendChild(st);
   $('frame').onclick = null;
 }
+// 바깥 페이지(같은 origin)에서 보내는 조작: {type:'pause'} {type:'play'} {type:'seek', t:초}
+// held: 바깥에서 멈춘 상태. 이때는 아래 1.2초 자동 재생 타이머가 다시 틀지 않는다
+// ?paused=1 이면 멈춘 채로 시작한다(동작 줄이기)
+let held = EMBED && !!q.get('paused');
+if (EMBED) addEventListener('message', e => {
+  if (e.origin !== location.origin || e.source !== parent || !e.data || typeof e.data !== 'object') return;
+  const m = e.data;
+  if (m.type === 'pause') { held = true; stop(); }
+  else if (m.type === 'play') { held = false; if (!playing) play(); }
+  else if (m.type === 'seek' && isFinite(m.t)) {
+    const t = Math.max(FROM, Math.min(TO - 0.05, +m.t));
+    stop(); seekAsync(t).then(() => { show(t); if (!held) play(); });
+  }
+});
 seekAsync(q.get('t') ? +q.get('t') : FROM).then(() => {
   show(tl.time()); window.ready = true;
-  if (EMBED) { au.muted = true; play(); setInterval(() => { if (!playing) play(); }, 1200); }
+  if (EMBED) { au.muted = true; if (!held) play(); setInterval(() => { if (!playing && !held) play(); }, 1200); }
 });
 </script>
 </body></html>

@@ -30,19 +30,15 @@
           </dl>
         </header>
 
+        {{> case-film src="/films/sunstone/index.html?embed=1" title="Sunstone 소개 영상" poster="/images/cases/sunstone/sun_9.5.jpg"}}
+
         <section class="dt-sec" aria-labelledby="s-problem">
-          <h2 id="s-problem">문제</h2>
-          <div class="feat">
-            <div class="prose">
-              <p>세차 모드, 차일드락, 시트 메모리처럼 차에는 잘 만든 기능이 많습니다. 그런데 설정 메뉴 깊숙이 있거나, 켜는 조건을 몰라서, 혹은 여러 개를 하나씩 눌러야 해서 잘 쓰이지 않습니다.</p>
-            </div>
-            <figure class="film">
-              <div class="film-bar"><span>여는 장면</span><a href="/films/sunstone/index.html" target="_blank" rel="noopener">전체 영상 보기</a></div>
-              <div class="film-frame">
-                <img src="/images/cases/sunstone/sun_9.5.jpg" alt="Sunstone 소개 영상의 여는 장면" width="1600" height="900" loading="lazy">
-                <iframe data-src="/films/sunstone/index.html?embed=1&amp;from=0&amp;to=10" title="Sunstone 소개 영상, 여는 장면 구간" tabindex="-1" aria-hidden="true"></iframe>
-              </div>
-            </figure>
+          <div class="seek-row">
+            <h2 id="s-problem">문제</h2>
+            <button type="button" class="film-seek" data-seek="0">영상에서 보기 <span>0:00</span></button>
+          </div>
+          <div class="prose">
+            <p>세차 모드, 차일드락, 시트 메모리처럼 차에는 잘 만든 기능이 많습니다. 그런데 설정 메뉴 깊숙이 있거나, 켜는 조건을 몰라서, 혹은 여러 개를 하나씩 눌러야 해서 잘 쓰이지 않습니다.</p>
           </div>
         </section>
 
@@ -50,54 +46,33 @@
           <h2 id="s-solve">해결</h2>
           <p class="note-lead">필요한 순간에 한 가지만 근거와 함께 권하고, 한 번의 대답으로 여러 설정을 차례로 맞춘 뒤, 볼일이 끝나면 원래대로 돌려놓습니다. 카드는 운전석 쪽 구역에만 뜨고 오른쪽 내비 화면은 그대로입니다.</p>
           <div class="feats">
-            <div class="feat">
+            <div class="feat solo">
               <div>
                 <span class="feat-no">출장 가는 길</span>
-                <h3>주유·세차 제안과 세차 모드</h3>
+                <div class="seek-row"><h3>주유·세차 제안과 세차 모드</h3><button type="button" class="film-seek" data-seek="10">영상에서 보기 <span>0:10</span></button></div>
                 <p>목적지를 말하면 길안내를 시작합니다. 연료가 25% 이하이거나 주행 가능 거리가 모자라면 주유소를 찾아 한 번만 묻고, 세차한 지 14일이 넘었고 3일 안에 비 예보가 없으면 세차도 함께 묻습니다.</p>
                 <p>세차 입구에서는 창문 닫기, 와이퍼 끄기, 내기 순환, 문 잠금을 한 번에 맞추고, 다시 출발하면 원래대로 돌려놓습니다. 사이드미러 접기처럼 앱이 할 수 없는 단계는 카드에 "직접"으로 보여 줍니다.</p>
                 <p class="say"><b>이렇게 말하면</b>"세차할게"</p>
               </div>
-              <figure class="film">
-                <div class="film-bar"><span>영상 10–37초</span><a href="/films/sunstone/index.html" target="_blank" rel="noopener">전체 영상 보기</a></div>
-                <div class="film-frame">
-                  <img src="/images/cases/sunstone/sun_24.5.jpg" alt="주유하고 세차할까요? 카드. 근거 칸에 연료, 세차일, 날씨가 보인다" width="1600" height="900" loading="lazy">
-                  <iframe data-src="/films/sunstone/index.html?embed=1&amp;from=10&amp;to=37" title="Sunstone 소개 영상, 출장 가는 길 구간" tabindex="-1" aria-hidden="true"></iframe>
-                </div>
-              </figure>
             </div>
 
-            <div class="feat">
+            <div class="feat solo">
               <div>
                 <span class="feat-no">아이 등원길</span>
-                <h3>차일드락</h3>
+                <div class="seek-row"><h3>차일드락</h3><button type="button" class="film-seek" data-seek="37">영상에서 보기 <span>0:37</span></button></div>
                 <p>유치원으로 길안내를 시작하면 "아이 타고 있나요?"로 권하고, 대답을 받으면 뒷창 잠금·문 잠금·공조를 맞춥니다. 주행 중 뒷자리 안전벨트가 풀리면 알리고, 도착해 P단이 되면 뒷창 잠금을 풉니다.</p>
                 <p>뒷문 차일드락은 차량 SDK에 기능이 없어, 문 안쪽 스위치로 걸도록 짧게 안내합니다.</p>
                 <p class="say"><b>이렇게 말하면</b>"응, 잠가 줘"</p>
               </div>
-              <figure class="film">
-                <div class="film-bar"><span>영상 37.6–58초</span><a href="/films/sunstone/index.html" target="_blank" rel="noopener">전체 영상 보기</a></div>
-                <div class="film-frame">
-                  <img src="/images/cases/sunstone/sun_46.jpg" alt="아이 등원길 장면의 차 그림" width="1600" height="900" loading="lazy">
-                  <iframe data-src="/films/sunstone/index.html?embed=1&amp;from=37.6&amp;to=58" title="Sunstone 소개 영상, 아이 등원길 구간" tabindex="-1" aria-hidden="true"></iframe>
-                </div>
-              </figure>
             </div>
 
-            <div class="feat">
+            <div class="feat solo">
               <div>
                 <span class="feat-no">시트 맞추기</span>
-                <h3>시트 메모리</h3>
+                <div class="seek-row"><h3>시트 메모리</h3><button type="button" class="film-seek" data-seek="58">영상에서 보기 <span>0:58</span></button></div>
                 <p>"앞으로 조금", "등받이 세워 줘"처럼 말로 조금씩 맞추고, "됐어"라고 하면 이름을 물어 그 이름으로 기억합니다. "옆에 희정이 앉았어"라고 하면 조수석을 저장된 자세로 맞춥니다.</p>
                 <p class="say"><b>이렇게 말하면</b>"시트 좀 맞춰 줘"</p>
               </div>
-              <figure class="film">
-                <div class="film-bar"><span>영상 58.5–66초</span><a href="/films/sunstone/index.html" target="_blank" rel="noopener">전체 영상 보기</a></div>
-                <div class="film-frame">
-                  <img src="/images/cases/sunstone/sun_63.jpg" alt="사람별로 저장된 시트 자세 네 개" width="1600" height="900" loading="lazy">
-                  <iframe data-src="/films/sunstone/index.html?embed=1&amp;from=58.5&amp;to=66" title="Sunstone 소개 영상, 시트 맞추기 구간" tabindex="-1" aria-hidden="true"></iframe>
-                </div>
-              </figure>
             </div>
           </div>
         </section>
