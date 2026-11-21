@@ -18,7 +18,7 @@ westone은 웹사이트·앱·업무 자동화·AI 에이전트를 만들고, �
 
 | 주소 | 내용 |
 |---|---|
-| `/` (`index.html`) | 메인: 히어로, 함께한 곳, 패키지 8개, 케이스 스터디 목록, 진행 방식 9단계, 출시 서비스, 팀·eBook, 자주 묻는 질문, 상담 신청 |
+| `/` (`index.html`) | 메인: 히어로, 함께한 곳, 패키지 8개, 케이스 스터디 목록, 진행 방식 6단계, 출시 서비스, 팀·eBook, 자주 묻는 질문, 상담 신청 |
 | `/packages/*.html` | 패키지 상세 8장: agent, automation, web, app, unity, server, education, maintenance |
 | `/cases/*.html` | 케이스 스터디 5장: lms, sunstone, otis, welfare, education |
 | `/process.html` | 진행 방식 안내(옛 디자인, 아직 유지) |
@@ -44,13 +44,13 @@ westonehq-page/
 │   │   ├── detail.js       # 상세 진입점
 │   │   ├── shared.js       # 헤더·모바일 메뉴 등
 │   │   ├── hero-blueprint.js, main-sections.js   # 메인 히어로 그림, 함께한 곳·케이스 목록
-│   │   ├── process-steps.js  # 진행 방식 9단계 탭
+│   │   ├── process-steps.js  # 진행 방식 6단계 탭
 │   │   ├── diagram-view.js   # 설계 문서 보기: 탭, 다이어그램 확대·이동 (메인·OTIS 공용)
 │   │   ├── case-film.js      # 케이스 상단 영상 (본문 크기에서 스크롤하면 화면 전체로, 일시정지, 스틸)
 │   │   └── lightbox.js       # 이미지 크게 보기
 │   └── partials/           # Handlebars 조각
 │       ├── head.hbs, header.hbs, footer.hbs
-│       ├── process-steps.hbs           # 진행 방식 9단계 (메인·패키지 상세 공통)
+│       ├── process-steps.hbs           # 진행 방식 6단계 (메인·패키지 상세 공통)
 │       ├── diagram-view.hbs            # 설계 문서 다이어그램 틀 (한 장 또는 탭 3개)
 │       ├── case-film.hbs               # 케이스 상단 전체 영상
 │       ├── cta-contact.hbs             # 상세 페이지 아래 상담 신청 띠

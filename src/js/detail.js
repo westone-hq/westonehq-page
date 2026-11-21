@@ -2,7 +2,7 @@
 // 1) 사이드 목록: 지금 보는 페이지 표시, 모바일 칩 줄에서 그 칩이 보이게
 // 2) 케이스 상단 전체 영상 (case-film.js)
 // 3) 이미지 크게 보기 (lightbox.js)
-// 4) 진행 순서 9단계·설계 문서 보기 (process-steps.js, diagram-view.js)
+// 4) 진행 순서 6단계·설계 문서 보기 (process-steps.js, diagram-view.js)
 
 import { initHeader, initMobileMenu } from './shared.js'
 import { initLightbox } from './lightbox.js'

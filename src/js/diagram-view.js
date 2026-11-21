@@ -1,6 +1,6 @@
 // ── 설계 문서 보기 (diagram-view 조각) ─────────────────────────────────────
 // 1) 탭(initTabs): role="tab" 버튼과 aria-controls 패널. 화살표·Home·End 로 옮긴다.
-//    진행 방식 9단계([data-proc])와 설계 문서 탭([data-tabs])이 같이 쓴다.
+//    진행 방식 6단계([data-proc])와 설계 문서 탭([data-tabs])이 같이 쓴다.
 // 2) 다이어그램 틀(.dg): 드래그로 이동, 핀치·버튼·Ctrl+휠·키보드로 확대(1~4배)
 //    휠만 굴리면 페이지가 스크롤된다. 링크로 다른 페이지에 가는 동작은 없다
 
@@ -10,10 +10,12 @@ export function initDiagramViews() {
 }
 
 export function initTabs(root) {
-  const tabs = [...root.querySelectorAll('[role="tab"]')]
   if (root.dataset.tabsInit) return
-  root.dataset.tabsInit = '1'
+  // 첫 탭 줄의 탭만 다룬다 (진행 방식 패널 안에 다이어그램 탭이 또 들어 있다)
   const strip = root.querySelector('[role="tablist"]')
+  if (!strip) return
+  const tabs = [...strip.querySelectorAll(':scope > [role="tab"]')]
+  root.dataset.tabsInit = '1'
 
   const select = (tab, focus) => {
     tabs.forEach(t => {

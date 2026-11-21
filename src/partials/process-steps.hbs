@@ -1,65 +1,137 @@
+{{!--
+  진행 방식 6단계. 메인(#process)과 패키지 상세 8장이 함께 쓴다.
+  단계 버튼 = 탭(process-steps.js). 패널은 넓을 때 왼쪽 글, 오른쪽 자료 두 칼럼, 좁으면 글 → 자료 한 칼럼.
+  다이어그램은 diagram-view 조각, 매뉴얼·화면 이미지는 누르면 크게 보기(lightbox.js).
+--}}
 <div class="proc" data-proc>
   <div class="steps" role="tablist" aria-label="진행 단계">
-    <button type="button" role="tab" id="step-tab-1" aria-controls="step-panel-1" aria-selected="false" tabindex="-1"><span class="step-no">1</span>상담</button>
-    <button type="button" role="tab" id="step-tab-2" aria-controls="step-panel-2" aria-selected="true"><span class="step-no">2</span>요구사항 정리</button>
-    <button type="button" role="tab" id="step-tab-3" aria-controls="step-panel-3" aria-selected="false" tabindex="-1"><span class="step-no">3</span>기획안·시각화 자료</button>
-    <button type="button" role="tab" id="step-tab-4" aria-controls="step-panel-4" aria-selected="false" tabindex="-1"><span class="step-no">4</span>기능 범위·견적 확정</button>
-    <button type="button" role="tab" id="step-tab-5" aria-controls="step-panel-5" aria-selected="false" tabindex="-1"><span class="step-no">5</span>디자인</button>
-    <button type="button" role="tab" id="step-tab-6" aria-controls="step-panel-6" aria-selected="false" tabindex="-1"><span class="step-no">6</span>개발</button>
-    <button type="button" role="tab" id="step-tab-7" aria-controls="step-panel-7" aria-selected="false" tabindex="-1"><span class="step-no">7</span>테스트·검수</button>
-    <button type="button" role="tab" id="step-tab-8" aria-controls="step-panel-8" aria-selected="false" tabindex="-1"><span class="step-no">8</span>배포</button>
-    <button type="button" role="tab" id="step-tab-9" aria-controls="step-panel-9" aria-selected="false" tabindex="-1"><span class="step-no">9</span>사용 교육</button>
+    <button type="button" role="tab" id="step-tab-1" aria-controls="step-panel-1" aria-selected="true"><span class="step-no">1</span>상담</button>
+    <button type="button" role="tab" id="step-tab-2" aria-controls="step-panel-2" aria-selected="false" tabindex="-1"><span class="step-no">2</span>요구사항 정리</button>
+    <button type="button" role="tab" id="step-tab-3" aria-controls="step-panel-3" aria-selected="false" tabindex="-1"><span class="step-no">3</span>기획·견적</button>
+    <button type="button" role="tab" id="step-tab-4" aria-controls="step-panel-4" aria-selected="false" tabindex="-1"><span class="step-no">4</span>디자인·개발</button>
+    <button type="button" role="tab" id="step-tab-5" aria-controls="step-panel-5" aria-selected="false" tabindex="-1"><span class="step-no">5</span>테스트·배포</button>
+    <button type="button" role="tab" id="step-tab-6" aria-controls="step-panel-6" aria-selected="false" tabindex="-1"><span class="step-no">6</span>사용 교육·유지보수</button>
   </div>
 
-  <div class="step-panel" role="tabpanel" id="step-panel-1" aria-labelledby="step-tab-1" tabindex="0" hidden>
-    <p class="step-desc">무엇을 만들고 싶은지, 지금은 그 일을 어떻게 하고 계신지 듣습니다.</p>
+  <div class="step-panel" role="tabpanel" id="step-panel-1" aria-labelledby="step-tab-1" tabindex="0">
+    <div class="step-text">
+      <h3 class="step-ttl">상담</h3>
+      <p class="step-desc">무엇을 만들고 싶은지, 지금은 그 일을 어떻게 하고 계신지부터 듣습니다. 기획서가 없어도 괜찮습니다. 메모 몇 줄, 지금 쓰는 엑셀이나 화면 캡처, 참고하고 싶은 사이트만 있어도 충분합니다. 만드는 개발자가 직접 듣고, 할 수 있는 것과 어려운 것을 첫 상담에서 솔직하게 말씀드립니다.</p>
+      <div class="step-lists">
+        <div><h4 class="step-sub">이 단계에서 드리는 것</h4><ul><li>구현할 수 있는지에 대한 답</li><li>진행 방향 제안</li></ul></div>
+        <div><h4 class="step-sub">준비해 주시면 좋은 것</h4><ul><li>하고 싶은 일과 지금 방식</li><li>지금 쓰는 파일·화면 (가명 처리한 샘플이면 충분)</li><li>원하는 일정과 예산 범위 (정해져 있다면)</li></ul></div>
+      </div>
+    </div>
+    <div class="step-media">
+      <div class="step-card">
+        <p class="step-card-ttl">상담 때 이런 이야기를 나눕니다</p>
+        <ul class="step-checks">
+          <li>누가 쓰나요?</li>
+          <li>지금은 어떻게 하고 있나요?</li>
+          <li>가장 불편한 한 가지는?</li>
+          <li>언제까지 필요한가요?</li>
+        </ul>
+      </div>
+      <a class="btn btn-dark step-cta" href="{{#unless isIndex}}{{basePath}}index.html{{/unless}}#contact">상담 신청하기</a>
+    </div>
   </div>
 
-  <div class="step-panel" role="tabpanel" id="step-panel-2" aria-labelledby="step-tab-2" tabindex="0">
-    <p class="step-desc">누가 어떤 일을 하는지 한 장의 그림으로 정리합니다.</p>
-    {{> diagram-view kind="usecase"}}
+  <div class="step-panel" role="tabpanel" id="step-panel-2" aria-labelledby="step-tab-2" tabindex="0" hidden>
+    <div class="step-text">
+      <h3 class="step-ttl">요구사항 정리</h3>
+      <p class="step-desc">상담에서 나온 이야기를 누가, 무엇을 하는지 한 장의 그림으로 정리합니다. 꼭 필요한 기능과 나중에 해도 되는 기능을 나눠, 처음 만들 범위를 함께 고릅니다.</p>
+      <div class="step-lists">
+        <div><h4 class="step-sub">이 단계에서 드리는 것</h4><ul><li>유즈케이스 다이어그램</li><li>기능 목록 (지금 만들 것과 나중에 만들 것)</li></ul></div>
+        <div><h4 class="step-sub">준비해 주시면 좋은 것</h4><ul><li>실제로 쓰실 분들의 역할</li><li>꼭 지켜야 할 조건 (보안, 사내 PC에서만 등)</li></ul></div>
+      </div>
+    </div>
+    <div class="step-media">
+      {{> diagram-view kind="usecase" caption="실제 프로젝트의 유즈케이스 다이어그램 (OTIS V-Check)"}}
+    </div>
   </div>
 
   <div class="step-panel" role="tabpanel" id="step-panel-3" aria-labelledby="step-tab-3" tabindex="0" hidden>
-    <p class="step-desc">기능마다 어떤 순서로 진행되고 어디서 갈라지는지 그림으로 보여 드립니다.</p>
-    {{> diagram-view kind="activity"}}
+    <div class="step-text">
+      <h3 class="step-ttl">기획·견적</h3>
+      <p class="step-desc">기능마다 화면이 어떤 순서로 넘어가고 어디서 갈라지는지, 화면과 서버가 무엇을 주고받는지 그림으로 그려 보여 드립니다. 만들기 전에 결과물을 미리 확인하실 수 있고, 이 그림을 기준으로 작업 범위·기간·비용을 정리해 안내드립니다. 확인하신 뒤 진행 여부를 정하시면 됩니다.</p>
+      <div class="step-lists">
+        <div><h4 class="step-sub">이 단계에서 드리는 것</h4><ul><li>액티비티·시퀀스 다이어그램</li><li>작업 범위·일정·견적</li></ul></div>
+        <div><h4 class="step-sub">준비해 주시면 좋은 것</h4><ul><li>그림을 보고 다른 점 짚어 주기</li><li>최종 범위 확인</li></ul></div>
+      </div>
+    </div>
+    <div class="step-media">
+      <figure class="step-fig dg-tabs" data-tabs>
+        <div class="dg-tablist" role="tablist" aria-label="다이어그램 종류">
+          <button type="button" role="tab" id="proc-dg-tab-1" aria-controls="proc-dg-panel-1" aria-selected="true">액티비티</button>
+          <button type="button" role="tab" id="proc-dg-tab-2" aria-controls="proc-dg-panel-2" aria-selected="false" tabindex="-1">시퀀스</button>
+        </div>
+        <div class="dg-panel" role="tabpanel" id="proc-dg-panel-1" aria-labelledby="proc-dg-tab-1">{{> diagram-view kind="activity" bare=true}}</div>
+        <div class="dg-panel" role="tabpanel" id="proc-dg-panel-2" aria-labelledby="proc-dg-tab-2" hidden>{{> diagram-view kind="sequence" bare=true}}</div>
+        <figcaption>진동·소음 측정 기능의 액티비티·시퀀스 다이어그램</figcaption>
+      </figure>
+    </div>
   </div>
 
   <div class="step-panel" role="tabpanel" id="step-panel-4" aria-labelledby="step-tab-4" tabindex="0" hidden>
-    <p class="step-desc">화면과 앱, 서버가 주고받는 순서까지 정리해 만들 범위를 확정하고 견적을 드립니다.</p>
-    {{> diagram-view kind="sequence"}}
+    <div class="step-text">
+      <h3 class="step-ttl">디자인·개발</h3>
+      <p class="step-desc">화면 디자인을 먼저 보여 드리고, 고칠 곳을 반영한 뒤 개발합니다. 작업이 시작되면 카카오톡 프로젝트 방을 열어 담당 개발자가 직접 진행 상황과 중간 결과물을 공유하고, 결정이 필요한 일은 바로 여쭙습니다. 진행 상황을 몰라 기다리기만 하시는 일이 없게 합니다.</p>
+      <div class="step-lists">
+        <div><h4 class="step-sub">이 단계에서 드리는 것</h4><ul><li>화면 디자인 시안</li><li>중간 결과물 공유</li></ul></div>
+        <div><h4 class="step-sub">준비해 주시면 좋은 것</h4><ul><li>시안과 중간 결과물에 대한 의견</li><li>로고·문구·사진 등 들어갈 자료</li></ul></div>
+      </div>
+    </div>
+    <div class="step-media">
+      <p class="step-over">실제 프로젝트 화면</p>
+      <div class="step-shots">
+        <figure class="step-shot">
+          <a class="zoom" href="/images/cases/otis/otis-result.webp"><img src="/images/cases/otis/otis-result.webp" alt="OTIS V-Check 앱의 측정 결과 화면" width="1600" height="900" loading="lazy"></a>
+          <figcaption>앱 화면</figcaption>
+        </figure>
+        <figure class="step-shot">
+          <a class="zoom" href="/images/cases/lms/lms-sheet.webp"><img src="/images/cases/lms/lms-sheet.webp" alt="대학 보고서 자동화 시스템이 만든 엑셀 결과 파일" width="1600" height="900" loading="lazy"></a>
+          <figcaption>결과 파일</figcaption>
+        </figure>
+      </div>
+    </div>
   </div>
 
   <div class="step-panel" role="tabpanel" id="step-panel-5" aria-labelledby="step-tab-5" tabindex="0" hidden>
-    <p class="step-desc">화면 디자인을 먼저 보여 드리고, 고칠 곳을 반영한 뒤 개발에 들어갑니다.</p>
+    <div class="step-text">
+      <h3 class="step-ttl">테스트·배포</h3>
+      <p class="step-desc">실제로 쓰실 기기와 환경에서 함께 확인하고, 나온 문제를 고칩니다. 앱은 스토어에 출시하거나 설치 파일(APK)과 설치 안내를 드리고, 웹은 서버와 도메인에 올려 바로 쓰실 수 있게 합니다. 사내 PC에서만 돌아가야 하는 프로그램은 설치 파일로 전달합니다.</p>
+      <div class="step-lists">
+        <div><h4 class="step-sub">이 단계에서 드리는 것</h4><ul><li>완성본</li><li>설치·접속 안내</li></ul></div>
+        <div><h4 class="step-sub">준비해 주시면 좋은 것</h4><ul><li>실제 사용 환경에서 확인할 시간</li><li>스토어·도메인 계정 (필요한 경우)</li></ul></div>
+      </div>
+    </div>
+    <div class="step-media">
+      <figure class="step-fig manual one">
+        <a class="zoom" href="/images/process/manual-install.webp"><img src="/images/process/manual-install.webp" alt="사용자 매뉴얼의 앱 설치 안내 쪽" width="1100" height="1555" loading="lazy"></a>
+        <figcaption>사용자 매뉴얼 중 앱 설치 안내</figcaption>
+      </figure>
+    </div>
   </div>
 
   <div class="step-panel" role="tabpanel" id="step-panel-6" aria-labelledby="step-tab-6" tabindex="0" hidden>
-    <p class="step-desc">카카오톡 프로젝트 방에서 진행 상황을 공유하며 개발합니다.</p>
-  </div>
-
-  <div class="step-panel" role="tabpanel" id="step-panel-7" aria-labelledby="step-tab-7" tabindex="0" hidden>
-    <p class="step-desc">실제로 쓰실 기기와 환경에서 함께 확인합니다.</p>
-  </div>
-
-  <div class="step-panel" role="tabpanel" id="step-panel-8" aria-labelledby="step-tab-8" tabindex="0" hidden>
-    <p class="step-desc">앱 스토어에 출시하거나, 설치 파일(APK)과 설치 안내를 전달합니다.</p>
-    <figure class="step-fig manual one">
-      <a class="zoom" href="/images/process/manual-install.webp"><img src="/images/process/manual-install.webp" alt="사용자 매뉴얼의 앱 설치 안내 쪽" width="1100" height="1555" loading="lazy"></a>
-      <figcaption>사용자 매뉴얼 중 앱 설치 안내</figcaption>
-    </figure>
-  </div>
-
-  <div class="step-panel" role="tabpanel" id="step-panel-9" aria-labelledby="step-tab-9" tabindex="0" hidden>
-    <p class="step-desc">화면 캡처와 함께 단계별로 정리한 사용자 매뉴얼을 드리고, 쓰는 법을 직접 알려 드립니다.</p>
-    <figure class="step-fig manual">
-      <div class="manual-pages">
-        <a class="zoom" href="/images/process/manual-cover.webp"><img src="/images/process/manual-cover.webp" alt="사용자 매뉴얼 표지" width="1100" height="1555" loading="lazy"></a>
-        <a class="zoom" href="/images/process/manual-toc.webp"><img src="/images/process/manual-toc.webp" alt="사용자 매뉴얼 목차" width="1100" height="1555" loading="lazy"></a>
-        <a class="zoom" href="/images/process/manual-placement.webp"><img src="/images/process/manual-placement.webp" alt="사용자 매뉴얼 5장, 휴대폰 거치 방법" width="1100" height="1555" loading="lazy"></a>
-        <a class="zoom" href="/images/process/manual-result.webp"><img src="/images/process/manual-result.webp" alt="사용자 매뉴얼 7장, 측정 결과 확인" width="1100" height="1555" loading="lazy"></a>
+    <div class="step-text">
+      <h3 class="step-ttl">사용 교육·유지보수</h3>
+      <p class="step-desc">화면 캡처와 함께 단계별로 정리한 사용자 매뉴얼을 드리고, 강의하듯 쓰는 법을 직접 알려 드립니다. 운영하면서 생기는 수정과 개선, 서버 관리는 협의해서 이어서 맡습니다.</p>
+      <div class="step-lists">
+        <div><h4 class="step-sub">이 단계에서 드리는 것</h4><ul><li>사용자 매뉴얼</li><li>사용 교육</li><li>운영 중 수정·개선 (협의)</li></ul></div>
+        <div><h4 class="step-sub">준비해 주시면 좋은 것</h4><ul><li>교육 받으실 분과 일정</li></ul></div>
       </div>
-      <figcaption>OTIS V-Check 사용자 매뉴얼 16쪽 중 일부</figcaption>
-    </figure>
+    </div>
+    <div class="step-media">
+      <figure class="step-fig manual">
+        <div class="manual-pages">
+          <a class="zoom" href="/images/process/manual-cover.webp"><img src="/images/process/manual-cover.webp" alt="사용자 매뉴얼 표지" width="1100" height="1555" loading="lazy"></a>
+          <a class="zoom" href="/images/process/manual-toc.webp"><img src="/images/process/manual-toc.webp" alt="사용자 매뉴얼 목차" width="1100" height="1555" loading="lazy"></a>
+          <a class="zoom" href="/images/process/manual-placement.webp"><img src="/images/process/manual-placement.webp" alt="사용자 매뉴얼 5장, 휴대폰 거치 방법" width="1100" height="1555" loading="lazy"></a>
+          <a class="zoom" href="/images/process/manual-result.webp"><img src="/images/process/manual-result.webp" alt="사용자 매뉴얼 7장, 측정 결과 확인" width="1100" height="1555" loading="lazy"></a>
+        </div>
+        <figcaption>OTIS V-Check 사용자 매뉴얼 16쪽 중 일부</figcaption>
+      </figure>
+    </div>
   </div>
 </div>

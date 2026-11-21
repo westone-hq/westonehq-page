@@ -1,6 +1,7 @@
 {{!--
   설계 문서 보기: 정적 SVG 다이어그램 틀(.dg). 확대·드래그·핀치·키보드, 링크 없음 (diagram-view.js)
   - 한 장:  {{> diagram-view kind="usecase"}}   (usecase | activity | sequence)
+            caption="…" 으로 아래 설명을 바꾸고, bare=true 면 figure·설명 없이 틀(.dg)만 넣는다
   - 탭 3개: {{> diagram-view tabs=true id="otis-dg"}}   (유즈케이스·액티비티·시퀀스)
   메인·패키지의 진행 방식(process-steps)과 OTIS 케이스가 함께 쓴다.
 --}}
@@ -17,27 +18,33 @@
 </div>
 {{else}}
 {{#if (eq kind "usecase")}}
-<figure class="step-fig">
+{{#unless bare}}<figure class="step-fig">{{/unless}}
   <div class="dg" tabindex="0" role="group" aria-label="유즈케이스 다이어그램. 드래그로 이동, 더하기·빼기 키로 확대·축소, 0 키로 맞춤">
     <img src="/images/process/uml-usecase.svg" alt="OTIS V-Check 유즈케이스 다이어그램: 설치 기사와 관리자가 하는 일" width="1430" height="1361" loading="lazy" draggable="false">
   </div>
-  <figcaption>OTIS V-Check 유즈케이스 다이어그램</figcaption>
+{{#unless bare}}
+  <figcaption>{{#if caption}}{{caption}}{{else}}OTIS V-Check 유즈케이스 다이어그램{{/if}}</figcaption>
 </figure>
+{{/unless}}
 {{/if}}
 {{#if (eq kind "activity")}}
-<figure class="step-fig">
+{{#unless bare}}<figure class="step-fig">{{/unless}}
   <div class="dg" tabindex="0" role="group" aria-label="액티비티 다이어그램. 드래그로 이동, 더하기·빼기 키로 확대·축소, 0 키로 맞춤">
     <img src="/images/process/uml-activity.svg" alt="진동·소음 측정 기능의 진행 순서와 갈림길을 그린 액티비티 다이어그램" width="1056" height="2017" loading="lazy" draggable="false">
   </div>
-  <figcaption>진동·소음 측정 기능의 액티비티 다이어그램</figcaption>
+{{#unless bare}}
+  <figcaption>{{#if caption}}{{caption}}{{else}}진동·소음 측정 기능의 액티비티 다이어그램{{/if}}</figcaption>
 </figure>
+{{/unless}}
 {{/if}}
 {{#if (eq kind "sequence")}}
-<figure class="step-fig">
+{{#unless bare}}<figure class="step-fig">{{/unless}}
   <div class="dg" tabindex="0" role="group" aria-label="시퀀스 다이어그램. 드래그로 이동, 더하기·빼기 키로 확대·축소, 0 키로 맞춤">
     <img src="/images/process/uml-sequence.svg" alt="진동·소음 측정 기능에서 화면, 앱, 서버가 주고받는 순서를 그린 시퀀스 다이어그램" width="2330" height="1406" loading="lazy" draggable="false">
   </div>
-  <figcaption>진동·소음 측정 기능의 시퀀스 다이어그램</figcaption>
+{{#unless bare}}
+  <figcaption>{{#if caption}}{{caption}}{{else}}진동·소음 측정 기능의 시퀀스 다이어그램{{/if}}</figcaption>
 </figure>
+{{/unless}}
 {{/if}}
 {{/if}}
