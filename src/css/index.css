@@ -262,6 +262,7 @@
    ============================================================ */
 .contact { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 56px; align-items: start; }
 .contact .h2 { font-family: var(--w-serif); font-weight: 400; font-size: clamp(28px, 3.4vw, 42px); line-height: 1.4; }
+.contact-sub { margin: -16px 0 32px; font-size: 16.5px; line-height: 1.65; color: var(--w-ink-2); }
 .mail { font-size: 14px; color: var(--w-ink-2); }
 .mail a { display: block; margin-top: 4px; font-size: 18px; font-weight: 600; color: var(--w-ink); }
 
