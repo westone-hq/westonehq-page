@@ -44,22 +44,23 @@ westonehq-page/
 │   │   ├── detail.js       # 상세 진입점
 │   │   ├── shared.js       # 헤더·모바일 메뉴 등
 │   │   ├── hero-blueprint.js, main-sections.js   # 메인 히어로 그림, 함께한 곳·케이스 목록
-│   │   ├── process-steps.js  # 진행 방식 9단계 탭, 다이어그램 확대·이동
+│   │   ├── process-steps.js  # 진행 방식 9단계 탭
+│   │   ├── diagram-view.js   # 설계 문서 보기: 탭, 다이어그램 확대·이동 (메인·OTIS 공용)
 │   │   ├── case-film.js      # 케이스 상단 영상 (본문 크기에서 스크롤하면 화면 전체로, 일시정지, 스틸)
 │   │   └── lightbox.js       # 이미지 크게 보기
 │   └── partials/           # Handlebars 조각
 │       ├── head.hbs, header.hbs, footer.hbs
 │       ├── process-steps.hbs           # 진행 방식 9단계 (메인·패키지 상세 공통)
+│       ├── diagram-view.hbs            # 설계 문서 다이어그램 틀 (한 장 또는 탭 3개)
 │       ├── case-film.hbs               # 케이스 상단 전체 영상
 │       ├── cta-contact.hbs             # 상세 페이지 아래 상담 신청 띠
 │       ├── side-nav-packages.hbs, side-nav-cases.hbs   # 상세 왼쪽 목록 (지금은 쓰지 않음)
 │       └── ai-widget.hbs               # AI 위젯 (지금은 꺼 둠)
 ├── public/                 # 그대로 복사되는 정적 파일
 │   ├── _redirects          # 옛 주소 → 새 주소 (301)
-│   ├── films/sunstone/     # Sunstone 소개 영상 (HTML 애니메이션, ?embed=1 로 넣는다)
+│   ├── films/              # 케이스 소개 영상 sunstone·otis·lms (HTML 애니메이션, ?embed=1 로 넣는다)
 │   ├── images/             # 케이스 이미지(cases/), 진행 방식 자료(process/), eBook 표지 등
 │   ├── ebook/              # eBook 전체본 PDF 2권
-│   ├── uml/                # OTIS 설계 문서 HTML (OTIS 케이스 페이지의 뷰어가 쓴다)
 │   └── docs/               # 계약서·일정표·기획서 PDF (process.html)
 ├── worker.js               # AI 위젯용 Worker (위젯을 다시 켤 때 손본다)
 ├── wrangler.toml           # Cloudflare 배포 설정

@@ -1,7 +1,6 @@
 // ── 메인 페이지 섹션 동작 ─────────────────────────────────────────────────
 // 1) 함께한 곳: 7곳을 넘으면 흐르는 띠로 바꾼다
 // 2) #case-… 링크: 해당 케이스 아코디언을 연다
-// 3) 설계 문서 iframe 뷰어: 탭 전환과 지연 로드 (지금은 OTIS 케이스 페이지만 쓴다)
 
 const reduceMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
@@ -54,55 +53,6 @@ export function initCaseLinks() {
   // 다른 페이지에서 index.html#case-… 로 들어왔을 때
   openCase(location.hash, { scroll: false })
   window.addEventListener('hashchange', () => openCase(location.hash, { scroll: false }))
-}
-
-export function initUmlViewer() {
-  const frame = document.getElementById('uml-frame')
-  const openLink = document.getElementById('uml-open')
-  const tabs = [...document.querySelectorAll('.uml-tabs [role="tab"]')]
-  if (!frame || !tabs.length) return
-
-  const load = () => { if (!frame.getAttribute('src')) frame.src = frame.dataset.src }
-
-  if ('IntersectionObserver' in window) {
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return
-        load()
-        io.disconnect()
-      })
-    }, { rootMargin: '200px' })
-    io.observe(frame)
-  } else {
-    load()
-  }
-
-  const select = (tab, focus) => {
-    tabs.forEach(t => {
-      const on = t === tab
-      t.setAttribute('aria-selected', String(on))
-      t.tabIndex = on ? 0 : -1
-    })
-    frame.dataset.src = tab.dataset.src
-    frame.src = tab.dataset.src
-    frame.setAttribute('aria-labelledby', tab.id)
-    if (openLink) openLink.href = tab.dataset.src
-    if (focus) tab.focus()
-  }
-
-  tabs.forEach((tab, i) => {
-    tab.addEventListener('click', () => select(tab, false))
-    tab.addEventListener('keydown', (e) => {
-      let next = null
-      if (e.key === 'ArrowRight') next = tabs[(i + 1) % tabs.length]
-      else if (e.key === 'ArrowLeft') next = tabs[(i - 1 + tabs.length) % tabs.length]
-      else if (e.key === 'Home') next = tabs[0]
-      else if (e.key === 'End') next = tabs[tabs.length - 1]
-      if (!next) return
-      e.preventDefault()
-      select(next, true)
-    })
-  })
 }
 
 export function initMainSections() {
