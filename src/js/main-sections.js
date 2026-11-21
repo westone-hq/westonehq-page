@@ -1,6 +1,6 @@
 // ── 메인 페이지 섹션 동작 ─────────────────────────────────────────────────
-// 1) 함께한 곳: 7곳을 넘으면 흐르는 띠로 바꾼다
-// 2) #case-… 링크: 해당 케이스 아코디언을 연다
+// 1) 함께한 곳: 이름만 보여 준다(누르는 동작 없음). 7곳을 넘으면 흐르는 띠로 바꾼다
+// 2) #case-… 링크(패키지 카드의 "관련 작업물 보기", 다른 페이지에서 들어오는 주소): 해당 케이스 아코디언을 연다
 
 const reduceMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
@@ -17,7 +17,6 @@ export function initClients() {
   list.style.setProperty('--dur', `${count * 4}s`)
   const copy = list.cloneNode(true)
   copy.setAttribute('aria-hidden', 'true')
-  copy.querySelectorAll('a').forEach(a => a.setAttribute('tabindex', '-1'))
   box.appendChild(copy)
 }
 

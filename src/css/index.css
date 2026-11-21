@@ -89,9 +89,8 @@
 .cl-items { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 40px; align-items: center; }
 .cl {
   font-size: clamp(16px, 1.5vw, 19px); font-weight: 700; letter-spacing: -.03em;
-  color: var(--w-ink-2); white-space: nowrap; transition: color .15s;
+  color: var(--w-ink-2); white-space: nowrap;
 }
-.cl:hover { color: var(--w-ink); }
 
 .cl-list.marquee {
   display: flex; overflow: hidden;
