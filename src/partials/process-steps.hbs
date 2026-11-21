@@ -16,33 +16,33 @@
   <div class="step-panel" role="tabpanel" id="step-panel-1" aria-labelledby="step-tab-1" tabindex="0">
     <div class="step-text">
       <h3 class="step-ttl">상담</h3>
-      <p class="step-desc">무엇을 만들고 싶은지, 지금은 그 일을 어떻게 하고 계신지부터 듣습니다. 기획서가 없어도 괜찮습니다. 메모 몇 줄, 지금 쓰는 엑셀이나 화면 캡처, 참고하고 싶은 사이트만 있어도 충분합니다. 만드는 개발자가 직접 듣고, 할 수 있는 것과 어려운 것을 첫 상담에서 솔직하게 말씀드립니다.</p>
+      <p class="step-desc">어떤 걸 만들고 싶은지, 지금은 그 일을 어떻게 하고 계신지 들려주세요. 기획서는 없어도 됩니다. 메모 몇 줄이나 지금 쓰는 엑셀, 화면 캡처면 충분합니다. 직접 개발할 사람이 듣고, 되는 것과 어려운 것을 그 자리에서 말씀드립니다. 상담은 무료입니다.</p>
       <div class="step-lists">
-        <div><h4 class="step-sub">이 단계에서 드리는 것</h4><ul><li>구현할 수 있는지에 대한 답</li><li>진행 방향 제안</li></ul></div>
-        <div><h4 class="step-sub">준비해 주시면 좋은 것</h4><ul><li>하고 싶은 일과 지금 방식</li><li>지금 쓰는 파일·화면 (가명 처리한 샘플이면 충분)</li><li>원하는 일정과 예산 범위 (정해져 있다면)</li></ul></div>
+        <div><h4 class="step-sub">이 단계에서 드리는 것</h4><ul><li>만들 수 있는지 여부</li><li>어떻게 만들면 좋을지 방향</li></ul></div>
+        <div><h4 class="step-sub">준비해 주시면 좋은 것</h4><ul><li>하고 싶은 일과 지금 하는 방식</li><li>지금 쓰는 파일이나 화면 (실제 이름은 가려도 됩니다)</li><li>원하는 일정, 생각해 둔 예산 (있다면)</li></ul></div>
       </div>
     </div>
     <div class="step-media">
       <div class="step-card">
-        <p class="step-card-ttl">상담 때 이런 이야기를 나눕니다</p>
+        <p class="step-card-ttl">상담 때 여쭤보는 것</p>
         <ul class="step-checks">
           <li>누가 쓰나요?</li>
           <li>지금은 어떻게 하고 있나요?</li>
-          <li>가장 불편한 한 가지는?</li>
-          <li>언제까지 필요한가요?</li>
+          <li>제일 불편한 게 뭔가요?</li>
+          <li>언제까지 필요하세요?</li>
         </ul>
       </div>
-      <a class="btn btn-dark step-cta" href="{{#unless isIndex}}{{basePath}}index.html{{/unless}}#contact">상담 신청하기</a>
+      <a class="btn btn-dark step-cta" href="{{#unless isIndex}}{{basePath}}index.html{{/unless}}#contact">무료 상담 신청</a>
     </div>
   </div>
 
   <div class="step-panel" role="tabpanel" id="step-panel-2" aria-labelledby="step-tab-2" tabindex="0" hidden>
     <div class="step-text">
       <h3 class="step-ttl">요구사항 정리</h3>
-      <p class="step-desc">상담에서 나온 이야기를 누가, 무엇을 하는지 한 장의 그림으로 정리합니다. 꼭 필요한 기능과 나중에 해도 되는 기능을 나눠, 처음 만들 범위를 함께 고릅니다.</p>
+      <p class="step-desc">상담 내용을 바탕으로 누가 무엇을 하는지 그림 한 장으로 정리합니다. 꼭 있어야 하는 기능과 나중에 붙여도 되는 기능을 나눠서, 처음에 만들 범위를 같이 정합니다.</p>
       <div class="step-lists">
-        <div><h4 class="step-sub">이 단계에서 드리는 것</h4><ul><li>유즈케이스 다이어그램</li><li>기능 목록 (지금 만들 것과 나중에 만들 것)</li></ul></div>
-        <div><h4 class="step-sub">준비해 주시면 좋은 것</h4><ul><li>실제로 쓰실 분들의 역할</li><li>꼭 지켜야 할 조건 (보안, 사내 PC에서만 등)</li></ul></div>
+        <div><h4 class="step-sub">이 단계에서 드리는 것</h4><ul><li>유즈케이스 다이어그램</li><li>기능 목록 (먼저 만들 것, 나중에 만들 것)</li></ul></div>
+        <div><h4 class="step-sub">준비해 주시면 좋은 것</h4><ul><li>실제로 쓰실 분들이 누구인지</li><li>꼭 지켜야 하는 조건 (예: 외부 전송 금지, 사내 PC에서만 사용)</li></ul></div>
       </div>
     </div>
     <div class="step-media">
@@ -53,21 +53,21 @@
   <div class="step-panel" role="tabpanel" id="step-panel-3" aria-labelledby="step-tab-3" tabindex="0" hidden>
     <div class="step-text">
       <h3 class="step-ttl">기획·견적</h3>
-      <p class="step-desc">기능마다 화면이 어떤 순서로 넘어가고 어디서 갈라지는지, 화면과 서버가 무엇을 주고받는지 그림으로 그려 보여 드립니다. 만들기 전에 결과물을 미리 확인하실 수 있고, 이 그림을 기준으로 작업 범위·기간·비용을 정리해 안내드립니다. 확인하신 뒤 진행 여부를 정하시면 됩니다.</p>
+      <p class="step-desc">기능별로 화면이 어떻게 넘어가는지, 앱과 서버가 무엇을 주고받는지 그려서 보여드립니다. 만들기 전에 결과물을 미리 확인하실 수 있습니다. 이 자료를 기준으로 범위, 일정, 비용을 정리해 드리고, 보신 뒤에 진행 여부를 정하시면 됩니다.</p>
       <div class="step-lists">
-        <div><h4 class="step-sub">이 단계에서 드리는 것</h4><ul><li>액티비티·시퀀스 다이어그램</li><li>작업 범위·일정·견적</li></ul></div>
-        <div><h4 class="step-sub">준비해 주시면 좋은 것</h4><ul><li>그림을 보고 다른 점 짚어 주기</li><li>최종 범위 확인</li></ul></div>
+        <div><h4 class="step-sub">이 단계에서 드리는 것</h4><ul><li>화면 흐름도(액티비티 다이어그램), 처리 순서도(시퀀스 다이어그램)</li><li>견적서와 일정표</li></ul></div>
+        <div><h4 class="step-sub">준비해 주시면 좋은 것</h4><ul><li>자료를 보고 생각과 다른 부분 알려 주기</li><li>최종 범위 확인</li></ul></div>
       </div>
     </div>
     <div class="step-media">
       <figure class="step-fig dg-tabs" data-tabs>
         <div class="dg-tablist" role="tablist" aria-label="다이어그램 종류">
-          <button type="button" role="tab" id="proc-dg-tab-1" aria-controls="proc-dg-panel-1" aria-selected="true">액티비티</button>
-          <button type="button" role="tab" id="proc-dg-tab-2" aria-controls="proc-dg-panel-2" aria-selected="false" tabindex="-1">시퀀스</button>
+          <button type="button" role="tab" id="proc-dg-tab-1" aria-controls="proc-dg-panel-1" aria-selected="true">화면 흐름도</button>
+          <button type="button" role="tab" id="proc-dg-tab-2" aria-controls="proc-dg-panel-2" aria-selected="false" tabindex="-1">처리 순서도</button>
         </div>
         <div class="dg-panel" role="tabpanel" id="proc-dg-panel-1" aria-labelledby="proc-dg-tab-1">{{> diagram-view kind="activity" bare=true}}</div>
         <div class="dg-panel" role="tabpanel" id="proc-dg-panel-2" aria-labelledby="proc-dg-tab-2" hidden>{{> diagram-view kind="sequence" bare=true}}</div>
-        <figcaption>진동·소음 측정 기능의 액티비티·시퀀스 다이어그램</figcaption>
+        <figcaption>진동·소음 측정 기능의 화면 흐름도와 처리 순서도</figcaption>
       </figure>
     </div>
   </div>
@@ -75,10 +75,10 @@
   <div class="step-panel" role="tabpanel" id="step-panel-4" aria-labelledby="step-tab-4" tabindex="0" hidden>
     <div class="step-text">
       <h3 class="step-ttl">디자인·개발</h3>
-      <p class="step-desc">화면 디자인을 먼저 보여 드리고, 고칠 곳을 반영한 뒤 개발합니다. 작업이 시작되면 카카오톡 프로젝트 방을 열어 담당 개발자가 직접 진행 상황과 중간 결과물을 공유하고, 결정이 필요한 일은 바로 여쭙습니다. 진행 상황을 몰라 기다리기만 하시는 일이 없게 합니다.</p>
+      <p class="step-desc">화면 디자인을 먼저 보여드리고, 수정할 부분을 반영한 다음 개발을 시작합니다. 시작하면 카카오톡 프로젝트 방을 만들어 진행 상황과 중간 결과물을 계속 공유하고, 정할 게 생기면 바로 여쭤봅니다.</p>
       <div class="step-lists">
-        <div><h4 class="step-sub">이 단계에서 드리는 것</h4><ul><li>화면 디자인 시안</li><li>중간 결과물 공유</li></ul></div>
-        <div><h4 class="step-sub">준비해 주시면 좋은 것</h4><ul><li>시안과 중간 결과물에 대한 의견</li><li>로고·문구·사진 등 들어갈 자료</li></ul></div>
+        <div><h4 class="step-sub">이 단계에서 드리는 것</h4><ul><li>디자인 시안</li><li>중간 결과물</li></ul></div>
+        <div><h4 class="step-sub">준비해 주시면 좋은 것</h4><ul><li>시안과 중간 결과물 피드백</li><li>로고, 문구, 사진 같은 자료</li></ul></div>
       </div>
     </div>
     <div class="step-media">
@@ -99,10 +99,10 @@
   <div class="step-panel" role="tabpanel" id="step-panel-5" aria-labelledby="step-tab-5" tabindex="0" hidden>
     <div class="step-text">
       <h3 class="step-ttl">테스트·배포</h3>
-      <p class="step-desc">실제로 쓰실 기기와 환경에서 함께 확인하고, 나온 문제를 고칩니다. 앱은 스토어에 출시하거나 설치 파일(APK)과 설치 안내를 드리고, 웹은 서버와 도메인에 올려 바로 쓰실 수 있게 합니다. 사내 PC에서만 돌아가야 하는 프로그램은 설치 파일로 전달합니다.</p>
+      <p class="step-desc">실제로 쓰실 기기와 환경에서 같이 확인하고, 나오는 문제를 고칩니다. 앱은 스토어에 올리거나 설치 파일(APK)로, 웹은 서버와 도메인에 연결해서, 사내 PC용 프로그램은 설치 파일로 전달합니다.</p>
       <div class="step-lists">
-        <div><h4 class="step-sub">이 단계에서 드리는 것</h4><ul><li>완성본</li><li>설치·접속 안내</li></ul></div>
-        <div><h4 class="step-sub">준비해 주시면 좋은 것</h4><ul><li>실제 사용 환경에서 확인할 시간</li><li>스토어·도메인 계정 (필요한 경우)</li></ul></div>
+        <div><h4 class="step-sub">이 단계에서 드리는 것</h4><ul><li>완성본</li><li>설치·접속 방법 안내</li></ul></div>
+        <div><h4 class="step-sub">준비해 주시면 좋은 것</h4><ul><li>실제 환경에서 확인할 시간</li><li>스토어·도메인 계정 (필요한 경우)</li></ul></div>
       </div>
     </div>
     <div class="step-media">
@@ -116,10 +116,10 @@
   <div class="step-panel" role="tabpanel" id="step-panel-6" aria-labelledby="step-tab-6" tabindex="0" hidden>
     <div class="step-text">
       <h3 class="step-ttl">사용 교육·유지보수</h3>
-      <p class="step-desc">화면 캡처와 함께 단계별로 정리한 사용자 매뉴얼을 드리고, 강의하듯 쓰는 법을 직접 알려 드립니다. 운영하면서 생기는 수정과 개선, 서버 관리는 협의해서 이어서 맡습니다.</p>
+      <p class="step-desc">화면을 캡처해 단계별로 정리한 사용자 매뉴얼을 드리고, 쓰는 방법을 직접 알려드립니다. 강의를 하는 팀이라 처음 쓰시는 분도 따라오실 수 있게 설명합니다. 운영하면서 생기는 수정이나 개선, 서버 관리는 협의해서 계속 맡습니다.</p>
       <div class="step-lists">
         <div><h4 class="step-sub">이 단계에서 드리는 것</h4><ul><li>사용자 매뉴얼</li><li>사용 교육</li><li>운영 중 수정·개선 (협의)</li></ul></div>
-        <div><h4 class="step-sub">준비해 주시면 좋은 것</h4><ul><li>교육 받으실 분과 일정</li></ul></div>
+        <div><h4 class="step-sub">준비해 주시면 좋은 것</h4><ul><li>교육 받으실 분과 시간</li></ul></div>
       </div>
     </div>
     <div class="step-media">
