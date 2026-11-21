@@ -352,6 +352,16 @@ body.w-page {
 .dg-ctrl button:disabled { color: var(--w-ink-3); cursor: default; }
 .dg-ctrl svg { width: 15px; height: 15px; }
 
+/* 설계 문서 탭 (diagram-view 조각, tabs=true) */
+.dg-tablist {
+  display: inline-flex; flex-wrap: wrap; gap: 4px; padding: 4px;
+  border: 1px solid var(--w-line); border-radius: 10px; background: var(--w-tile);
+}
+.dg-tablist [role="tab"] { padding: 7px 14px; border-radius: 7px; font-size: 14px; font-weight: 600; color: var(--w-ink-2); transition: color .15s, background-color .15s; }
+.dg-tablist [role="tab"]:hover { color: var(--w-ink); }
+.dg-tablist [role="tab"][aria-selected="true"] { background: #fff; color: var(--w-ink); box-shadow: 0 0 0 1px var(--w-line-2); }
+.dg-panel > .step-fig { margin-top: 14px; }
+
 /* 매뉴얼 쪽 이미지: 누르면 크게 보기 */
 .manual a { display: block; border: 1px solid var(--w-line); border-radius: 8px; overflow: hidden; background: #fff; cursor: zoom-in; }
 .manual img { width: 100%; height: auto; }
