@@ -235,12 +235,14 @@
           <p>출석·과제·설문 파일로 엑셀 산출물과 Word 보고서를 만듭니다.</p>
           <span class="state field">운영 중</span>
         </div>
+        <!-- 새 앱: 이름이 정해지면 주석을 풀어 다시 연다
         <div class="rel-row">
           <div class="ico new" aria-hidden="true">+</div>
           <div><h3 class="h3">새 앱</h3><span class="kind">이름·플랫폼 미정</span></div>
           <p>한 달 안에 출시할 앱이 이 자리에 들어갑니다.</p>
           <span class="state wait">출시 예정</span>
         </div>
+        -->
       </div>
     </section>
 
@@ -310,6 +312,7 @@
             <div><label for="c_contact">연락처</label><input type="text" id="c_contact" name="contact" placeholder="이메일 또는 휴대폰" required></div>
             <div class="full"><label for="c_interest">관심 패키지</label>
               <select id="c_interest" name="interest">
+                <option value="아직 모르겠어요" selected>아직 모르겠어요</option>
                 <option value="AI 에이전트·AX 구축">AI 에이전트·AX 구축</option>
                 <option value="업무 자동화">업무 자동화</option>
                 <option value="웹사이트·웹 플랫폼">웹사이트·웹 플랫폼</option>
@@ -318,7 +321,6 @@
                 <option value="서버·데이터">서버·데이터</option>
                 <option value="강의·교육">강의·교육</option>
                 <option value="유지보수·운영 지원">유지보수·운영 지원</option>
-                <option value="아직 모르겠어요">아직 모르겠어요</option>
               </select>
             </div>
             <div class="full"><label for="c_message">내용</label><textarea id="c_message" name="message" rows="5" placeholder="예) 매주 지점별 매출 엑셀을 손으로 합치고 있어요. 파일만 넣으면 정리되는 프로그램이 필요해요." required></textarea></div>
