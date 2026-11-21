@@ -183,6 +183,8 @@ html:has([data-case-film]) { overflow-anchor: none; }
 .case-feature figure { margin: 0; }
 .case-feature a { display: block; border: 1px solid var(--w-line); border-radius: 12px; overflow: hidden; background: #fff; cursor: zoom-in; }
 .case-feature img { width: 100%; height: auto; }
+/* OTIS·LMS: 4:3 화면 판. 세 장 높이를 맞춘다 */
+.case-features.fit43 .case-feature img { aspect-ratio: 4 / 3; object-fit: contain; background: #fff; }
 .case-feature h3 { font-size: 19px; font-weight: 650; letter-spacing: -.02em; line-height: 1.4; }
 .case-feature p { margin-top: 10px; font-size: 15.5px; line-height: 1.7; color: var(--w-ink-2); }
 
@@ -191,7 +193,9 @@ html:has([data-case-film]) { overflow-anchor: none; }
 .case-result li::marker { color: var(--w-ink-3); }
 
 /* 결과 아래 이미지 한 장 (세로로 긴 비교 이미지 등) */
-.case-figure { margin-top: 28px; max-width: 560px; }
+/* 세로로 긴 비교 이미지: 칼럼의 70%, 높이 480px 까지 위쪽만 보이고 누르면 전체 */
+.case-figure { margin-top: 28px; width: 70%; }
+.case-figure img { max-height: 480px; object-fit: cover; object-position: top; }
 
 @media (max-width: 640px) {
   .case-feature { grid-template-columns: minmax(0, 1fr); gap: 16px; }

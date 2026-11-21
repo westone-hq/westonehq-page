@@ -24,7 +24,10 @@ export function initLightbox() {
     dlg.classList.toggle('tall', h > w)
     img.src = a.href
     img.alt = thumb?.alt || ''
-    const text = a.closest('figure')?.querySelector('figcaption')?.textContent.trim() || ''
+    // 캡션의 "(누르면 크게 보기)" 같은 안내(.zoom-hint)는 크게 본 화면에서는 뺀다
+    const fc = a.closest('figure')?.querySelector('figcaption')?.cloneNode(true)
+    fc?.querySelectorAll('.zoom-hint').forEach(el => el.remove())
+    const text = fc?.textContent.trim() || ''
     cap.textContent = text
     cap.hidden = !text
     dlg.showModal()
