@@ -21,7 +21,7 @@ westone은 웹사이트·앱·업무 자동화·AI 에이전트를 만들고, �
 | `/` (`index.html`) | 메인: 히어로, 함께한 곳, 패키지 8개, 케이스 스터디 목록, 진행 방식 6단계, 출시 서비스, 팀·eBook, 자주 묻는 질문, 상담 신청 |
 | `/packages/*.html` | 패키지 상세 8장: agent, automation, web, app, unity, server, education, maintenance |
 | `/cases/*.html` | 케이스 스터디 4장: lms, sunstone, otis, welfare (education 은 보류, 빌드 제외. 파일은 남겨 둠) |
-| `/process.html` | 진행 방식 안내(옛 디자인, 아직 유지) |
+| `/process.html` | 진행 방식 안내(옛 디자인). 숨김(빌드 제외). 파일은 남겨 둠, 주소는 `/#process` 로 301 |
 
 상세 페이지 12장은 사이드바 없이 가운데 한 칼럼(880px)이고, 맨 아래 이전·다음 링크로 오간다. 패키지 상세의 "상담 신청" 버튼은 `index.html?interest=키#contact` 로 가서 문의 폼의 관심 패키지를 미리 고른다.
 
@@ -30,7 +30,7 @@ westone은 웹사이트·앱·업무 자동화·AI 에이전트를 만들고, �
 ```text
 westonehq-page/
 ├── index.html              # 메인
-├── process.html            # 진행 방식 안내 (옛 디자인)
+├── process.html            # 진행 방식 안내 (옛 디자인, 숨김(빌드 제외))
 ├── packages/               # 패키지 상세 8장
 ├── cases/                  # 케이스 스터디 4장 (education.html 은 보류, 빌드 제외)
 ├── src/
@@ -38,7 +38,7 @@ westonehq-page/
 │   │   ├── shared.css      # 디자인 값(--w-), 헤더·푸터, 진행 단계·다이어그램 틀·크게 보기 등 공통
 │   │   ├── index.css       # 메인 전용
 │   │   ├── detail.css      # 패키지·케이스 상세 공통
-│   │   └── pages.css, process.css   # process.html 전용
+│   │   └── pages.css, process.css   # process.html 전용 (숨김(빌드 제외))
 │   ├── js/
 │   │   ├── index.js        # 메인 진입점 (메뉴, 섹션 표시, 문의 폼)
 │   │   ├── detail.js       # 상세 진입점
@@ -61,7 +61,7 @@ westonehq-page/
 │   ├── films/              # 케이스 소개 영상 sunstone·otis·lms·care (HTML 애니메이션, ?embed=1 로 넣는다)
 │   ├── images/             # 케이스 이미지(cases/), 진행 방식 자료(process/), eBook 표지 등
 │   ├── ebook/              # eBook 전체본 PDF 2권
-│   └── docs/               # 계약서·일정표·기획서 PDF (process.html)
+│   └── docs/               # 숨김(빌드 제외): 계약서·일정표·기획서 PDF 는 git rm, 원본은 저장소 루트 docs/ 에 남김
 ├── worker.js               # AI 위젯용 Worker (위젯을 다시 켤 때 손본다)
 ├── wrangler.toml           # Cloudflare 배포 설정
 ├── vite.config.js          # 페이지 목록, 페이지별 제목·설명, Handlebars 설정

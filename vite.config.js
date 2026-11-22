@@ -48,21 +48,23 @@ const pageData = {
     isIndex: true,
     basePath: './',
   },
-  '/process.html': {
-    title: 'westone — 진행 방식 안내',
-    description: '외주가 처음이어도 불안하지 않도록, 진행 과정과 표준 계약서를 모두 공개합니다.',
-    ogTitle: '진행 방식과 표준 계약서 공개 | westone',
-    ogUrl: `${SITE}/process.html`,
-    isIndex: false,
-    basePath: './',
-  },
+  // 2026-11-22 옛 계약 공개 페이지 숨김
+  // '/process.html': {
+  //   title: 'westone — 진행 방식 안내',
+  //   description: '외주가 처음이어도 불안하지 않도록, 진행 과정과 표준 계약서를 모두 공개합니다.',
+  //   ogTitle: '진행 방식과 표준 계약서 공개 | westone',
+  //   ogUrl: `${SITE}/process.html`,
+  //   isIndex: false,
+  //   basePath: './',
+  // },
   ...Object.fromEntries(PACKAGES.map(p => detail('packages', p))),
   ...Object.fromEntries(CASES.map(c => detail('cases', c))),
 }
 
 const input = {
   index: resolve(__dirname, 'index.html'),
-  process: resolve(__dirname, 'process.html'),
+  // 2026-11-22 옛 계약 공개 페이지 숨김
+  // process: resolve(__dirname, 'process.html'),
 }
 for (const [key] of PACKAGES) input[`packages_${key}`] = resolve(__dirname, `packages/${key}.html`)
 for (const [key] of CASES) input[`cases_${key}`] = resolve(__dirname, `cases/${key}.html`)

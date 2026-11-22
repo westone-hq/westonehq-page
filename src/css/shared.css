@@ -314,10 +314,11 @@ body.w-page {
 .step-no { display: block; font-size: 13px; font-weight: 500; color: var(--w-green); margin-bottom: 10px; }
 .steps [aria-selected="true"] .step-no { color: var(--w-green-hi); }
 @media (max-width: 640px) {
-  /* 좁은 화면: 한 줄로 두고 가로로 스크롤 */
-  .steps { display: flex; overflow-x: auto; scrollbar-width: none; overscroll-behavior-x: contain; }
-  .steps::-webkit-scrollbar { display: none; }
-  .steps [role="tab"] { flex: 0 0 auto; white-space: nowrap; padding: 12px 16px 14px; }
+  /* 좁은 화면: 3칸 × 2줄로 6단계를 모두 보인다 */
+  .steps { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .steps [role="tab"] { padding: 12px 12px 14px; font-size: 14px; }
+  .steps [role="tab"]:nth-child(3n + 1) { border-left: 0; }
+  .steps [role="tab"]:nth-child(n + 4) { border-top: 1px solid var(--w-line); }
   .step-no { margin-bottom: 6px; }
 }
 
