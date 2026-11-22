@@ -58,7 +58,7 @@ westonehq-page/
 │       └── ai-widget.hbs               # AI 위젯 (지금은 꺼 둠)
 ├── public/                 # 그대로 복사되는 정적 파일
 │   ├── _redirects          # 옛 주소 → 새 주소 (301)
-│   ├── films/              # 케이스 소개 영상 sunstone·otis·lms (HTML 애니메이션, ?embed=1 로 넣는다)
+│   ├── films/              # 케이스 소개 영상 sunstone·otis·lms·care (HTML 애니메이션, ?embed=1 로 넣는다)
 │   ├── images/             # 케이스 이미지(cases/), 진행 방식 자료(process/), eBook 표지 등
 │   ├── ebook/              # eBook 전체본 PDF 2권
 │   └── docs/               # 계약서·일정표·기획서 PDF (process.html)
