@@ -66,20 +66,23 @@ function initDiagram(box) {
     '<button type="button" data-z="in" aria-label="확대">+</button>' +
     '<button type="button" data-z="out" aria-label="축소">−</button>' +
     '<button type="button" data-z="fit" aria-label="틀에 맞춤"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6V2h4M10 2h4v4M14 10v4h-4M6 14H2v-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>'
-  box.appendChild(ctrl)
+  box.before(ctrl) // 버튼 줄은 그림 위에 띄우지 않고 틀 바로 위 별도 줄에 둔다
 
-  // k: 틀 너비에 맞춘 크기 대비 배율, x·y: 틀 안에서 그림 왼쪽 위 위치
+  // k: 틀에 맞춘 크기(틀 너비 − 둘레 여백) 대비 배율, x·y: 틀 안에서 그림 왼쪽 위 위치
+  // 맞춤 상태와 이동 끝에서도 그림 둘레에 PAD 만큼 여백이 남는다
   let k = 1, x = 0, y = 0, W = 0, H = 0
+  const pad = () => (W < 480 ? 12 : 20)
+  const base = () => Math.max(0, W - pad() * 2)
 
   const clamp = () => {
-    const w = W * k, h = W * k * ratio
-    x = w <= W ? (W - w) / 2 : Math.min(0, Math.max(W - w, x))
-    y = h <= H ? (H - h) / 2 : Math.min(0, Math.max(H - h, y))
+    const p = pad(), w = base() * k, h = w * ratio
+    x = w <= W - p * 2 ? (W - w) / 2 : Math.min(p, Math.max(W - w - p, x))
+    y = h <= H - p * 2 ? (H - h) / 2 : Math.min(p, Math.max(H - h - p, y))
   }
   const render = () => {
     clamp()
     // 크기는 width 로 바꿔 SVG 가 늘 선명하게 그려지게 하고, 위치만 transform 으로
-    img.style.width = `${W * k}px`
+    img.style.width = `${base() * k}px`
     img.style.transform = `translate(${x}px, ${y}px)`
     ctrl.querySelector('[data-z="in"]').disabled = k >= MAX
     ctrl.querySelector('[data-z="out"]').disabled = k <= MIN
@@ -91,11 +94,12 @@ function initDiagram(box) {
     k = nk
     render()
   }
-  const fit = () => { k = 1; x = 0; y = 0; render() }
+  const fit = () => { k = 1; x = pad(); y = pad(); render() }
   const measure = () => {
     const pw = W
     W = box.clientWidth; H = box.clientHeight
-    if (pw && pw !== W) { x *= W / pw; y *= W / pw }
+    if (!pw && W) { x = pad(); y = pad() } // 처음 보일 때는 맞춤 상태(둘레 여백)로
+    else if (pw && pw !== W) { x *= W / pw; y *= W / pw }
     render()
   }
 
