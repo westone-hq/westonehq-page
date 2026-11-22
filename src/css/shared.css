@@ -351,13 +351,9 @@ body.w-page {
 .step-card-note { margin-top: 14px; font-size: 13.5px; line-height: 1.6; color: var(--w-ink-2); }
 .step-cta { margin-top: 16px; }
 
-/* 4단계 실제 화면 두 장 */
-.step-over { margin-bottom: 10px; font-size: 13.5px; color: var(--w-ink-2); }
-.step-shots { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-.step-shot { margin: 0; }
-.step-shot a { display: block; border: 1px solid var(--w-line); border-radius: 10px; overflow: hidden; background: #fff; cursor: zoom-in; }
-.step-shot img { width: 100%; height: auto; }
-.step-shot figcaption { margin-top: 8px; font-size: 13.5px; color: var(--w-ink-2); }
+/* 4단계 앱 화면 흐름도 한 장: 누르면 크게 보기 */
+.step-fig:not(.manual) > a.zoom { display: block; border: 1px solid var(--w-line); border-radius: 12px; overflow: hidden; background: #fff; cursor: zoom-in; }
+.step-fig:not(.manual) > a.zoom img { width: 100%; height: auto; }
 
 /* 다이어그램 틀: 드래그 이동, 확대 1~4배 (process-steps.js) */
 .dg {
