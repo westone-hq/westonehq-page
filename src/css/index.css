@@ -126,19 +126,6 @@
   width: 6px; height: 6px; border-radius: 1.5px; background: var(--w-green);
 }
 .pkg-note { margin-top: 20px; }
-/* 좁은 화면에서 항목 목록 접기 (main-sections.js 가 .pkg-fold 를 붙인다. JS가 없으면 펼친 채) */
-.pkg-more {
-  display: none; align-self: flex-start; align-items: center; gap: 8px;
-  min-height: 44px; margin: 6px 0 0 -10px; padding: 0 10px;
-  border-radius: 8px; font-size: 13.5px; font-weight: 600; color: var(--w-ink-2);
-}
-.pkg-more:hover { color: var(--w-ink); }
-.pkg-more::after {
-  content: ""; width: 7px; height: 7px; margin-top: -3px;
-  border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: rotate(45deg);
-}
-.pkg-more[aria-expanded="true"]::after { margin-top: 3px; transform: rotate(225deg); }
-.pkg > ul.folding { overflow: hidden; }
 
 /* ============================================================
    케이스 스터디: 그림 카드 2×2 (좁으면 1열). 카드 전체가 케이스 페이지 링크
@@ -279,15 +266,10 @@
 }
 
 @media (max-width: 640px) {
-  /* 진행 방식 탭 3×2 와 같은 기준 */
-  .pkg { grid-template-columns: 1fr; gap: 18px; padding: 24px 22px; }
-  .pkg ul { padding-left: 0; border-left: 0; border-top: 1px solid var(--w-line); padding-top: 18px; }
-  .pkg-links { order: 3; }
-  .pkg-fold .pkg { gap: 8px; padding-bottom: 8px; }
-  .pkg-fold .pkg.open { padding-bottom: 22px; }
-  .pkg-fold .pkg-links { padding-top: 16px; }
-  .pkg-fold .pkg-more { display: inline-flex; order: 4; }
-  .pkg-fold .pkg:not(.open) > ul { display: none; }
+  /* 좁은 화면(진행 방식 탭 3×2 와 같은 기준): 패키지 카드는 제목 · 설명 · 링크만. 항목 목록은 상세 페이지에서 본다 */
+  .pkg { grid-template-columns: 1fr; padding: 24px 22px; }
+  .pkg > ul { display: none; }
+  .pkg-links { padding-top: 16px; }
 }
 
 @media (max-width: 560px) {
