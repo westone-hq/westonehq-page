@@ -10,7 +10,7 @@
 //    iframe 크기는 꽉 찬 영상 크기로 한 번만 정하고 transform: scale() 로만 줄인다.
 //    검은 칸(.case-film-box)은 너비·높이·모서리를 함께 바꾸고, 바깥 틀 높이는 보이는 높이에 맞춘다.
 //    고정 구간: 꽉 찬 뒤에만 바깥 틀 높이에 고정 거리를 더한다(그 순간 아래 본문은 화면 밖이라 보이지 않는다).
-// 3) 640px 이하: 같은 순서로 열리되 화면 가로 전체 16:9, 커지기·고정 없음.
+// 3) 640px 이하: 같은 순서로 열리되 본문 칼럼 폭 16:9(좌우 여백·모서리 둥글기 그대로), 커지기·고정 없음.
 //    동작 줄이기: 등장·커지기 없이 본문 칼럼 크기, 멈춘 상태, 스틸(poster)을 덮어 둔다.
 // 4) 일시정지/재생 버튼(영상 오른쪽 아래), 화면 밖에서는 잠시 멈춤.
 
@@ -64,7 +64,7 @@ export function initCaseFilm() {
   }
 
   // ── 크기 ──
-  // mode: 'live'(커지기·고정) | 'wide'(640 이하, 가로 전체) | 'col'(동작 줄이기, 본문 칼럼)
+  // mode: 'live'(커지기·고정) | 'wide'(640 이하, 본문 칼럼 16:9, 등장만) | 'col'(동작 줄이기, 본문 칼럼)
   let mode = '', vw0 = 0, vh0 = 0, colW = 0, viewW = 0, bigH = 0, pin = 0, raf = 0
 
   const measure = () => {
@@ -77,7 +77,7 @@ export function initCaseFilm() {
     root.classList.toggle('wide', mode === 'wide')
     // iframe 은 꽉 찬 영상 크기로 한 번만 정한다
     if (mode === 'live') vw0 = Math.min(viewW, bigH * 16 / 9)
-    else vw0 = mode === 'wide' ? viewW : colW
+    else vw0 = colW
     vh0 = vw0 * 9 / 16
     frame.style.width = `${vw0}px`
     frame.style.height = `${vh0}px`
@@ -102,9 +102,8 @@ export function initCaseFilm() {
     raf = 0
     const smallH = colW * 9 / 16
     if (mode !== 'live') {
-      const H = mode === 'wide' ? vh0 : smallH
-      draw(mode === 'wide' ? viewW : colW, H, mode === 'wide' ? 0 : RADIUS)
-      root.style.height = `${H}px`
+      draw(colW, smallH, RADIUS)
+      root.style.height = `${smallH}px`
       return
     }
     // 칸 위쪽이 헤더 아래 선에 닿기까지의 거리(맨 위 기준). 칸 위쪽 위치는 칸 높이와 상관없다
