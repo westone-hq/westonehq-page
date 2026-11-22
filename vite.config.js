@@ -22,7 +22,8 @@ const CASES = [
   ['sunstone', 'Sunstone', '차에 있지만 잘 쓰이지 않는 기능을 필요한 순간에 먼저 권하고, 말 한마디로 켜고 끄는 차량용 앱입니다.'],
   ['otis', 'OTIS V-Check', '설치 기사의 휴대폰으로 승강기 진동과 소음을 재고, 리포트를 만들어 메일로 보내는 현장 앱입니다.'],
   ['welfare', '돌봄 일지', '돌봄 일지를 쓰고 다음 근무자에게 인수인계하는 앱입니다.'],
-  ['education', '직업훈련 과정 강의', '직업훈련 과정에서 Flutter 앱 개발과 AI 활용을 강의합니다.'],
+  // 2026-11-22 강의 케이스 보류: 빌드에서 뺀다(cases/education.html 파일은 남김). 되살릴 때 주석만 푼다
+  // ['education', '직업훈련 과정 강의', '직업훈련 과정에서 Flutter 앱 개발과 AI 활용을 강의합니다.'],
 ]
 
 const detail = (dir, [key, name, description]) => [

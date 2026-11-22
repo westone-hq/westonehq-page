@@ -20,10 +20,10 @@ westone은 웹사이트·앱·업무 자동화·AI 에이전트를 만들고, �
 |---|---|
 | `/` (`index.html`) | 메인: 히어로, 함께한 곳, 패키지 8개, 케이스 스터디 목록, 진행 방식 6단계, 출시 서비스, 팀·eBook, 자주 묻는 질문, 상담 신청 |
 | `/packages/*.html` | 패키지 상세 8장: agent, automation, web, app, unity, server, education, maintenance |
-| `/cases/*.html` | 케이스 스터디 5장: lms, sunstone, otis, welfare, education |
+| `/cases/*.html` | 케이스 스터디 4장: lms, sunstone, otis, welfare (education 은 보류, 빌드 제외. 파일은 남겨 둠) |
 | `/process.html` | 진행 방식 안내(옛 디자인, 아직 유지) |
 
-상세 페이지 13장은 사이드바 없이 가운데 한 칼럼(880px)이고, 맨 아래 이전·다음 링크로 오간다. 패키지 상세의 "상담 신청" 버튼은 `index.html?interest=키#contact` 로 가서 문의 폼의 관심 패키지를 미리 고른다.
+상세 페이지 12장은 사이드바 없이 가운데 한 칼럼(880px)이고, 맨 아래 이전·다음 링크로 오간다. 패키지 상세의 "상담 신청" 버튼은 `index.html?interest=키#contact` 로 가서 문의 폼의 관심 패키지를 미리 고른다.
 
 ## 프로젝트 구조
 
@@ -32,7 +32,7 @@ westonehq-page/
 ├── index.html              # 메인
 ├── process.html            # 진행 방식 안내 (옛 디자인)
 ├── packages/               # 패키지 상세 8장
-├── cases/                  # 케이스 스터디 5장
+├── cases/                  # 케이스 스터디 4장 (education.html 은 보류, 빌드 제외)
 ├── src/
 │   ├── css/
 │   │   ├── shared.css      # 디자인 값(--w-), 헤더·푸터, 진행 단계·다이어그램 틀·크게 보기 등 공통
