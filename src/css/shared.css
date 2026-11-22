@@ -155,7 +155,6 @@ button { font-family: inherit; cursor: pointer; border: none; background: transp
 .link:hover { border-color: var(--w-ink); }
 .link.green { color: var(--w-green); border-color: rgba(12, 140, 94, .35); }
 .link.green:hover { border-color: var(--w-green); }
-.link.off { color: var(--w-ink-3); border-color: transparent; pointer-events: none; font-weight: 500; }
 
 /* ============================================================
    5. Header & Navigation

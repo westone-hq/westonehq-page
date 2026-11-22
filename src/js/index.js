@@ -54,7 +54,7 @@ const INTEREST_BY_KEY = {
   automation: '업무 자동화',
   web: '웹사이트·웹 플랫폼',
   app: '앱·웹앱',
-  unity: 'Unity·인터랙티브',
+  unity: 'Unity 게임·콘텐츠',
   server: '서버·데이터',
   education: '강의·교육',
   maintenance: '유지보수·운영 지원',
