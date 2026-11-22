@@ -1,79 +1,108 @@
 # westonehq-page
 
-[westone](https://www.westonehq.com/) 2인 개발팀의 공식 웹사이트 소스 코드입니다.
+[westone](https://www.westonehq.com/) 개발팀의 공식 웹사이트 소스 코드입니다.
 
-## 🚀 프로젝트 소개
+## 프로젝트 소개
 
-westone은 복잡한 반복 업무를 프로그램으로 자동화하고, 확장하는 비즈니스를 위해 맞춤형 웹 서비스를 구축하는 2인 개발팀입니다.
-이 프로젝트는 westone의 서비스, 포트폴리오, 진행 방식 등을 소개하는 공식 웹페이지입니다.
+westone은 웹사이트·앱·업무 자동화·AI 에이전트를 만들고, 납품 후 사용 교육과 운영까지 함께하는 개발팀입니다.
+이 사이트는 패키지(할 수 있는 일), 케이스 스터디, 진행 방식을 소개하고 상담 신청을 받습니다.
 
-### 주요 서비스
-- **REPORTONE (업무 자동화)**: 반복되는 자료조사, 통계, 보고서 작업을 클릭 한 번에 처리할 수 있도록 도와주는 전용 프로그램 개발
-- **SERVICEONE (웹 서비스)**: 홈페이지, 쇼핑몰, 예약/접수 및 매장 주문 시스템 등 비즈니스 확장을 위한 맞춤형 솔루션 구축
+## 기술 스택
 
-## 🛠 기술 스택
-
-- **Core**: HTML5, CSS3, JavaScript (Vanilla)
+- **Core**: HTML, CSS, JavaScript (Vanilla, ES 모듈)
 - **Build Tool**: [Vite](https://vitejs.dev/)
-- **Templating**: [Handlebars](https://handlebarsjs.com/) (`vite-plugin-handlebars` 활용)
+- **Templating**: [Handlebars](https://handlebarsjs.com/) (`vite-plugin-handlebars`, 페이지별 값은 `vite.config.js` 의 pageData)
+- **Hosting**: Cloudflare Workers 정적 자산 (`wrangler.toml`, `dist/` 를 그대로 올린다)
 
-## 📁 프로젝트 구조
+## 페이지 구성
+
+| 주소 | 내용 |
+|---|---|
+| `/` (`index.html`) | 메인: 히어로, 함께한 곳, 패키지 8개, 케이스 스터디 카드, 진행 방식 6단계, 팀·eBook, 자주 묻는 질문, 상담 신청 |
+| `/packages/*.html` | 패키지 상세 8장: agent, automation, web, app, unity, server, education, maintenance |
+| `/cases/*.html` | 케이스 스터디 4장: lms, sunstone, otis, welfare (education 은 보류, 빌드 제외. 파일은 남겨 둠) |
+| `/process.html` | 진행 방식 안내(옛 디자인). 숨김(빌드 제외). 파일은 남겨 둠, 주소는 `/#process` 로 301 |
+
+상세 페이지 12장은 사이드바 없이 가운데 한 칼럼(880px)이고, 맨 아래 이전·다음 링크로 오간다. 패키지 상세의 "상담 신청" 버튼은 `index.html?interest=키#contact` 로 가서 문의 폼의 관심 패키지를 미리 고른다.
+
+## 프로젝트 구조
 
 ```text
 westonehq-page/
-├── index.html          # 메인 페이지 (히어로, 서비스 요약, 케이스, 진행방식 등)
-├── reportone.html      # 업무 자동화(REPORTONE) 소개 상세 페이지
-├── serviceone.html     # 웹 서비스(SERVICEONE) 소개 상세 페이지
-├── process.html        # 진행 방식 및 계약서 안내 페이지
-├── cases/              # 포트폴리오 상세 페이지
-│   ├── lms.html        # 사례 1: 13개 대학 LMS 보고서 자동화
-│   └── kiosk.html      # 사례 2: 동네 분식점 매장 주문 시스템
+├── index.html              # 메인
+├── process.html            # 진행 방식 안내 (옛 디자인, 숨김(빌드 제외))
+├── packages/               # 패키지 상세 8장
+├── cases/                  # 케이스 스터디 4장 (education.html 은 보류, 빌드 제외)
 ├── src/
-│   ├── css/            # 스타일시트 파일 (index.css 등)
-│   ├── js/             # 스크립트 파일 (index.js 등)
-│   └── partials/       # Handlebars 공통 컴포넌트 (header, footer, head 등)
-├── public/             # 정적 에셋 (이미지 등, 필요 시)
-├── vite.config.js      # Vite 빌드 및 Handlebars 플러그인 라우팅 설정
-└── package.json        # 의존성 모듈 및 스크립트
+│   ├── css/
+│   │   ├── shared.css      # 디자인 값(--w-), 헤더·푸터, 진행 단계·다이어그램 틀·크게 보기 등 공통
+│   │   ├── index.css       # 메인 전용
+│   │   ├── detail.css      # 패키지·케이스 상세 공통
+│   │   └── pages.css, process.css   # process.html 전용 (숨김(빌드 제외))
+│   ├── js/
+│   │   ├── index.js        # 메인 진입점 (메뉴, 섹션 표시, 문의 폼)
+│   │   ├── detail.js       # 상세 진입점
+│   │   ├── shared.js       # 헤더·모바일 메뉴 등
+│   │   ├── hero-blueprint.js, main-sections.js   # 메인 히어로 그림, 함께한 곳·케이스 카드(#case-… 강조)
+│   │   ├── process-steps.js  # 진행 방식 6단계 탭
+│   │   ├── diagram-view.js   # 설계 문서 보기: 탭, 다이어그램 확대·이동 (메인·OTIS 공용)
+│   │   ├── case-film.js      # 케이스 상단 영상 (본문 크기에서 스크롤하면 화면 전체로, 일시정지, 스틸)
+│   │   └── lightbox.js       # 이미지 크게 보기
+│   └── partials/           # Handlebars 조각
+│       ├── head.hbs, header.hbs, footer.hbs
+│       ├── process-steps.hbs           # 진행 방식 6단계 (메인)
+│       ├── process-mini.hbs            # 진행 순서 한 줄 요약 + 메인 #process 링크 (패키지 상세 8장)
+│       ├── diagram-view.hbs            # 설계 문서 다이어그램 틀 (한 장 또는 탭 3개)
+│       ├── case-film.hbs               # 케이스 상단 전체 영상
+│       ├── cta-contact.hbs             # 상세 페이지 아래 상담 신청 띠
+│       ├── side-nav-packages.hbs, side-nav-cases.hbs   # 상세 왼쪽 목록 (지금은 쓰지 않음)
+│       └── ai-widget.hbs               # AI 위젯 (지금은 꺼 둠)
+├── public/                 # 그대로 복사되는 정적 파일
+│   ├── _redirects          # 옛 주소 → 새 주소 (301)
+│   ├── films/              # 케이스 소개 영상 sunstone·otis·lms·care (HTML 애니메이션, ?embed=1 로 넣는다)
+│   ├── images/             # 케이스 이미지(cases/), 진행 방식 자료(process/), eBook 표지 등
+│   ├── ebook/              # eBook 전체본 PDF 2권
+│   └── docs/               # 숨김(빌드 제외): 계약서·일정표·기획서 PDF 는 git rm, 원본은 저장소 루트 docs/ 에 남김
+├── worker.js               # AI 위젯용 Worker (위젯을 다시 켤 때 손본다)
+├── wrangler.toml           # Cloudflare 배포 설정
+├── vite.config.js          # 페이지 목록, 페이지별 제목·설명, Handlebars 설정
+└── package.json
 ```
 
-## 💻 시작하기
+### 페이지를 더할 때
+
+- 패키지·케이스 상세: `vite.config.js` 의 `PACKAGES` / `CASES` 배열에 한 줄을 더하고, 같은 키 이름의 HTML 을 만든 뒤 왼쪽 목록 조각에도 더한다.
+- 케이스에 영상이 생기면 제목 섹션 바로 아래에 `{{> case-film src="…?embed=1" title="…" poster="…"}}` 를 넣는다.
+
+### 영상 (`public/films/`)
+
+`index.html?embed=1` 은 소리 없이 저절로 재생하고 끝나면 처음부터 반복한다.
+같은 origin 의 부모 창에서 `postMessage` 로 `{type:'pause'}`, `{type:'play'}` 를 보낼 수 있다. `&paused=1` 이면 멈춘 채로 시작한다.
+
+## 시작하기
 
 ### 필수 조건
-- [Node.js](https://nodejs.org/) (NVM 등을 통해 설정된 버전을 권장합니다. `.nvmrc` 참고)
+- [Node.js](https://nodejs.org/) (`.nvmrc` 가 있으면 그 버전)
 
 ### 설치 및 로컬 실행
 
-1. 저장소 클론 및 이동
 ```bash
 git clone https://github.com/[사용자계정]/westonehq-page.git
 cd westonehq-page
-```
-
-2. 패키지 설치
-```bash
 npm install
-```
-
-3. 로컬 개발 서버 실행
-```bash
 npm run dev
 ```
-개발 서버가 시작되면 브라우저가 자동으로 열리거나 로컬 주소(예: `http://localhost:5173`)에서 페이지를 확인할 수 있습니다.
 
-### 빌드 및 배포 준비
+개발 서버가 시작되면 브라우저가 열리거나 `http://localhost:5173` 에서 확인할 수 있다.
 
-- 프로덕션 환경을 위한 최적화된 정적 파일 빌드
+### 빌드
+
 ```bash
-npm run build
+npm run build     # dist/ 에 정적 파일 생성
+npm run preview   # 빌드 결과 미리보기
 ```
 
-- 빌드된 결과물을 로컬에서 미리보기
-```bash
-npm run preview
-```
-
-## 📞 문의 및 상담 (Contact)
+## 문의
 
 - **웹사이트**: [https://www.westonehq.com/](https://www.westonehq.com/)
 - **이메일**: [westone251113@gmail.com](mailto:westone251113@gmail.com)

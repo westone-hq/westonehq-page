@@ -1,7 +1,15 @@
-import { initHeader, initMobileMenu, initAIWidget, initScrollReveal } from './shared.js'
+import { initHeader, initMobileMenu, initAIWidget } from './shared.js'
+import { initHeroBlueprint } from './hero-blueprint.js'
+import { initMainSections } from './main-sections.js'
+import { initProcessSteps } from './process-steps.js'
+import { initLightbox } from './lightbox.js'
 
 initHeader()
 initMobileMenu()
+initHeroBlueprint()
+initMainSections()
+initProcessSteps()
+initLightbox()
 
 // ===== WESTONE AI 위젯: 다음 업데이트 시 활성화 예정. 아래 블록 주석 해제하면 부활 =====
 /*
@@ -16,8 +24,6 @@ initAIWidget({
 })
 */
 
-initScrollReveal('.pkg-header, .pkg-card, .case-header, .case-card, .proc-header, .proc-step, .about-team, .about-books, .contact-copy, .contact-form-wrap')
-
 // ── Section active spy ────────────────────────────────────────────────────
 const activeObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
@@ -31,7 +37,7 @@ const activeObserver = new IntersectionObserver((entries) => {
   })
 }, { rootMargin: '-20% 0px -60% 0px', threshold: 0 })
 
-;['packages', 'cases', 'process', 'about', 'contact'].forEach(id => {
+;['packages', 'cases', 'process', 'contact'].forEach(id => {
   const el = document.getElementById(id)
   if (el) activeObserver.observe(el)
 })
@@ -41,6 +47,21 @@ const contactForm  = document.getElementById('contactForm')
 const submitBtn    = document.querySelector('.contact-submit')
 const successMsg   = document.getElementById('contactSuccessMsg')
 const errorMsg     = document.getElementById('contactErrorMsg')
+
+// ── 패키지 페이지에서 넘어오면 관심 패키지를 미리 고른다 (?interest=키) ──
+const INTEREST_BY_KEY = {
+  agent: 'AI 에이전트·AX 구축',
+  automation: '업무 자동화',
+  web: '웹사이트·웹 플랫폼',
+  app: '앱·웹앱',
+  unity: 'Unity 게임·콘텐츠',
+  server: '서버·데이터',
+  education: '강의·교육',
+  maintenance: '유지보수·운영 지원',
+}
+const interestKey = new URLSearchParams(location.search).get('interest')
+const interestSelect = contactForm?.elements.namedItem('interest')
+if (interestSelect && INTEREST_BY_KEY[interestKey]) interestSelect.value = INTEREST_BY_KEY[interestKey]
 
 contactForm?.addEventListener('submit', async (e) => {
   e.preventDefault()
@@ -68,7 +89,7 @@ contactForm?.addEventListener('submit', async (e) => {
     if (successMsg) { successMsg.style.display = 'block'; successMsg.setAttribute('aria-hidden', 'false') }
   } catch {
     if (errorMsg) { errorMsg.style.display = 'block'; errorMsg.setAttribute('aria-hidden', 'false') }
-    submitBtn.textContent = '상담 신청 보내기'
+    submitBtn.textContent = '무료 상담 신청하기'
     submitBtn.disabled = false
   }
 })

@@ -41,6 +41,24 @@
   --badge-text: #0F6E56;
   --shadow-float: 0 4px 16px rgba(23, 24, 27, 0.14);
   --shadow-overlay: 0 12px 36px rgba(23, 24, 27, 0.24);
+
+  /* 새 디자인 값 (메인 개편). 위의 기존 값은 다른 페이지가 쓰므로 그대로 둔다 */
+  --w-bg: #FFFFFF;
+  --w-tile: #FAF8F5;
+  --w-tile-2: #F2F0EA;
+  --w-line: #E4E1DA;
+  --w-line-2: #D3CFC6;
+  --w-ink: #121715;
+  --w-ink-2: rgba(18, 23, 21, .6);
+  --w-ink-3: rgba(18, 23, 21, .42);
+  --w-green: #0C8C5E;
+  --w-green-hi: #18E299;
+  --w-green-soft: #E7F4EE;
+  --w-serif: 'MaruBuri', 'Noto Serif KR', serif;
+  --w-sans: 'Pretendard Variable', Pretendard, -apple-system, sans-serif;
+  --w-frame: 1240px;
+  --header-h: 64px;
+  --w-pad: clamp(20px, 5vw, 64px);
 }
 
 /* ============================================================
@@ -103,108 +121,113 @@ button { font-family: inherit; cursor: pointer; border: none; background: transp
 }
 
 /* ============================================================
-   4. Header & Navigation
+   4. 공통 요소 (새 디자인: 버튼·링크·페이지 틀)
+   ============================================================ */
+.frame {
+  max-width: var(--w-frame);
+  margin-inline: auto;
+  border-left: 1px solid var(--w-line);
+  border-right: 1px solid var(--w-line);
+}
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  height: 44px; padding: 0 20px; border-radius: 8px;
+  font-family: var(--w-sans); font-size: 15px; font-weight: 600; line-height: 1;
+  white-space: nowrap; cursor: pointer;
+  transition: background-color .15s, border-color .15s, color .15s;
+}
+.btn-dark { background: var(--w-ink); color: #fff; border: 1px solid var(--w-ink); }
+.btn-dark:hover { background: #2a312e; border-color: #2a312e; }
+.btn-light { background: #fff; color: var(--w-ink); border: 1px solid var(--w-line-2); }
+.btn-light:hover { border-color: var(--w-ink); }
+.btn:disabled { opacity: .55; cursor: default; }
+
+.link {
+  font-size: 14px; font-weight: 600; color: var(--w-ink);
+  border-bottom: 1px solid var(--w-line-2); padding-bottom: 1px;
+  transition: border-color .15s;
+}
+.link:hover { border-color: var(--w-ink); }
+.link.green { color: var(--w-green); border-color: rgba(12, 140, 94, .35); }
+.link.green:hover { border-color: var(--w-green); }
+
+/* ============================================================
+   5. Header & Navigation
    ============================================================ */
 main { padding-top: 64px; }
 
 .global-header {
-  position: fixed; top: 0; left: 0; width: 100%; height: 64px;
-  background-color: rgba(255, 255, 255, 0.85);
-  backdrop-filter: saturate(1.2) blur(8px);
-  -webkit-backdrop-filter: saturate(1.2) blur(8px);
-  z-index: 1000; display: flex; align-items: center;
-  transition: border-color var(--ease-snap);
-  border-bottom: 1px solid transparent;
+  position: fixed; top: 0; left: 0; width: 100%; height: 64px; z-index: 1000;
+  background-color: rgba(255, 255, 255, .9);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--w-line);
+  font-family: var(--w-sans);
 }
 
-.global-header.is-scrolled { border-bottom: 1px solid var(--accent-faint); }
-
-.header-container { width: 100%; display: flex; align-items: center; justify-content: space-between; }
+.header-in {
+  max-width: var(--w-frame); height: 100%; margin-inline: auto;
+  display: flex; align-items: center; gap: 36px;
+  padding: 0 var(--w-pad);
+  border-left: 1px solid var(--w-line);
+  border-right: 1px solid var(--w-line);
+}
 
 .header-logo {
-  font-weight: 600;
-  font-size: 18px;
-  letter-spacing: 0.08em;
-  text-transform: lowercase;
+  font-size: 20px; font-weight: 750; letter-spacing: -.04em; color: var(--w-ink);
 }
 
-.header-desktop-nav { display: flex; align-items: center; gap: 32px; }
-.header-menu-list { display: flex; gap: 24px; align-items: center; }
+.header-desktop-nav { margin-right: auto; }
+.header-menu-list { display: flex; gap: 26px; align-items: center; }
 
 .header-menu-link {
-  font-size: 15px; color: var(--gray); padding-block: 8px;
-  position: relative; transition: color var(--ease-snap);
+  font-size: 15px; font-weight: 500; color: var(--w-ink-2);
+  transition: color .15s;
 }
-
-.header-menu-link::after {
-  content: ""; position: absolute; left: 0; bottom: -1px; width: 100%; height: 1px;
-  background-color: var(--ink); transform: scaleX(0); transform-origin: left;
-  transition: transform var(--ease-snap);
-}
-
 .header-menu-link:hover,
-.header-menu-link[aria-current="true"] { color: var(--ink); }
+.header-menu-link[aria-current="true"] { color: var(--w-ink); }
 
-.header-menu-link:hover::after,
-.header-menu-link[aria-current="true"]::after { transform: scaleX(1); }
+.header-cta-btn { height: 38px; padding: 0 16px; font-size: 14px; }
 
-.header-cta-btn {
-  display: inline-flex; align-items: center; justify-content: center;
-  height: var(--btn-h-sm); padding: 0 18px;
-  background-color: transparent; color: var(--accent);
-  border: 1px solid var(--accent); border-radius: var(--radius);
-  font-size: 15px; font-weight: 600;
-  transition: background-color var(--ease-snap), color var(--ease-snap);
-}
-
-.header-cta-btn:hover { background-color: var(--accent); color: #ffffff; }
-
-/* ============================================================
-   5. Mobile Toggle & Overlay
-   ============================================================ */
-.mobile-toggle { display: none; width: 24px; height: 24px; position: relative; z-index: 1002; }
+/* ── Mobile Toggle & Overlay ── */
+.mobile-toggle { display: none; width: 24px; height: 24px; position: relative; flex-shrink: 0; }
 
 .mobile-toggle-line {
   position: absolute; left: 0; width: 24px; height: 2px;
-  background-color: var(--ink);
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-              background-color 0.3s ease-out,
-              top 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: var(--w-ink);
+  transition: transform .3s cubic-bezier(.4, 0, .2, 1), top .3s cubic-bezier(.4, 0, .2, 1);
 }
-
 .mobile-toggle-line.top { top: 7px; }
 .mobile-toggle-line.bottom { top: 15px; }
-.mobile-toggle[aria-expanded="true"] .mobile-toggle-line { background-color: #ffffff; }
 .mobile-toggle[aria-expanded="true"] .mobile-toggle-line.top { top: 11px; transform: rotate(45deg); }
 .mobile-toggle[aria-expanded="true"] .mobile-toggle-line.bottom { top: 11px; transform: rotate(-45deg); }
 
+/* 헤더 아래로 펼쳐서, 헤더의 닫기 버튼이 계속 보이게 한다 */
 .mobile-overlay {
-  position: fixed; inset: 0; background-color: var(--ink); z-index: 1001;
-  display: flex; flex-direction: column; padding: 80px 24px 40px;
+  position: fixed; top: 64px; left: 0; right: 0; bottom: 0; z-index: 999;
+  background-color: var(--w-bg);
+  display: flex; flex-direction: column; padding: 24px var(--w-pad) 40px;
+  font-family: var(--w-sans);
   opacity: 0; pointer-events: none; visibility: hidden;
-  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-              visibility 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity .3s cubic-bezier(.4, 0, .2, 1), visibility .3s cubic-bezier(.4, 0, .2, 1);
 }
 
 body.menu-open { overflow: hidden; }
 body.menu-open .mobile-overlay { opacity: 1; pointer-events: auto; visibility: visible; }
 .mobile-overlay > nav { flex-grow: 1; }
-.mobile-menu-list { display: flex; flex-direction: column; gap: 24px; margin-bottom: auto; }
-.mobile-menu-link { font-size: 28px; font-weight: 600; color: #ffffff; display: inline-block; }
-
-.mobile-cta-btn {
-  display: flex; width: 100%; justify-content: center; align-items: center;
-  height: var(--btn-h-lg); background-color: transparent;
-  color: var(--accent); border: 1px solid var(--accent); border-radius: var(--radius);
-  font-size: 16px; font-weight: 600; margin-bottom: 32px;
-  transition: background-color var(--ease-snap), color var(--ease-snap);
+.mobile-menu-list { display: flex; flex-direction: column; }
+.mobile-menu-link {
+  display: block; padding: 16px 0; border-bottom: 1px solid var(--w-line);
+  font-size: 22px; font-weight: 650; letter-spacing: -.03em; color: var(--w-ink);
 }
+.mobile-cta-btn { display: flex; width: 100%; height: 52px; font-size: 16px; margin-bottom: 24px; }
+.mobile-copy { margin: 0; font-size: 12.5px; color: var(--w-ink-3); text-align: center; }
 
-.mobile-cta-btn:hover { background-color: var(--accent); color: #ffffff; }
-.mobile-copy { font-size: 12px; color: var(--gray); text-align: center; }
-
-@media (max-width: 768px) {
+@media (max-width: 860px) {
   .header-desktop-nav { display: none; }
+  .header-in { gap: 16px; }
+  .header-logo { margin-right: auto; }
   .mobile-toggle { display: block; }
 }
 
@@ -212,28 +235,196 @@ body.menu-open .mobile-overlay { opacity: 1; pointer-events: auto; visibility: v
    6. Footer
    ============================================================ */
 .footer {
-  background-color: var(--ink);
-  border-top: 1px solid var(--line-dark);
-  padding: 40px 0;
-  color: #ffffff;
+  background-color: var(--w-bg);
+  border-top: 1px solid var(--w-line);
+  font-family: var(--w-sans);
+  font-size: 13.5px; color: var(--w-ink-2);
 }
 
-.footer-top { display: flex; justify-content: space-between; align-items: flex-start; }
+.footer-in {
+  max-width: var(--w-frame); margin-inline: auto;
+  padding: 32px var(--w-pad) 40px;
+  border-left: 1px solid var(--w-line);
+  border-right: 1px solid var(--w-line);
+}
+
+.footer-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; }
 .footer-brand { display: flex; flex-direction: column; }
-.footer-logo { font-size: 16px; font-weight: 600; color: #ffffff; }
-.footer-info { font-size: 12px; color: rgba(255, 255, 255, 0.4); line-height: 1.6; margin: 12px 0 0 0; }
-.footer-nav { display: flex; gap: 24px; align-items: center; }
-.footer-nav a { font-size: 13px; color: rgba(255, 255, 255, 0.5); transition: color var(--ease-snap); }
-.footer-nav a:hover, .footer-nav a:focus-visible { color: #ffffff; }
-.footer-bottom { font-size: 12px; color: rgba(255, 255, 255, 0.35); margin: 40px 0 0 0; }
+.footer-logo { font-size: 17px; font-weight: 750; letter-spacing: -.04em; color: var(--w-ink); }
+.footer-info { font-size: 13.5px; line-height: 1.7; margin: 10px 0 0; color: var(--w-ink-2); }
+.footer-nav { display: flex; flex-wrap: wrap; gap: 8px 22px; align-items: center; }
+.footer-nav a { color: var(--w-ink-2); transition: color .15s; }
+.footer-nav a:hover, .footer-nav a:focus-visible { color: var(--w-ink); }
+.footer-bottom { font-size: 13.5px; color: var(--w-ink-3); margin: 28px 0 0; }
 
 @media (max-width: 768px) {
-  .footer-top { flex-direction: column; gap: 32px; }
-  .footer-nav { flex-wrap: wrap; gap: 16px 24px; }
+  .footer-top { flex-direction: column; gap: 20px; }
 }
 
 /* ============================================================
-   7. AI Widget
+   7. 새 디자인 바탕 (.w-page: 메인·상세 페이지)
+   ============================================================ */
+/* ── 바탕 ── */
+body.w-page {
+  background: var(--w-bg);
+  color: var(--w-ink);
+  font-family: var(--w-sans);
+  font-size: 16px;
+  line-height: 1.65;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+:where(.w-page main) :where(h1, h2, h3, p) { margin: 0; text-wrap: balance; }
+
+.w-page main :focus-visible { outline: 2px solid var(--w-green); outline-offset: 3px; border-radius: 6px; }
+.w-page ::selection { background: var(--w-green); color: #fff; }
+
+.nw { white-space: nowrap; }
+
+.sec { padding: clamp(72px, 9vw, 112px) var(--w-pad); border-top: 1px solid var(--w-line); }
+.sec-tile { background: var(--w-tile); }
+.h2 { font-size: clamp(26px, 3vw, 36px); line-height: 1.3; letter-spacing: -.03em; font-weight: 650; margin-bottom: 40px; }
+.h3 { font-size: 19px; line-height: 1.4; letter-spacing: -.02em; font-weight: 600; }
+.small { font-size: 14px; line-height: 1.55; color: var(--w-ink-2); }
+
+/* ── 진행 단계 (process-steps 조각): 단계 버튼 = 탭, 아래 패널 ──
+   패널은 칸이 넓으면(960px 이상) 왼쪽 글·오른쪽 자료 두 칼럼, 좁으면 글 → 자료 한 칼럼.
+   메인은 두 칼럼, 상세(880px 칼럼)는 한 칼럼이 된다. */
+.proc { container: proc / inline-size; }
+.steps {
+  display: grid; grid-template-columns: repeat(6, minmax(0, 1fr));
+  border: 1px solid var(--w-line); border-radius: 12px; overflow: hidden; background: #fff;
+}
+.steps [role="tab"] {
+  display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start;
+  text-align: left; padding: 16px 16px 18px; border-left: 1px solid var(--w-line);
+  font-size: 14.5px; font-weight: 600; line-height: 1.35; color: var(--w-ink); background: #fff;
+  transition: background-color .15s, color .15s;
+}
+.steps [role="tab"]:first-child { border-left: 0; }
+.steps [role="tab"]:hover { background: var(--w-tile); }
+.steps [role="tab"][aria-selected="true"] { background: var(--w-ink); color: #fff; }
+.steps [role="tab"]:focus-visible { outline: 2px solid var(--w-green); outline-offset: -4px; border-radius: 0; }
+.step-no { display: block; font-size: 13px; font-weight: 500; color: var(--w-green); margin-bottom: 10px; }
+.steps [aria-selected="true"] .step-no { color: var(--w-green-hi); }
+@media (max-width: 640px) {
+  /* 좁은 화면: 3칸 × 2줄로 6단계를 모두 보인다 */
+  .steps { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .steps [role="tab"] { padding: 12px 12px 14px; font-size: 14px; }
+  .steps [role="tab"]:nth-child(3n + 1) { border-left: 0; }
+  .steps [role="tab"]:nth-child(n + 4) { border-top: 1px solid var(--w-line); }
+  .step-no { margin-bottom: 6px; }
+}
+
+.step-panel { display: grid; gap: 28px; padding-top: 32px; }
+.step-panel[hidden] { display: none; }
+.step-panel:focus-visible { outline: 2px solid var(--w-green); outline-offset: 4px; border-radius: 6px; }
+@container proc (min-width: 960px) {
+  .step-panel { grid-template-columns: minmax(0, 44fr) minmax(0, 56fr); gap: 56px; align-items: start; }
+}
+.step-ttl { font-size: 22px; line-height: 1.35; letter-spacing: -.025em; font-weight: 650; }
+.step-desc { margin-top: 12px; font-size: 16px; line-height: 1.75; letter-spacing: -.01em; color: var(--w-ink-2); }
+.step-lists { display: grid; gap: 20px; margin-top: 26px; padding-top: 22px; border-top: 1px solid var(--w-line); }
+.step-sub { margin: 0 0 8px; font-size: 13.5px; font-weight: 600; color: var(--w-ink); }
+.step-lists ul { display: grid; gap: 5px; }
+.step-lists li { position: relative; padding-left: 14px; font-size: 15px; line-height: 1.6; color: var(--w-ink-2); }
+.step-lists li::before { content: ""; position: absolute; left: 0; top: .78em; width: 5px; height: 1px; background: var(--w-ink-3); }
+.step-media { min-width: 0; }
+.step-media > .step-fig { margin-top: 0; }
+.step-fig { margin: 18px 0 0; }
+.step-fig figcaption { margin-top: 10px; font-size: 13.5px; color: var(--w-ink-2); }
+
+/* 1단계 질문 카드, 3단계 결제 카드 */
+.step-card { padding: 24px 26px 26px; border: 1px solid var(--w-line); border-radius: 14px; background: var(--w-tile); }
+.step-card-ttl { font-size: 16px; font-weight: 600; letter-spacing: -.015em; }
+.step-asks { display: grid; gap: 12px; margin-top: 16px; }
+.step-asks li { position: relative; padding-left: 30px; font-size: 15.5px; line-height: 1.5; }
+.step-asks li::before {
+  content: "?"; position: absolute; left: 0; top: .1em; width: 19px; height: 19px;
+  display: grid; place-items: center; border-radius: 50%; background: #fff; border: 1px solid var(--w-line-2);
+  font-size: 12px; font-weight: 700; line-height: 1; color: var(--w-green);
+}
+.step-pay { margin-top: 14px; border-top: 1px solid var(--w-line-2); }
+.step-pay li { padding: 12px 0; border-bottom: 1px solid var(--w-line); font-size: 15.5px; line-height: 1.5; color: var(--w-ink-2); }
+.step-pay b { font-weight: 650; color: var(--w-ink); }
+.step-card-note { margin-top: 14px; font-size: 13.5px; line-height: 1.6; color: var(--w-ink-2); }
+.step-cta { margin-top: 16px; }
+
+/* 4단계 앱 화면 흐름도 한 장: 누르면 크게 보기 */
+.step-fig:not(.manual) > a.zoom { display: block; border: 1px solid var(--w-line); border-radius: 12px; overflow: hidden; background: #fff; cursor: zoom-in; }
+.step-fig:not(.manual) > a.zoom img { width: 100%; height: auto; }
+
+/* 다이어그램 틀: 드래그 이동, 확대 1~4배 (process-steps.js) */
+.dg {
+  position: relative; height: 560px; overflow: hidden;
+  border: 1px solid var(--w-line); border-radius: 14px; background: #fff;
+  cursor: grab; touch-action: none; user-select: none; -webkit-user-select: none;
+}
+.dg.grabbing { cursor: grabbing; }
+.dg:focus-visible { outline: 2px solid var(--w-green); outline-offset: 3px; }
+.dg img { position: absolute; left: 0; top: 0; width: 100%; max-width: none; height: auto; pointer-events: none; }
+.dg-ctrl {
+  display: flex; justify-content: flex-end; gap: 6px; height: 40px; margin-bottom: 8px;
+}
+.dg-ctrl button {
+  display: grid; place-items: center; width: 40px; height: 40px; border-radius: 8px;
+  border: 1px solid var(--w-line); background: #fff;
+  font-size: 19px; line-height: 1; color: var(--w-ink);
+}
+.dg-ctrl button:hover:not(:disabled) { background: var(--w-tile-2); }
+.dg-ctrl button:disabled { color: var(--w-ink-3); cursor: default; }
+.dg-ctrl svg { width: 15px; height: 15px; }
+
+/* 설계 문서 탭 (diagram-view 조각, tabs=true) */
+.dg-tablist {
+  display: inline-flex; flex-wrap: wrap; gap: 4px; padding: 4px;
+  border: 1px solid var(--w-line); border-radius: 10px; background: var(--w-tile);
+}
+.dg-tablist [role="tab"] { padding: 7px 14px; border-radius: 7px; font-size: 14px; font-weight: 600; color: var(--w-ink-2); transition: color .15s, background-color .15s; }
+.dg-tablist [role="tab"]:hover { color: var(--w-ink); }
+.dg-tablist [role="tab"][aria-selected="true"] { background: #fff; color: var(--w-ink); box-shadow: 0 0 0 1px var(--w-line-2); }
+.dg-panel > .step-fig,
+.dg-panel > .dg-ctrl { margin-top: 14px; }
+
+/* 매뉴얼 쪽 이미지: 누르면 크게 보기 */
+.manual a { display: block; border: 1px solid var(--w-line); border-radius: 8px; overflow: hidden; background: #fff; cursor: zoom-in; }
+.manual img { width: 100%; height: auto; }
+.manual.one a { width: min(280px, 100%); }
+.manual-pages { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; max-width: 880px; }
+@media (max-width: 640px) {
+  .dg { height: 420px; }
+  .manual-pages { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* ── 이미지 크게 보기 (lightbox.js) ── */
+.lightbox {
+  width: min(1200px, calc(100vw - 32px)); max-width: none; max-height: calc(100vh - 32px);
+  padding: 0; border: 0; border-radius: 12px; background: #fff; overflow: auto;
+}
+.lightbox.tall { width: min(760px, calc(100vw - 32px)); }
+.lightbox::backdrop { background: rgba(18, 23, 21, .72); }
+.lightbox img { display: block; width: 100%; height: auto; }
+.lightbox-close {
+  position: sticky; top: 10px; float: right; margin: 10px 10px -48px 0; z-index: 1;
+  width: 38px; height: 38px; border-radius: 50%; background: var(--w-ink); color: #fff; font-size: 20px; line-height: 1;
+}
+.lightbox-cap { padding: 12px 16px; font-size: 14px; color: var(--w-ink-2); border-top: 1px solid var(--w-line); }
+
+/* ── eBook 카드 ── */
+.books { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.book img { width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 8px; border: 1px solid var(--w-line); }
+.book b { display: block; font-size: 15px; font-weight: 600; margin-top: 12px; }
+.book .btn { margin-top: 10px; height: 38px; font-size: 13.5px; width: 100%; }
+
+/* ── 동작 줄이기: 모든 애니메이션·전환을 끄고 완성 상태로 ── */
+@media (prefers-reduced-motion: reduce) {
+  html:has(body.w-page) { scroll-behavior: auto; }
+  .w-page *, .w-page *::before, .w-page *::after { animation: none !important; transition: none !important; }
+}
+
+/* ============================================================
+   8. AI Widget
    ============================================================ */
 .aiw-wrapper { position: fixed; right: 24px; bottom: 24px; z-index: 1100; font-family: var(--font-mono); }
 
@@ -329,7 +520,7 @@ body.menu-open .mobile-overlay { opacity: 1; pointer-events: auto; visibility: v
 }
 
 /* ============================================================
-   8. Scroll Reveal
+   9. Scroll Reveal
    ============================================================ */
 .reveal {
   opacity: 0;

@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  {{> head}}
+  <link rel="stylesheet" href="/src/css/detail.css">
+</head>
+
+<body class="w-page">
+  <a class="sr-only" href="#main">본문 바로가기</a>
+
+  {{> header}}
+
+  <main id="main" class="frame">
+    <div class="dt dt-one">
+      <article class="dt-body">
+        <nav class="crumb" aria-label="현재 위치">
+          <a href="../index.html">메인</a><span aria-hidden="true">/</span><a href="../index.html#cases">케이스 스터디</a>
+        </nav>
+        <header class="dt-head">
+          <p class="dt-tag">앱·웹앱</p>
+          <h1>Sunstone</h1>
+          <p class="dt-lead">차에 있지만 잘 쓰이지 않는 기능을 필요한 순간에 먼저 권하고, 말 한마디로 켜고 끄는 차량용 앱입니다.</p>
+        </header>
+
+        {{> case-film src="/films/sunstone/index.html?embed=1" title="Sunstone 소개 영상" poster="/images/cases/sunstone/sun_9.5.jpg"}}
+        <p class="case-film-note">에뮬레이터에서 장면마다 차 상태를 넣어 만든 시연 영상입니다.</p>
+        <dl class="case-overview">
+          <div><dt>대상</dt><dd>현대자동차 (Pleos Connect 차량)</dd></div>
+          <div><dt>기간</dt><dd>2026년 11월</dd></div>
+          <div><dt>맡은 범위</dt><dd>기획, 화면 디자인, 앱 개발, 소개 영상</dd></div>
+          <div><dt>형태</dt><dd>Android 차량용 앱</dd></div>
+          <div><dt>상태</dt><dd>1차 버전</dd></div>
+        </dl>
+
+        <section class="dt-sec" aria-labelledby="s-task">
+          <h2 id="s-task">과제</h2>
+          <div class="prose">
+            <p>요즘 차에는 세차 모드, 차일드락, 시트 메모리처럼 쓸모 있는 기능이 많습니다. 하지만 설정 메뉴 깊숙이 있거나 켜는 조건을 몰라서 잘 쓰이지 않습니다. 현대자동차 영국 법인 설문(2023, 운전자 500명)에서도 차 기술을 쓰지 않는 이유 1위는 "아예 몰라서"(55%)였습니다. <a class="case-source-ref" href="https://www.hyundai.news/uk/articles/press-releases/drivers-missing-out-on-the-pleasure-of-car-technology.html" target="_blank" rel="noopener" aria-label="출처: 현대자동차 영국 법인 보도자료 (새 창)">출처</a></p>
+          </div>
+          <p class="case-source">현대자동차 영국 법인 보도자료, 2023년 4월 17일</p>
+        </section>
+
+        <section class="dt-sec" aria-labelledby="s-about">
+          <h2 id="s-about">프로젝트 설명</h2>
+          <div class="prose">
+            <p>Sunstone은 운전자가 기능을 찾아 쓰게 하지 않고, 필요한 순간에 앱이 한 가지를 먼저 권합니다. 한 번 대답하면 여러 설정을 차례로 맞추고, 볼일이 끝나면 원래대로 돌려놓습니다. 화면은 운전석 쪽 카드 한 장만 쓰고, 내비 화면은 가리지 않습니다.</p>
+          </div>
+        </section>
+
+        <section class="dt-sec" aria-labelledby="s-features">
+          <h2 id="s-features">핵심 기능</h2>
+          <div class="case-features">
+            <article class="case-feature">
+              <figure><a class="zoom" href="/images/cases/sunstone/sun_28.jpg"><img src="/images/cases/sunstone/sun_28.jpg" alt="세차 모드를 맞추는 카드" width="1600" height="900" loading="lazy"></a></figure>
+              <div>
+                <h3>세차 모드</h3>
+                <p>세차한 지 오래됐고 비 예보가 없으면, 주유하면서 세차도 할지 묻습니다. 세차 입구에서는 창문, 와이퍼, 내기 순환, 문 잠금을 한 번에 맞추고, 다시 출발하면 원래대로 돌려놓습니다.</p>
+              </div>
+            </article>
+            <article class="case-feature">
+              <figure><a class="zoom" href="/images/cases/sunstone/sun_46.jpg"><img src="/images/cases/sunstone/sun_46.jpg" alt="아이 등원길 장면" width="1600" height="900" loading="lazy"></a></figure>
+              <div>
+                <h3>차일드락</h3>
+                <p>유치원으로 길안내를 시작하면 아이가 타고 있는지 묻고, 뒷창 잠금과 문 잠금을 맞춥니다. 도착해서 차를 세우면 다시 풀어 줍니다.</p>
+              </div>
+            </article>
+            <article class="case-feature">
+              <figure><a class="zoom" href="/images/cases/sunstone/sun_63.jpg"><img src="/images/cases/sunstone/sun_63.jpg" alt="시트를 말로 맞추는 장면" width="1600" height="900" loading="lazy"></a></figure>
+              <div>
+                <h3>시트 메모리</h3>
+                <p>"앞으로 조금"처럼 말로 시트를 맞추고, 이름을 붙여 저장합니다. 다른 사람이 타면 그 이름만 말해 저장한 자세로 돌립니다.</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="dt-sec" aria-labelledby="s-result">
+          <h2 id="s-result">결과</h2>
+          <ul class="case-result">
+            <li>세차 모드, 차일드락, 시트 메모리 세 가지 루틴을 담은 1차 버전을 만들었습니다.</li>
+            <li>창문·와이퍼·공조·문 잠금 같은 차량 제어와 길안내, 음성 안내가 Pleos Connect 에뮬레이터에서 동작합니다.</li>
+            <li>기능을 한눈에 보여 주는 소개 영상을 함께 만들었습니다.</li>
+          </ul>
+        </section>
+
+        <!-- 후기: 있을 때만 넣는다 (Sunstone 은 없음) -->
+
+        <section class="dt-sec" aria-labelledby="s-pkg">
+          <h2 id="s-pkg">관련 패키지</h2>
+          <div class="works">
+            <article class="work">
+              <div>
+                <span class="tag">패키지</span>
+                <h3>앱·웹앱</h3>
+                <p>스마트폰 앱과 설치 없이 쓰는 웹앱을 만듭니다.</p>
+              </div>
+              <a class="link" href="../packages/app.html">자세히 보기</a>
+            </article>
+          </div>
+        </section>
+
+        <nav class="pager" aria-label="다른 케이스">
+          <a class="prev" href="lms.html"><span>이전 케이스</span><b>대학 보고서 자동화 시스템</b></a>
+          <a class="next" href="otis.html"><span>다음 케이스</span><b>OTIS V-Check</b></a>
+        </nav>
+      </article>
+    </div>
+
+    {{> cta-contact key="app" label="비슷한 작업 무료 상담 신청하기"}}
+  </main>
+  {{> footer}}
+  <script type="module" src="/src/js/detail.js"></script>
+</body>
+
+</html>

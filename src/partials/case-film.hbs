@@ -1,0 +1,35 @@
+{{!--
+  케이스 상단 전체 영상. 제목 섹션(.dt-head) 바로 아래에 둔다.
+  쓰는 법: {{> case-film src="/films/이름/index.html?embed=1" title="… 소개 영상" poster="/images/…jpg"}}
+  - 들어올 때: 제목과 구분선만 → 약 0.6초 뒤 구분선 아래로 본문 칼럼 크기 칸이 열리며 영상이 떨어져 들어온다(처음 한 번)
+  - 아래로 스크롤하면 헤더 아래 화면 전체로 커지고, 꽉 찬 채 약 30svh 고정된 뒤 올라간다. 위로 오면 거꾸로 (case-film.js)
+  - poster: JS 가 없을 때, 동작 줄이기로 멈춘 채 시작할 때 보이는 스틸
+  - 숨김·크기 클래스는 바로 뒤 인라인 스크립트가 붙인다. JS 가 꺼져 있으면 칼럼 크기 스틸 그대로 보인다
+--}}
+<hr class="case-film-rule">
+<div class="case-film" data-case-film>
+  <div class="case-film-stick">
+    <div class="case-film-box">
+      <div class="case-film-fall">
+        <div class="case-film-frame">
+          <iframe data-src="{{src}}" title="{{title}}" tabindex="-1" aria-hidden="true"></iframe>
+          {{#if poster}}<img class="case-film-poster" src="{{poster}}" alt="" width="1600" height="900">{{/if}}
+        </div>
+      </div>
+      <button type="button" class="case-film-pp" aria-label="영상 일시정지" hidden>
+        <svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 3h2.5v10H4.5zM9 3h2.5v10H9z" fill="currentColor"/></svg>
+        <svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 2.8v10.4L13.2 8z" fill="currentColor"/></svg>
+      </button>
+    </div>
+  </div>
+</div>
+<script>
+  // 첫 그림 전에 붙인다: film-js(최종 크기를 CSS 로 미리), intro(칸을 닫아 두고 아래 본문 숨김)
+  (function (r) {
+    r.classList.add('film-js')
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    r.classList.add('intro')
+    var body = r.closest('.dt-body')
+    if (body) body.classList.add('film-intro')
+  })(document.currentScript.previousElementSibling)
+</script>

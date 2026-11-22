@@ -6,373 +6,322 @@
   <link rel="stylesheet" href="/src/css/index.css">
 </head>
 
-<body>
+<body class="w-page">
   <a class="sr-only" href="#main">본문 바로가기</a>
 
   {{> header}}
 
-  <main id="main">
-    <!-- SECTION P2: hero -->
-    
-    <section class="hero" id="hero">
-      <div class="container hero-container">
-        <div class="hero-content">
-          <span class="hero-label mono hero-fade hero-fade-1">[ 01 / 06 ] AUTOMATION · WEBSERVICE</span>
-          <h1 class="hero-title hero-fade hero-fade-2">복잡한 반복 업무는<br>프로그램으로,<br>확장하는 비즈니스는<br>웹 서비스로.</h1>
-          <p class="hero-desc hero-fade hero-fade-3">업무 자동화와 웹 서비스를 통해,<br>비즈니스 운영의 파트너가 되어드리는 2인 개발팀 westone입니다.</p>
-          <div class="hero-cta hero-fade hero-fade-4">
-            <a href="#packages" class="hero-btn hero-btn-primary">패키지 알아보기 <span class="hero-arrow">→</span></a>
-          </div>
-        </div>
-        <div class="hero-signature" role="img" aria-label="복잡한 엑셀 파일들이 10분 만에 깔끔한 보고서로 자동 변환되는 과정">
-          <div class="sig-graphic" aria-hidden="true">
-            <div class="sig-files">
-              <div class="sig-file sig-file-1">
-                <div class="sig-file-inner"></div>
-              </div>
-              <div class="sig-file sig-file-2">
-                <div class="sig-file-inner"></div>
-              </div>
-              <div class="sig-file sig-file-3">
-                <div class="sig-file-inner"></div>
-              </div>
-            </div>
-            <div class="sig-center-wrap">
-              <div class="sig-text sig-text-before">ONE CLICK</div>
-              <div class="sig-text sig-text-after">DONE</div>
-              <div class="sig-arrow">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <line x1="5" y1="12" x2="19" y2="12"></line>
-                  <polyline points="12 5 19 12 12 19"></polyline>
-                </svg>
-              </div>
-              <svg class="sig-result" width="48" height="64" viewBox="0 0 48 64" fill="none" stroke="var(--ink)"
-                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <!-- Document body with folded corner (white fill to cover arrow if any) -->
-                <path d="M8 4 H32 L44 16 V56 C44 58.2 42.2 60 40 60 H8 C5.8 60 4 58.2 4 56 V8 C4 5.8 5.8 4 8 4 Z"
-                  fill="#ffffff"></path>
-                <path d="M32 4 V16 H44" fill="#f8fafc"></path>
-                <!-- Cyan accent bar chart -->
-                <rect x="14" y="24" width="4" height="12" fill="var(--accent)" stroke="none"></rect>
-                <rect x="22" y="20" width="4" height="16" fill="var(--accent)" stroke="none"></rect>
-                <rect x="30" y="28" width="4" height="8" fill="var(--accent)" stroke="none"></rect>
-                <line x1="12" y1="38" x2="36" y2="38" stroke="var(--line-dark)"></line>
-                <!-- Text lines -->
-                <line x1="14" y1="46" x2="34" y2="46" stroke="var(--line-dark)"></line>
-                <line x1="14" y1="52" x2="26" y2="52" stroke="var(--line-dark)"></line>
-              </svg>
-            </div>
-            <div class="sig-mouse-wrap">
-              <svg class="sig-mouse" width="48" height="72" viewBox="0 0 40 64" fill="none" stroke="currentColor"
-                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--ink);">
-                <path class="sig-mouse-btn" d="M4 20 L4 16 C4 9.37 9.37 4 16 4 L20 4 L20 24 L4 24 Z" fill="transparent"
-                  stroke="none"></path>
-                <rect x="4" y="4" width="32" height="56" rx="16"></rect>
-                <path d="M4 24 L36 24"></path>
-                <path d="M20 4 L20 24"></path>
-                <line x1="20" y1="10" x2="20" y2="16"></line>
-              </svg>
-            </div>
-          </div>
-        </div>
+  <main id="main" class="frame">
+
+    <!-- 히어로: 제목이 도면처럼 그려지고, 문구마다 westone이 맡는 일이 주석으로 붙는다 -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="bp-box" id="bp-box">
+        <svg class="bp-svg" id="bp-svg" aria-hidden="true"></svg>
+        <h1 class="hero-ttl" id="hero-title"><span class="ln"><a class="ph" href="#packages" data-keys="web app unity" data-note="웹사이트, 앱, Unity" aria-label="만들고: 웹사이트, 앱, Unity">만들고,</a> <a class="ph" href="#packages" data-keys="automation agent server" data-note="업무 자동화, AI 에이전트, 서버" aria-label="연결하고: 업무 자동화, AI 에이전트, 서버">연결하고,</a></span><br><span class="ln"><a class="ph" href="#packages" data-keys="education maintenance" data-note="강의와 사용 교육" aria-label="가르치는: 강의와 사용 교육">가르치는</a> <a class="ph" href="#team" data-keys="" data-note="현직 개발자 × AI 강사" aria-label="개발팀: 현직 개발자 × AI 강사">개발팀</a></span></h1>
       </div>
-      <div class="hero-decor mono" aria-hidden="true">
-        // build once,<br>// run every quarter
+      <p class="lead">웹사이트·앱·업무 자동화·AI 에이전트를 만듭니다. <span class="nw">기획서 없이 하고 싶은 일만</span> 말씀해 주셔도 됩니다. 상담은 무료입니다.</p>
+      <div class="cta">
+        <a class="btn btn-dark" href="#contact">무료 상담 신청</a>
+        <a class="btn btn-light" href="#packages">패키지 보기</a>
       </div>
     </section>
-    
-    <section class="pkg" id="packages">
-      <div class="container">
-        <header class="pkg-header">
-          <span class="pkg-label mono">[ 02 / 06 ] WHAT WE BUILD</span>
-          <h2 class="pkg-title">두 가지를 만듭니다.</h2>
-          <p class="pkg-desc">반복 업무를 줄이는 프로그램과, 비즈니스를 여는 웹.</p>
-        </header>
 
-        <div class="pkg-grid">
-          <a href="reportone.html" class="pkg-card" id="reportone">
-            <div class="pkg-card-top">
-              <span class="pkg-card-label mono">REPORTONE</span>
-              <span class="pkg-card-arrow" aria-hidden="true">→</span>
-            </div>
-            <h3 class="pkg-card-title">반복되는 보고서 업무, 드래그 한 번 으로.</h3>
-            <p class="pkg-card-body">매 분기 똑같이 반복되던 자료조사/통계/보고서 작업을 전용 프로그램으로.<br>며칠 씩 걸리던 작업이 클릭하나로 단축됩니다.</p>
-            <div class="pkg-card-badge-wrap" style="gap: 6px;">
-              <span class="pkg-card-badge">업무 자동화</span>
-              <span class="pkg-card-badge">데이터 처리</span>
-              <span class="pkg-card-badge">반복 작업</span>
-            </div>
-            <div class="pkg-card-line" aria-hidden="true"></div>
-            <div class="pkg-card-bottom">
-              <span class="pkg-card-cta">상세 보기</span>
-            </div>
-          </a>
-
-          <a href="serviceone.html" class="pkg-card" id="serviceone">
-            <div class="pkg-card-top">
-              <span class="pkg-card-label mono">SERVICEONE</span>
-              <span class="pkg-card-arrow" aria-hidden="true">→</span>
-            </div>
-            <h3 class="pkg-card-title">비즈니스가 시작되는 맞춤형 웹 서비스.</h3>
-            <p class="pkg-card-body">홈페이지와 쇼핑몰부터, 매장 주문 시스템 같은 맞춤 솔루션까지. 초기 기획부터 확장 가능한 웹 서비스를 개발팀이 직접 구축합니다.</p>
-            <div class="pkg-card-badge-wrap" style="gap: 6px;">
-              <span class="pkg-card-badge">웹·쇼핑몰</span>
-              <span class="pkg-card-badge">예약·접수</span>
-              <span class="pkg-card-badge">서비스 런칭</span>
-            </div>
-            <div class="pkg-card-line" aria-hidden="true"></div>
-            <div class="pkg-card-bottom">
-              <span class="pkg-card-cta">상세 보기</span>
-            </div>
-          </a>
-        </div>
-
+    <!-- 함께한 곳: 이름만 보여 준다(누르는 동작 없음). 목록에 한 줄만 더하면 되고, 7곳을 넘으면 main-sections.js가 흐르는 띠로 바꾼다 -->
+    <section class="clients" aria-label="함께한 곳">
+      <div class="cl-list" id="cl-list">
+        <ul class="cl-items">
+          <li><span class="cl">OTIS</span></li>
+          <li><span class="cl">한국고등직업협회</span></li>
+          <li><span class="cl">원광장애인종합복지관</span></li>
+          <li><span class="cl">일산직업능력개발원</span></li>
+        </ul>
       </div>
     </section>
-    
-    <section class="stats" aria-label="주요 지표">
-      <div class="container">
-        <div class="stats-grid">
-          <div class="stats-item">
-            <span class="stats-value mono">Zero</span>
-            <p class="stats-desc">단순 반복 업무에 낭비되는 시간 0시간</p>
+
+    <!-- 패키지: 이름·한 줄 소개는 왼쪽, 세부 항목은 오른쪽 -->
+    <section class="sec" id="packages" aria-labelledby="pkg-title">
+      <h2 class="h2" id="pkg-title">패키지</h2>
+      <div class="pkg-grid">
+        <article class="pkg" data-k="agent">
+          <div class="pkg-head">
+            <h3 class="h3">AI 에이전트·AX 구축</h3>
+            <p>문의 답변, 보고서 초안처럼 반복되는 일을 AI가 처리하게 하고, 회사 자료와 안전하게 연결합니다.</p>
+            <div class="pkg-links"><a class="link" href="packages/agent.html">자세히 보기</a></div>
+            <button type="button" class="pkg-more" aria-expanded="false" aria-controls="pkg-list-agent">포함 내용 보기</button>
           </div>
-          <div class="stats-item">
-            <span class="stats-value mono">2~6주</span>
-            <p class="stats-desc">내 비즈니스에 딱 맞는 웹 서비스가 런칭되기까지</p>
+          <ul id="pkg-list-agent">
+            <li>사내 문서·규정으로 답하는 AI 챗봇</li>
+            <li>메일 분류·일정 등록·보고서 초안을 맡는 AI 비서</li>
+            <li>노션·슬랙·구글 시트·ERP와 AI 연동</li>
+            <li>회사 자료가 밖으로 나가지 않는 사내 설치형 AI</li>
+            <li>업무 분석부터 단계별 AI 도입 컨설팅</li>
+          </ul>
+        </article>
+        <article class="pkg" data-k="automation">
+          <div class="pkg-head">
+            <h3 class="h3">업무 자동화</h3>
+            <p>매번 손으로 하던 엑셀·문서 작업을 <span class="nw">파일만 넣으면</span> 끝나는 프로그램으로 만듭니다.</p>
+            <div class="pkg-links"><a class="link" href="packages/automation.html">자세히 보기</a><a class="link green" href="cases/lms.html">관련 작업물 보기</a></div>
+            <button type="button" class="pkg-more" aria-expanded="false" aria-controls="pkg-list-automation">포함 내용 보기</button>
           </div>
-          <div class="stats-item">
-            <span class="stats-value mono">90일</span>
-            <p class="stats-desc">모든 프로젝트에 기본 제공되는 무상 하자보수 기간</p>
+          <ul id="pkg-list-automation">
+            <li>엑셀·한글·Word·PDF·PPT 문서와 보고서 자동 작성</li>
+            <li>반복 입력·자료 정리·파일 변환 프로그램</li>
+            <li>메신저 알림·결재·시트 연동 자동화</li>
+            <li>교육기관·사무실 출결·평가·서류 관리 자동화</li>
+          </ul>
+        </article>
+        <article class="pkg" data-k="web">
+          <div class="pkg-head">
+            <h3 class="h3">웹사이트·웹 플랫폼</h3>
+            <p>회사 홈페이지부터 <span class="nw">예약·결제·회원</span> 기능까지, 직접 <span class="nw">수정할 수 있는</span> <span class="nw">관리자 페이지와</span> 함께 만듭니다.</p>
+            <div class="pkg-links"><a class="link" href="packages/web.html">자세히 보기</a></div>
+            <button type="button" class="pkg-more" aria-expanded="false" aria-controls="pkg-list-web">포함 내용 보기</button>
           </div>
-          <div class="stats-item">
-            <span class="stats-value mono">100%</span>
-            <p class="stats-desc">숨겨진 추가 비용 없이 가격과 계약 조건 투명 공개</p>
+          <ul id="pkg-list-web">
+            <li>반응형 홈페이지 (관리자 페이지 포함)</li>
+            <li>예약·문의·결제·접수 기능</li>
+            <li>회원 가입·게시판·포인트·본인인증</li>
+            <li>AI 상담 챗봇·자동 견적을 붙인 홈페이지</li>
+          </ul>
+        </article>
+        <article class="pkg" data-k="app">
+          <div class="pkg-head">
+            <h3 class="h3">앱·웹앱</h3>
+            <p>Android·iOS 앱과 <span class="nw">설치 없이 쓰는 웹앱을</span> 기획부터 출시까지 맡습니다.</p>
+            <div class="pkg-links"><a class="link" href="packages/app.html">자세히 보기</a><a class="link green" href="cases/otis.html">관련 작업물 보기</a></div>
+            <button type="button" class="pkg-more" aria-expanded="false" aria-controls="pkg-list-app">포함 내용 보기</button>
           </div>
-        </div>
+          <ul id="pkg-list-app">
+            <li>안드로이드·iOS 앱 (스토어 등록까지)</li>
+            <li>설치 없이 주소로 여는 웹앱</li>
+            <li>주문·재고·점검 기록 같은 현장 관리 앱</li>
+          </ul>
+        </article>
+        <article class="pkg" data-k="unity">
+          <div class="pkg-head">
+            <h3 class="h3">Unity 게임·콘텐츠</h3>
+            <p>교육·체험·홍보용 게임과 시뮬레이션을 만들고, 웹에서 바로 실행되게 합니다.</p>
+            <div class="pkg-links"><a class="link" href="packages/unity.html">자세히 보기</a></div>
+            <button type="button" class="pkg-more" aria-expanded="false" aria-controls="pkg-list-unity">포함 내용 보기</button>
+          </div>
+          <ul id="pkg-list-unity">
+            <li>2D·3D 게임과 미니게임</li>
+            <li>교육·훈련용 체험 콘텐츠와 시뮬레이션</li>
+            <li>설치 없이 웹에서 바로 하는 게임</li>
+            <li>행사·홍보용 이벤트 게임</li>
+          </ul>
+        </article>
+        <article class="pkg" data-k="server">
+          <div class="pkg-head">
+            <h3 class="h3">서버·데이터</h3>
+            <p>서버와 데이터베이스를 설계하고, 백업과 운영 관리까지 챙깁니다.</p>
+            <div class="pkg-links"><a class="link" href="packages/server.html">자세히 보기</a><a class="link green" href="cases/welfare.html">관련 작업물 보기</a></div>
+            <button type="button" class="pkg-more" aria-expanded="false" aria-controls="pkg-list-server">포함 내용 보기</button>
+          </div>
+          <ul id="pkg-list-server">
+            <li>서버 구축·배포·관리</li>
+            <li>데이터베이스 설계, 데이터 이전·정리, 백업</li>
+            <li>매출·이용 현황을 한눈에 보는 관리자 대시보드</li>
+          </ul>
+        </article>
+        <article class="pkg" data-k="education">
+          <div class="pkg-head">
+            <h3 class="h3">강의·교육</h3>
+            <p>AI 활용과 앱 개발을 <span class="nw">현직 개발자이자</span> <span class="nw">직업훈련 강사가</span> 가르칩니다.</p>
+            <div class="pkg-links"><a class="link" href="packages/education.html">자세히 보기</a></div>
+            <button type="button" class="pkg-more" aria-expanded="false" aria-controls="pkg-list-education">포함 내용 보기</button>
+          </div>
+          <ul id="pkg-list-education">
+            <li>기업·기관 직원 대상 AI 활용 교육</li>
+            <li>웹·앱 개발, AI 에이전트 만들기 과정</li>
+            <li>직업훈련 강의 경험을 살린 수준별 맞춤 강의</li>
+          </ul>
+        </article>
+        <article class="pkg care" data-k="maintenance">
+          <div class="pkg-head">
+            <h3 class="h3">유지보수·운영 지원</h3>
+            <p>납품 후 수정, 기능 추가, <span class="nw">서버 관리를</span> 이어서 맡습니다.</p>
+            <div class="pkg-links"><a class="link" href="packages/maintenance.html">자세히 보기</a></div>
+            <button type="button" class="pkg-more" aria-expanded="false" aria-controls="pkg-list-maintenance">포함 내용 보기</button>
+          </div>
+          <ul id="pkg-list-maintenance">
+            <li>관리자 페이지·콘텐츠 수정 방법 안내</li>
+            <li>운영 중 수정·기능 추가</li>
+            <li>서버·호스팅 관리, 운영 문의 대응</li>
+          </ul>
+        </article>
+      </div>
+      <p class="small pkg-note">모든 작업은 상담 후 범위에 맞춰 견적을 안내드립니다.</p>
+    </section>
+
+    <!-- 케이스 스터디: 메인에서는 카드만, 영상은 각 케이스 페이지에서 -->
+    <section class="sec sec-tile" id="cases" aria-labelledby="cases-title">
+      <h2 class="h2" id="cases-title">케이스 스터디</h2>
+      <div class="case-grid">
+        <a class="case-card" id="case-sunstone" href="cases/sunstone.html">
+          <div class="case-poster"><img src="/images/cases/thumbs/sunstone.webp" alt="차에 있는 기능은 넘치는데, 필요한 순간 먼저 권합니다" width="1600" height="900" loading="lazy"></div>
+          <div class="case-body">
+            <div class="case-meta"><span class="tag">앱·웹앱</span><span class="case-badge">1차 버전</span></div>
+            <h3 class="case-ttl">Sunstone</h3>
+            <span class="org">현대자동차</span>
+            <p class="case-line">차에 있지만 잘 쓰이지 않는 기능을 필요한 순간에 먼저 권하고, 말 한마디로 켜고 끄는 차량용 앱입니다.</p>
+            <span class="link green">케이스 스터디 읽기</span>
+          </div>
+        </a>
+        <a class="case-card" id="case-otis" href="cases/otis.html">
+          <div class="case-poster"><img src="/images/cases/thumbs/otis.webp" alt="전용 장비 없이, 휴대폰으로 재는 승강기 진동" width="1600" height="900" loading="lazy"></div>
+          <div class="case-body">
+            <div class="case-meta"><span class="tag">앱·웹앱</span><span class="case-badge">현장 배포 중</span></div>
+            <h3 class="case-ttl">OTIS V-Check</h3>
+            <span class="org">OTIS</span>
+            <p class="case-line">설치 기사의 휴대폰으로 승강기 진동과 소음을 재고, 리포트를 만들어 메일로 보내는 현장 앱입니다.</p>
+            <span class="link green">케이스 스터디 읽기</span>
+          </div>
+        </a>
+        <a class="case-card" id="case-lms" href="cases/lms.html">
+          <div class="case-poster"><img src="/images/cases/thumbs/lms.webp" alt="18개 대학의 출석·과제·시험 파일을 한 번에 정리합니다" width="1600" height="900" loading="lazy"></div>
+          <div class="case-body">
+            <div class="case-meta"><span class="tag">업무 자동화</span><span class="case-badge">운영 중</span></div>
+            <h3 class="case-ttl">대학 보고서 자동화 시스템</h3>
+            <span class="org">한국고등직업협회</span>
+            <p class="case-line">출석·과제·설문 파일을 끌어다 놓으면 엑셀 산출물과 종합·대학별 Word 보고서가 만들어지는 프로그램입니다.</p>
+            <span class="link green">케이스 스터디 읽기</span>
+          </div>
+        </a>
+        <a class="case-card" id="case-welfare" href="cases/welfare.html">
+          <div class="case-poster"><img src="/images/cases/thumbs/welfare.webp" alt="이용자 한 사람 한 사람의 하루가 기록이 됩니다" width="1600" height="900" loading="lazy"></div>
+          <div class="case-body">
+            <div class="case-meta"><span class="tag">앱·웹앱</span><span class="case-badge">시범 운영 중</span></div>
+            <h3 class="case-ttl">돌봄 일지</h3>
+            <span class="org">원광장애인종합복지관</span>
+            <p class="case-line">복지관 담당 직원이 휴대폰으로 이용자의 하루를 기록하고, 기관 양식 문서로 내려받는 웹앱입니다.</p>
+            <span class="link green">케이스 스터디 읽기</span>
+          </div>
+        </a>
+        <!-- 2026-11-22 강의 케이스 보류. 되살릴 때 주석만 푼다 (포스터 이미지 필요)
+        <a class="case-card" id="case-education" href="cases/education.html">
+          <div class="case-poster"></div>
+          <div class="case-body">
+            <div class="case-meta"><span class="tag">강의·교육</span><span class="case-badge">진행 중</span></div>
+            <h3 class="case-ttl">직업훈련 과정 강의</h3>
+            <span class="org">일산직업능력개발원</span>
+            <p class="case-line">직업훈련 과정에서 Flutter 앱 개발과 AI 활용을 강의합니다.</p>
+            <span class="link green">케이스 스터디 읽기</span>
+          </div>
+        </a>
+        -->
       </div>
     </section>
-    
-    <section class="case" id="cases">
-      <div class="container">
-        <header class="case-header">
-          <span class="case-label mono">[ 03 / 06 ] CASES</span>
-          <h2 class="case-title">결과로 말합니다.</h2>
-          <p class="case-desc">단순한 외주 결과물이 아닌, 비즈니스 현장에서 활약 중인 실제 성과입니다.</p>
-        </header>
 
-        <div class="case-grid">
-          <a href="./cases/lms.html" class="case-card case-card-active">
-            <div class="case-card-top">
-              <span class="case-chip mono">교육 · 자동화</span>
-            </div>
-            <h3 class="case-card-title">매 학기 며칠 걸리던 보고서 업무, 드래그 한 번 10분이 됐습니다</h3>
-            <p class="case-card-body">13개 대학 연합 교육과정 — 출석·설문 보고서 자동화, 1년째 케어원으로 운영 중입니다.</p>
-            <div class="case-line" aria-hidden="true"></div>
-            <div class="case-card-bottom">
-              <span class="case-meta mono">4주 · 리포트원 스탠다드</span>
-              <span class="case-cta">사례 읽기 <span class="case-arrow">→</span></span>
-            </div>
-          </a>
-
-          <a href="./cases/kiosk.html" class="case-card case-card-active">
-            <div class="case-card-top">
-              <span class="case-chip mono">F&amp;B · 매장 시스템</span>
-            </div>
-            <h3 class="case-card-title">동네 분식점의 주문을, 손님이 직접.</h3>
-            <p class="case-card-body">분식점 '나무미' — 손님 셀프 주문부터 주방 상태관리·매출 이력까지, 인터넷 없이 매장 안에서 동작합니다.</p>
-            <div class="case-line" aria-hidden="true"></div>
-            <div class="case-card-bottom">
-              <span class="case-meta mono">[ CASE 02 ] · 서비스원 프로</span>
-              <span class="case-cta">사례 읽기 <span class="case-arrow">→</span></span>
-            </div>
-          </a>
+    <!-- 진행 방식 -->
+    <section class="sec" id="process" aria-labelledby="process-title">
+      <h2 class="h2" id="process-title">진행 방식</h2>
+      {{> process-steps}}
+      <div class="plan">
+        <ul class="principles">
+          <li><b>만들기 전에 먼저 보여드립니다</b><span>화면 흐름과 기능 범위를 그림으로 확인하고 시작합니다.</span></li>
+          <li><b>만드는 사람이 직접 연락드립니다</b><span>중간 담당자 없이 개발자가 카카오톡 방에서 바로 소통합니다.</span></li>
+          <li><b>범위와 비용부터 정합니다</b><span>견적과 일정을 확인하신 뒤 계약하고, 필요 없는 기능은 빼드립니다.</span></li>
+        </ul>
+        <!-- 표준 계약서: 수정이 끝나면 주석을 풀고 링크를 건다
+        <div class="docs">
+          <div class="doc"><i aria-hidden="true"></i>표준 계약서<span>정리 중</span></div>
         </div>
+        -->
       </div>
     </section>
-    
-    <section class="proc" id="process">
-      <div class="container">
-        <header class="proc-header">
-          <span class="proc-label mono">[ 04 / 06 ] HOW WE WORK</span>
-          <h2 class="proc-title">가격도 계약 조건도, 먼저 공개합니다.</h2>
-          <p class="proc-desc">외주가 처음이어도 불안하지 않도록, 모든 과정을 문서로 약속합니다.</p>
-        </header>
 
-        <div class="proc-grid">
-          <div class="proc-step">
-            <div class="proc-step-num-wrap">
-              <span class="proc-step-num mono">01</span>
-              <div class="proc-line" aria-hidden="true"></div>
-            </div>
-            <div class="proc-step-content">
-              <h3 class="proc-step-title">상담·견적 (무료)</h3>
-              <p class="proc-step-desc">샘플 파일이나 만들고 싶은 모습만 보내주세요.</p>
-            </div>
-          </div>
-
-          <div class="proc-step">
-            <div class="proc-step-num-wrap">
-              <span class="proc-step-num mono">02</span>
-              <div class="proc-line" aria-hidden="true"></div>
-            </div>
-            <div class="proc-step-content">
-              <h3 class="proc-step-title">계약·범위 확정</h3>
-              <p class="proc-step-desc">확정 개발 기획서로 기능을 문서로 못 박습니다.</p>
-            </div>
-          </div>
-
-          <div class="proc-step">
-            <div class="proc-step-num-wrap">
-              <span class="proc-step-num mono">03</span>
-              <div class="proc-line" aria-hidden="true"></div>
-            </div>
-            <div class="proc-step-content">
-              <h3 class="proc-step-title">개발·중간 시연</h3>
-              <p class="proc-step-desc">주 1회 진행을 공유하고, 중간 시연 후 중도금을 받습니다.</p>
-            </div>
-          </div>
-
-          <div class="proc-step">
-            <div class="proc-step-num-wrap">
-              <span class="proc-step-num mono">04</span>
-              <div class="proc-line" aria-hidden="true"></div>
-            </div>
-            <div class="proc-step-content">
-              <h3 class="proc-step-title">검수·납품·교육</h3>
-              <p class="proc-step-desc">샘플 기준으로 검수하고, 90일 하자보수와 케어원으로 이어집니다.</p>
-            </div>
-          </div>
+    <!-- 팀 · eBook -->
+    <section class="sec sec-tile" id="team" aria-labelledby="team-title">
+      <div class="team">
+        <div>
+          <h2 class="h2" id="team-title">현직 개발자 × AI 전문 강사가 직접 만듭니다</h2>
+          <p class="team-lead">실제 서비스를 개발하는 현직 개발자와, 직업훈련기관에서 AI·개발을 가르치는 강사가 함께하는 팀입니다.</p>
+          <div class="people"><div><b>박건준</b>사업 총괄, 제품 기획</div><div><b>박희정</b>개발 총괄, 고객 상담</div></div>
         </div>
-
-        <footer class="proc-footer">
-          <p class="proc-meta mono">대금 40 / 30 / 30 <span aria-hidden="true">&nbsp;·&nbsp;</span> 검수 7영업일 <span
-              aria-hidden="true">&nbsp;·&nbsp;</span> 표준 계약서 전문 공개</p>
-          <a href="./process.html" class="proc-cta">진행 방식 자세히 보기 + 계약서 <span class="proc-arrow">→</span></a>
-        </footer>
-      </div>
-    </section>
-    <!-- SECTION P7: about -->
-    
-    <section class="about" id="about">
-      <div class="container">
-        <div class="about-grid">
-          <!-- Left: Team -->
-          <div class="about-team">
-            <span class="about-label mono">[ 05 / 06 ] TEAM</span>
-            <h2 class="about-team-title">소수 정예, 압도적인 책임감.</h2>
-            <p class="about-team-desc">상담부터 기획, 개발, 그리고 유지보수까지. 실무진 두 명이 모든 과정을 직접 책임집니다. 불필요한 소통 단계를 없애 속도를 높이고, 만든 사람이
-              끝까지 책임지는 구조를 완성했습니다.</p>
-
-            <div class="about-members">
-              <div class="about-member">
-                <div class="about-member-avatar" aria-hidden="true">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                    stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                    <circle cx="12" cy="7" r="4"></circle>
-                  </svg>
-                </div>
-                <div class="about-member-info">
-                  <p class="about-member-name">박건준</p>
-                  <p class="about-member-role">사업 총괄 · 제품 기획</p>
-                </div>
-              </div>
-              <div class="about-member">
-                <div class="about-member-avatar" aria-hidden="true">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                    stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                    <circle cx="12" cy="7" r="4"></circle>
-                  </svg>
-                </div>
-                <div class="about-member-info">
-                  <p class="about-member-name">박희정</p>
-                  <p class="about-member-role">개발 총괄 · 고객 기획</p>
-                </div>
-              </div>
+        <div>
+          <h3 class="h3 books-title">eBook 전체본 무료 공개</h3>
+          <div class="books">
+            <div class="book">
+              <img src="/images/ai-todo-cover.webp" alt="따라만드는 프로그램, AI를 활용한 ToDo앱 표지" width="600" height="894" loading="lazy">
+              <b>AI를 활용한 ToDo앱</b>
+              <a class="btn btn-light" href="/ebook/ebook-ai-todo-full.pdf" download>무료로 받기</a>
             </div>
-          </div>
-
-          <!-- Right: Books -->
-          <div class="about-books">
-            <span class="about-label mono">BOOKS</span>
-            <p class="about-books-desc">개발 현장의 경험을 책으로도 정리했습니다.</p>
-
-            <div class="about-books-grid">
-              <div class="about-book">
-                <div class="about-book-cover">
-                  <img src="/ebook/ai-todo-cover.png" alt="따라만드는 프로그램 — AI를 활용한 ToDo앱 표지">
-                </div>
-                <h3 class="about-book-title">따라만드는 프로그램<br>AI를 활용한 ToDo앱</h3>
-                <p class="about-book-meta">무료 맛보기 eBook</p>
-                <div class="about-book-actions">
-                  <a href="/ebook/ebook-ai-todo-preview.pdf" download class="btn-book btn-book-dl">PDF 다운로드</a>
-                  <span class="btn-book btn-book-site btn-book-disabled">사이트 바로가기</span>
-                </div>
-              </div>
-
-              <div class="about-book">
-                <div class="about-book-cover">
-                  <img src="/ebook/free-kiosk-cover.png" alt="따라만드는 프로그램 — QR로 주문받는 키오스크 표지">
-                </div>
-                <h3 class="about-book-title">따라만드는 프로그램<br>QR로 주문받는 키오스크</h3>
-                <p class="about-book-meta">무료 맛보기 eBook</p>
-                <div class="about-book-actions">
-                  <a href="/ebook/ebook-qr-kiosk-preview.pdf" download class="btn-book btn-book-dl">PDF 다운로드</a>
-                  <span class="btn-book btn-book-site btn-book-disabled">사이트 바로가기</span>
-                </div>
-              </div>
+            <div class="book">
+              <img src="/images/qr-kiosk-cover.webp" alt="따라만드는 프로그램, QR로 주문받는 키오스크 표지" width="600" height="895" loading="lazy">
+              <b>QR로 주문받는 키오스크</b>
+              <a class="btn btn-light" href="/ebook/ebook-qr-kiosk-full.pdf" download>무료로 받기</a>
             </div>
           </div>
         </div>
       </div>
     </section>
-    
-    <section class="contact" id="contact">
-      <div class="container contact-grid">
-        <div class="contact-copy">
-          <span class="contact-label mono">[ 06 / 06 ] CONTACT</span>
-          <h2 class="contact-title">지금 반복하고 있는 그 작업,<br>파일 하나만 보내주세요.</h2>
-          <p class="contact-desc">자동화 가능 여부와 견적을 무료로 안내드립니다. 웹 사이트 상담도 같은 폼으로 받으며, 온라인(화상) 및 대면 미팅 중 편하신 방식으로 진행 가능합니다.</p>
-          <p class="contact-direct mono">or &nbsp;<a
-              href="mailto:westone251113@gmail.com">westone251113@gmail.com</a></p>
+
+    <!-- 자주 묻는 질문 -->
+    <section class="sec" id="faq" aria-labelledby="faq-title">
+      <div class="faq">
+        <h2 class="h2" id="faq-title">자주 묻는 질문</h2>
+        <div>
+          <details open><summary>상담 비용이 있나요?</summary><p>없습니다. 상담은 무료이고, 범위를 정한 뒤 견적을 안내드립니다.</p></details>
+          <details><summary>기획서가 없어도 되나요?</summary><p>네. 하고 싶은 일과 지금 방식만 말씀해 주시면 기획은 같이 정리합니다.</p></details>
+          <details><summary>비용은 어떻게 정해지나요?</summary><p>기능 수와 난이도, 화면 수, 연동할 서비스, 일정에 따라 달라집니다. 범위를 정한 뒤 일정과 함께 안내드립니다.</p></details>
+          <details><summary>기간은 얼마나 걸리나요?</summary><p>만들 범위에 따라 다릅니다. 견적과 함께 단계별 일정을 드립니다.</p></details>
+          <details><summary>계약서를 쓰나요?</summary><p>네. 견적을 확인하신 뒤 개발 용역 계약서를 씁니다. 만들 범위는 기획 자료로, 일정은 일정표로 계약서에 함께 붙입니다.</p></details>
+          <details><summary>결제는 어떻게 하나요?</summary><p>선금을 받고 개발을 시작해, 검수가 끝나면 잔금을 받습니다. 규모에 따라 중간 시연 뒤 중도금을 두기도 하고, 나누는 비율과 시점은 내부 결재 일정에 맞춰 정할 수 있습니다.</p></details>
+          <details><summary>세금계산서 발행되나요?</summary><p>네. 결제하실 때마다 그 금액만큼 세금계산서를 발행합니다.</p></details>
+          <details><summary>진행 상황은 어떻게 확인하나요?</summary><p>카카오톡 프로젝트 방에서 개발자가 진행 상황과 중간 결과물을 공유합니다. 필요하면 미팅도 합니다.</p></details>
+          <details><summary>중간에 기능을 바꾸고 싶으면요?</summary><p>정한 범위 안의 수정은 반영합니다. 기능이 새로 추가되면 범위와 비용을 다시 맞춘 뒤 진행합니다.</p></details>
+          <details><summary>소스코드도 받을 수 있나요?</summary><p>네. 납품할 때 소스코드(저장소 권한 이전 또는 압축 파일)와 설치·실행 방법, 관리자 매뉴얼을 함께 드립니다. 결과물의 저작권은 잔금까지 지급되면 넘겨드립니다.</p></details>
+          <details><summary>납품 후에 수정이 필요하면요?</summary><p>납품 후 90일 동안은 저희 쪽 오류를 무상으로 고칩니다. 그 뒤의 수정과 기능 추가는 유지보수로 협의해서 계속 맡습니다.</p></details>
+          <details><summary>AI 도입, 어디서부터 해야 할지 모르겠어요</summary><p>지금 반복하고 있는 일을 말씀해 주세요. 업무 흐름을 먼저 정리하고, 효과가 큰 것부터 하나씩 만듭니다.</p></details>
+          <details><summary>회사 자료를 외부로 보내면 안 되는데요</summary><p>외부로 보내지 않고 사내 서버나 PC에서만 동작하게 만들 수 있습니다. 계약서에도 비밀유지 조항이 들어갑니다.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <!-- 문의 -->
+    <section class="sec sec-tile" id="contact" aria-labelledby="contact-title">
+      <div class="contact">
+        <div>
+          <h2 class="h2" id="contact-title">하고 싶은 일만<br>적어 주세요</h2>
+          <p class="contact-sub">어떻게 만들지는 저희가 정리해서 알려드립니다. 상담은 무료입니다.</p>
+          <p class="mail">메일로 바로 보내셔도 됩니다<a href="mailto:westone251113@gmail.com">westone251113@gmail.com</a></p>
         </div>
 
-        <div class="contact-form-wrap">
+        <div class="form-card">
           <!-- Formsubmit 이메일 전송 엔드포인트 -->
           <form class="contact-form" id="contactForm" action="https://formsubmit.co/westone251113@gmail.com" method="POST"
             enctype="multipart/form-data">
-            <div class="contact-field">
-              <label class="contact-field-label mono" for="c_name">이름 <span class="contact-req">*</span></label>
-              <input type="text" id="c_name" name="name" class="contact-input" required>
-            </div>
-
-            <div class="contact-field">
-              <label class="contact-field-label mono" for="c_contact">연락처 <span class="contact-req">*</span></label>
-              <input type="text" id="c_contact" name="contact" class="contact-input" placeholder="이메일 또는 휴대폰" required>
-            </div>
-
-            <div class="contact-field">
-              <label class="contact-field-label mono" for="c_interest">관심 분야</label>
-              <select id="c_interest" name="interest" class="contact-select">
-                <option value="자동화 시스템">자동화 시스템</option>
-                <option value="웹 서비스">웹 서비스</option>
-                <option value="아직 모름">아직 모름</option>
+            <div><label for="c_name">이름</label><input type="text" id="c_name" name="name" autocomplete="name" required></div>
+            <div><label for="c_contact">연락처</label><input type="text" id="c_contact" name="contact" placeholder="이메일 또는 휴대폰" required></div>
+            <div class="full"><label for="c_interest">관심 패키지</label>
+              <select id="c_interest" name="interest">
+                <option value="아직 모르겠어요" selected>아직 모르겠어요</option>
+                <option value="AI 에이전트·AX 구축">AI 에이전트·AX 구축</option>
+                <option value="업무 자동화">업무 자동화</option>
+                <option value="웹사이트·웹 플랫폼">웹사이트·웹 플랫폼</option>
+                <option value="앱·웹앱">앱·웹앱</option>
+                <option value="Unity 게임·콘텐츠">Unity 게임·콘텐츠</option>
+                <option value="서버·데이터">서버·데이터</option>
+                <option value="강의·교육">강의·교육</option>
+                <option value="유지보수·운영 지원">유지보수·운영 지원</option>
               </select>
             </div>
-
-            <div class="contact-field">
-              <label class="contact-field-label mono" for="c_message">내용 <span class="contact-req">*</span></label>
-              <textarea id="c_message" name="message" class="contact-textarea" rows="4" required></textarea>
+            <div class="full"><label for="c_timing">원하는 시기</label>
+              <select id="c_timing" name="timing">
+                <option value="아직 모르겠어요" selected>아직 모르겠어요</option>
+                <option value="1개월 안">1개월 안</option>
+                <option value="1~3개월">1~3개월</option>
+                <option value="3개월 이후">3개월 이후</option>
+              </select>
             </div>
-
-            <button type="submit" class="contact-submit">상담 신청 보내기</button>
-            <div class="contact-state-msg contact-state-error" aria-hidden="true" id="contactErrorMsg">
+            <div class="full"><label for="c_message">내용</label><textarea id="c_message" name="message" rows="5" placeholder="예) 매주 지점별 매출 엑셀을 손으로 합치고 있어요. 파일만 넣으면 정리되는 프로그램이 필요해요." required></textarea></div>
+            <button type="submit" class="btn btn-dark contact-submit">무료 상담 신청하기</button>
+            <div class="contact-state-msg contact-state-error full" aria-hidden="true" id="contactErrorMsg">
               전송에 실패했습니다. westone251113@gmail.com 로 보내주세요.
             </div>
-            <p class="contact-disclaimer mono">* 샘플 파일이 있으신 경우, 문의 후 <a href="mailto:westone251113@gmail.com">westone251113@gmail.com</a>으로 직접 보내주시면 함께 검토합니다. 가명·마스킹 처리된 샘플을 권장합니다.</p>
+            <p class="contact-disclaimer full">샘플 파일이 있으신 경우, 문의 후 <a href="mailto:westone251113@gmail.com">westone251113@gmail.com</a>으로 직접 보내주시면 함께 검토합니다. 가명·마스킹 처리된 샘플을 권장합니다.</p>
           </form>
 
           <div class="contact-state-msg contact-state-success" aria-hidden="true" id="contactSuccessMsg">
@@ -382,30 +331,10 @@
       </div>
     </section>
 
-    <!-- Marquee strip: 제품 라인업이 흐르는 띠 (장식) -->
-    
-    <div class="marquee" aria-hidden="true">
-      <div class="marquee-track">
-        <span class="marquee-item mono">AUTOMATION<span class="sep">·</span></span>
-        <span class="marquee-item mono">WEB APPS<span class="sep">·</span></span>
-        <span class="marquee-item mono">DATA SCRAPING<span class="sep">·</span></span>
-        <span class="marquee-item mono">DASHBOARDS<span class="sep">·</span></span>
-        <span class="marquee-item mono">API SYNC<span class="sep">·</span></span>
-        <span class="marquee-item mono">MACROS<span class="sep">·</span></span>
-        <span class="marquee-item mono">EFFICIENCY<span class="sep">·</span></span>
-        <span class="marquee-item mono">AUTOMATION<span class="sep">·</span></span>
-        <span class="marquee-item mono">WEB APPS<span class="sep">·</span></span>
-        <span class="marquee-item mono">DATA SCRAPING<span class="sep">·</span></span>
-        <span class="marquee-item mono">DASHBOARDS<span class="sep">·</span></span>
-        <span class="marquee-item mono">API SYNC<span class="sep">·</span></span>
-        <span class="marquee-item mono">MACROS<span class="sep">·</span></span>
-        <span class="marquee-item mono">EFFICIENCY<span class="sep">·</span></span>
-      </div>
-    </div>
-
   </main>
   {{> footer}}
   {{> ai-widget}}
   <script type="module" src="/src/js/index.js"></script>
 </body>
+
 </html>

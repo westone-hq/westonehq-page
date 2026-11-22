@@ -1,0 +1,50 @@
+{{!--
+  설계 문서 보기: 정적 SVG 다이어그램 틀(.dg). 확대·드래그·핀치·키보드, 링크 없음 (diagram-view.js)
+  - 한 장:  {{> diagram-view kind="usecase"}}   (usecase | activity | sequence)
+            caption="…" 으로 아래 설명을 바꾸고, bare=true 면 figure·설명 없이 틀(.dg)만 넣는다
+  - 탭 3개: {{> diagram-view tabs=true id="otis-dg"}}   (요구사항 정의서·화면 흐름도·처리 순서도 = usecase·activity·sequence)
+  메인 진행 방식의 기획 단계(process-steps)와 OTIS 케이스가 함께 쓴다. 확대 버튼 줄은 JS가 틀 바로 위에 넣는다.
+--}}
+{{#if tabs}}
+<div class="dg-tabs" data-tabs>
+  <div class="dg-tablist" role="tablist" aria-label="설계 문서 종류">
+    <button type="button" role="tab" id="{{id}}-tab-1" aria-controls="{{id}}-panel-1" aria-selected="true">요구사항 정의서</button>
+    <button type="button" role="tab" id="{{id}}-tab-2" aria-controls="{{id}}-panel-2" aria-selected="false" tabindex="-1">화면 흐름도</button>
+    <button type="button" role="tab" id="{{id}}-tab-3" aria-controls="{{id}}-panel-3" aria-selected="false" tabindex="-1">처리 순서도</button>
+  </div>
+  <div class="dg-panel" role="tabpanel" id="{{id}}-panel-1" aria-labelledby="{{id}}-tab-1">{{> diagram-view kind="usecase" tabs=false}}</div>
+  <div class="dg-panel" role="tabpanel" id="{{id}}-panel-2" aria-labelledby="{{id}}-tab-2" hidden>{{> diagram-view kind="activity" tabs=false}}</div>
+  <div class="dg-panel" role="tabpanel" id="{{id}}-panel-3" aria-labelledby="{{id}}-tab-3" hidden>{{> diagram-view kind="sequence" tabs=false}}</div>
+</div>
+{{else}}
+{{#if (eq kind "usecase")}}
+{{#unless bare}}<figure class="step-fig">{{/unless}}
+  <div class="dg" tabindex="0" role="group" aria-label="요구사항 정의서. 드래그로 이동, 더하기·빼기 키로 확대·축소, 0 키로 맞춤">
+    <img src="/images/process/uml-usecase.svg" alt="OTIS V-Check 요구사항 정의서: 설치 기사와 관리자가 하는 일" width="1430" height="1361" loading="lazy" draggable="false">
+  </div>
+{{#unless bare}}
+  <figcaption>{{#if caption}}{{caption}}{{else}}OTIS V-Check 요구사항 정의서{{/if}}</figcaption>
+</figure>
+{{/unless}}
+{{/if}}
+{{#if (eq kind "activity")}}
+{{#unless bare}}<figure class="step-fig">{{/unless}}
+  <div class="dg" tabindex="0" role="group" aria-label="화면 흐름도. 드래그로 이동, 더하기·빼기 키로 확대·축소, 0 키로 맞춤">
+    <img src="/images/process/uml-activity.svg" alt="진동·소음 측정 기능의 진행 순서와 갈림길을 그린 화면 흐름도" width="1056" height="2017" loading="lazy" draggable="false">
+  </div>
+{{#unless bare}}
+  <figcaption>{{#if caption}}{{caption}}{{else}}진동·소음 측정 기능의 화면 흐름도{{/if}}</figcaption>
+</figure>
+{{/unless}}
+{{/if}}
+{{#if (eq kind "sequence")}}
+{{#unless bare}}<figure class="step-fig">{{/unless}}
+  <div class="dg" tabindex="0" role="group" aria-label="처리 순서도. 드래그로 이동, 더하기·빼기 키로 확대·축소, 0 키로 맞춤">
+    <img src="/images/process/uml-sequence.svg" alt="진동·소음 측정 기능에서 화면, 앱, 서버가 주고받는 순서를 그린 처리 순서도" width="2330" height="1406" loading="lazy" draggable="false">
+  </div>
+{{#unless bare}}
+  <figcaption>{{#if caption}}{{caption}}{{else}}진동·소음 측정 기능의 처리 순서도{{/if}}</figcaption>
+</figure>
+{{/unless}}
+{{/if}}
+{{/if}}
