@@ -41,6 +41,28 @@
 .dt-lead { margin-top: 16px; max-width: 36em; font-size: 18px; line-height: 1.6; color: var(--w-ink-2); }
 .dt-notice { margin-top: 14px; font-size: 14px; color: var(--w-ink-3); }
 
+/* 패키지 상세 머리: 제목 줄 오른쪽에 관련 프로젝트 칩 (좁은 화면에서는 리드 문장 아래) */
+.dt-head.has-rel { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 32px; }
+.dt-head.has-rel h1 { grid-column: 1; grid-row: 1; }
+.dt-head.has-rel .dt-lead { grid-column: 1 / -1; grid-row: 2; }
+.dt-rel { grid-column: 2; grid-row: 1; align-self: end; justify-self: end; max-width: 420px; text-align: right; }
+.dt-rel-label { font-size: 12.5px; font-weight: 600; color: var(--w-ink-3); margin-bottom: 8px; }
+.dt-rel ul { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px; }
+.dt-rel a {
+  display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 0 16px;
+  border: 1px solid rgba(12, 140, 94, .35); border-radius: 999px; background: #fff;
+  font-size: 14px; font-weight: 600; color: var(--w-green); white-space: nowrap;
+  transition: border-color .15s, background-color .15s;
+}
+.dt-rel a:hover { border-color: var(--w-green); background: var(--w-green-soft); }
+.w-page main .dt-rel a:focus-visible { border-radius: 999px; }
+.dt-rel svg { flex-shrink: 0; }
+@media (max-width: 760px) {
+  .dt-head.has-rel { display: block; }
+  .dt-rel { max-width: none; margin-top: 22px; text-align: left; }
+  .dt-rel ul { justify-content: flex-start; }
+}
+
 /* 케이스 개요표 */
 .overview {
   display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
