@@ -18,7 +18,7 @@ westone은 웹사이트·앱·업무 자동화·AI 에이전트를 만들고, �
 
 | 주소 | 내용 |
 |---|---|
-| `/` (`index.html`) | 메인: 히어로, 함께한 곳, 패키지 8개, 케이스 스터디 목록, 진행 방식 6단계, 팀·eBook, 자주 묻는 질문, 상담 신청 |
+| `/` (`index.html`) | 메인: 히어로, 함께한 곳, 패키지 8개, 케이스 스터디 카드, 진행 방식 6단계, 팀·eBook, 자주 묻는 질문, 상담 신청 |
 | `/packages/*.html` | 패키지 상세 8장: agent, automation, web, app, unity, server, education, maintenance |
 | `/cases/*.html` | 케이스 스터디 4장: lms, sunstone, otis, welfare (education 은 보류, 빌드 제외. 파일은 남겨 둠) |
 | `/process.html` | 진행 방식 안내(옛 디자인). 숨김(빌드 제외). 파일은 남겨 둠, 주소는 `/#process` 로 301 |
@@ -43,7 +43,7 @@ westonehq-page/
 │   │   ├── index.js        # 메인 진입점 (메뉴, 섹션 표시, 문의 폼)
 │   │   ├── detail.js       # 상세 진입점
 │   │   ├── shared.js       # 헤더·모바일 메뉴 등
-│   │   ├── hero-blueprint.js, main-sections.js   # 메인 히어로 그림, 함께한 곳·케이스 목록
+│   │   ├── hero-blueprint.js, main-sections.js   # 메인 히어로 그림, 함께한 곳·케이스 카드(#case-… 강조)
 │   │   ├── process-steps.js  # 진행 방식 6단계 탭
 │   │   ├── diagram-view.js   # 설계 문서 보기: 탭, 다이어그램 확대·이동 (메인·OTIS 공용)
 │   │   ├── case-film.js      # 케이스 상단 영상 (본문 크기에서 스크롤하면 화면 전체로, 일시정지, 스틸)

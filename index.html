@@ -147,53 +147,61 @@
       <p class="small pkg-note">모든 작업은 상담 후 범위에 맞춰 견적을 안내드립니다.</p>
     </section>
 
-    <!-- 케이스 스터디: 메인에서는 목록만, 영상은 각 케이스 페이지에서 -->
+    <!-- 케이스 스터디: 메인에서는 카드만, 영상은 각 케이스 페이지에서 -->
     <section class="sec sec-tile" id="cases" aria-labelledby="cases-title">
       <h2 class="h2" id="cases-title">케이스 스터디</h2>
-      <div class="cases-head" aria-hidden="true"><span>패키지</span><span>프로젝트</span><span>대상</span></div>
-      <div class="cases">
-        <details class="case" id="case-sunstone" name="case" open>
-          <summary><span class="tag">앱·웹앱</span><span class="case-ttl">Sunstone</span><span class="org">현대자동차</span><span class="chev" aria-hidden="true"></span></summary>
-          <div class="case-in"><div>
-            <p>차에 있지만 잘 쓰이지 않는 기능을 필요한 순간에 먼저 권하고, 말 한마디로 켜고 끄는 차량용 앱입니다.</p>
-            <div class="facts"><div>형태<b>Android 차량용 앱</b></div><div>기능<b>세차 모드, 차일드락, 시트 메모리</b></div><div>상태<b>1차 버전</b></div></div>
-            <a class="link green" href="cases/sunstone.html">케이스 스터디 읽기</a>
-          </div></div>
-        </details>
-        <details class="case" id="case-otis" name="case">
-          <summary><span class="tag">앱·웹앱</span><span class="case-ttl">OTIS V-Check</span><span class="org">OTIS</span><span class="chev" aria-hidden="true"></span></summary>
-          <div class="case-in"><div>
-            <p>설치 기사의 휴대폰으로 승강기 진동과 소음을 재고, 리포트를 만들어 메일로 보내는 현장 앱입니다.</p>
-            <div class="facts"><div>형태<b>Android 현장 앱</b></div><div>결과물<b>측정 리포트 PDF</b></div><div>상태<b>현장 배포 중</b></div></div>
-            <a class="link green" href="cases/otis.html">케이스 스터디 읽기</a>
-          </div></div>
-        </details>
-        <details class="case" id="case-lms" name="case">
-          <summary><span class="tag">업무 자동화</span><span class="case-ttl">대학 보고서 자동화 시스템</span><span class="org">한국고등직업협회</span><span class="chev" aria-hidden="true"></span></summary>
-          <div class="case-in"><div>
-            <p>출석·과제·설문 파일을 끌어다 놓으면 엑셀 산출물과 종합·대학별 Word 보고서가 만들어지는 프로그램입니다.</p>
-            <div class="facts"><div>형태<b>Windows 프로그램</b></div><div>결과물<b>엑셀 6종, Word 보고서</b></div><div>상태<b>운영 중</b></div></div>
-            <a class="link green" href="cases/lms.html">케이스 스터디 읽기</a>
-          </div></div>
-        </details>
-        <details class="case" id="case-welfare" name="case">
-          <summary><span class="tag">앱·웹앱</span><span class="case-ttl">돌봄 일지</span><span class="org">원광장애인종합복지관</span><span class="chev" aria-hidden="true"></span></summary>
-          <div class="case-in"><div>
-            <p>복지관 담당 직원이 휴대폰으로 이용자의 하루를 기록하고, 기관 양식 문서로 내려받는 웹앱입니다.</p>
-            <div class="facts"><div>형태<b>휴대폰·PC 웹앱</b></div><div>결과물<b>일별·월별 활동일지 Word</b></div><div>상태<b>시범 운영 중</b></div></div>
-            <a class="link green" href="cases/welfare.html">케이스 스터디 읽기</a>
-          </div></div>
-        </details>
-        <!-- 2026-11-22 강의 케이스 보류. 되살릴 때 주석만 푼다 -->
-        <!--
-        <details class="case" id="case-education" name="case">
-          <summary><span class="tag">강의·교육</span><span class="case-ttl">직업훈련 과정 강의</span><span class="org">일산직업능력개발원</span><span class="chev" aria-hidden="true"></span></summary>
-          <div class="case-in"><div>
-            <p>직업훈련 과정에서 Flutter 앱 개발과 AI 활용을 강의합니다.</p>
-            <div class="facts"><div>형태<b>직업훈련 과정 강의</b></div><div>상태<b>진행 중</b></div></div>
-            <a class="link green" href="cases/education.html">케이스 스터디 읽기</a>
-          </div></div>
-        </details>
+      <div class="case-grid">
+        <a class="case-card" id="case-sunstone" href="cases/sunstone.html">
+          <div class="case-poster"><img src="/images/cases/sunstone/sun_9.5.jpg" alt="Sunstone 소개 영상 첫 장면" width="1600" height="900" loading="lazy"></div>
+          <div class="case-body">
+            <div class="case-meta"><span class="tag">앱·웹앱</span><span class="case-badge">1차 버전</span></div>
+            <h3 class="case-ttl">Sunstone</h3>
+            <span class="org">현대자동차</span>
+            <p class="case-line">차에 있지만 잘 쓰이지 않는 기능을 필요한 순간에 먼저 권하고, 말 한마디로 켜고 끄는 차량용 앱입니다.</p>
+            <span class="link green">케이스 스터디 읽기</span>
+          </div>
+        </a>
+        <a class="case-card" id="case-otis" href="cases/otis.html">
+          <div class="case-poster"><img src="/images/cases/otis/otis-poster.webp" alt="OTIS V-Check 소개 영상 첫 장면" width="1600" height="900" loading="lazy"></div>
+          <div class="case-body">
+            <div class="case-meta"><span class="tag">앱·웹앱</span><span class="case-badge">현장 배포 중</span></div>
+            <h3 class="case-ttl">OTIS V-Check</h3>
+            <span class="org">OTIS</span>
+            <p class="case-line">설치 기사의 휴대폰으로 승강기 진동과 소음을 재고, 리포트를 만들어 메일로 보내는 현장 앱입니다.</p>
+            <span class="link green">케이스 스터디 읽기</span>
+          </div>
+        </a>
+        <a class="case-card" id="case-lms" href="cases/lms.html">
+          <div class="case-poster"><img src="/images/cases/lms/lms-poster.webp" alt="대학 보고서 자동화 시스템 소개 영상 첫 장면" width="1600" height="900" loading="lazy"></div>
+          <div class="case-body">
+            <div class="case-meta"><span class="tag">업무 자동화</span><span class="case-badge">운영 중</span></div>
+            <h3 class="case-ttl">대학 보고서 자동화 시스템</h3>
+            <span class="org">한국고등직업협회</span>
+            <p class="case-line">출석·과제·설문 파일을 끌어다 놓으면 엑셀 산출물과 종합·대학별 Word 보고서가 만들어지는 프로그램입니다.</p>
+            <span class="link green">케이스 스터디 읽기</span>
+          </div>
+        </a>
+        <a class="case-card" id="case-welfare" href="cases/welfare.html">
+          <div class="case-poster"><img src="/images/cases/welfare/care-poster.webp" alt="돌봄 일지 소개 영상 첫 장면" width="1600" height="900" loading="lazy"></div>
+          <div class="case-body">
+            <div class="case-meta"><span class="tag">앱·웹앱</span><span class="case-badge">시범 운영 중</span></div>
+            <h3 class="case-ttl">돌봄 일지</h3>
+            <span class="org">원광장애인종합복지관</span>
+            <p class="case-line">복지관 담당 직원이 휴대폰으로 이용자의 하루를 기록하고, 기관 양식 문서로 내려받는 웹앱입니다.</p>
+            <span class="link green">케이스 스터디 읽기</span>
+          </div>
+        </a>
+        <!-- 2026-11-22 강의 케이스 보류. 되살릴 때 주석만 푼다 (포스터 이미지 필요)
+        <a class="case-card" id="case-education" href="cases/education.html">
+          <div class="case-poster"></div>
+          <div class="case-body">
+            <div class="case-meta"><span class="tag">강의·교육</span><span class="case-badge">진행 중</span></div>
+            <h3 class="case-ttl">직업훈련 과정 강의</h3>
+            <span class="org">일산직업능력개발원</span>
+            <p class="case-line">직업훈련 과정에서 Flutter 앱 개발과 AI 활용을 강의합니다.</p>
+            <span class="link green">케이스 스터디 읽기</span>
+          </div>
+        </a>
         -->
       </div>
     </section>

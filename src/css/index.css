@@ -128,50 +128,41 @@
 .pkg-note { margin-top: 20px; }
 
 /* ============================================================
-   케이스 스터디: 아코디언
+   케이스 스터디: 그림 카드 2×2 (좁으면 1열). 카드 전체가 케이스 페이지 링크
    ============================================================ */
-/* 열 머리글: summary 와 같은 칸 나눔 */
-.cases-head {
-  display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 3fr) minmax(0, 2fr) 24px;
-  gap: 20px; padding: 0 4px 10px; font-size: 13px; color: var(--w-ink-3);
+.case-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.case-card {
+  display: flex; flex-direction: column; overflow: hidden;
+  border: 1px solid var(--w-line); border-radius: 14px; background: #fff; color: inherit;
+  transition: border-color .15s;
 }
-.cases { border-top: 1px solid var(--w-ink); }
-.case { border-bottom: 1px solid var(--w-line); interpolate-size: allow-keywords; }
-.case summary {
-  list-style: none; cursor: pointer;
-  display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 3fr) minmax(0, 2fr) 24px;
-  gap: 20px; align-items: center; padding: 22px 4px;
+.case-card:hover { border-color: var(--w-line-2); }
+.w-page main .case-card:focus-visible { outline: 2px solid var(--w-green); outline-offset: 3px; border-radius: 14px; }
+.case-poster { aspect-ratio: 16 / 9; overflow: hidden; background: var(--w-tile-2); border-bottom: 1px solid var(--w-line); }
+.case-poster img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .45s ease; }
+.case-card:hover .case-poster img { transform: scale(1.03); }
+.case-body { flex: 1; display: flex; flex-direction: column; padding: 22px 24px 24px; }
+.case-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; }
+.case-card .tag { font-size: 13.5px; font-weight: 600; color: var(--w-green); }
+.case-badge { font-size: 12.5px; font-weight: 600; line-height: 1.3; padding: 4px 10px; border-radius: 999px; background: var(--w-tile-2); color: var(--w-ink); }
+.case-ttl { margin-top: 10px; font-size: clamp(19px, 1.8vw, 22px); line-height: 1.35; font-weight: 650; letter-spacing: -.025em; }
+.case-card .org { margin-top: 4px; font-size: 14px; color: var(--w-ink-3); }
+.case-line {
+  margin: 12px 0 20px; font-size: 15px; line-height: 1.65; color: var(--w-ink-2);
+  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; overflow: hidden;
 }
-.case summary::-webkit-details-marker { display: none; }
-.case .tag { font-size: 13.5px; font-weight: 600; color: var(--w-green); }
-.case-ttl { font-size: clamp(18px, 1.8vw, 22px); font-weight: 650; letter-spacing: -.025em; transition: color .15s; }
-.case .org { font-size: 14.5px; color: var(--w-ink-2); }
-.case summary:hover .case-ttl { color: var(--w-green); }
-
-.chev {
-  position: relative; width: 22px; height: 22px; border-radius: 50%;
-  border: 1px solid var(--w-line-2); transition: background-color .2s, border-color .2s;
+.case-card .link { align-self: flex-start; margin-top: auto; }
+.case-card:hover .link { border-color: var(--w-green); }
+/* #case-… 로 들어오면 테두리를 한 번 깜빡인다 (main-sections.js) */
+.case-card.flash { animation: case-flash 1.4s ease 1; }
+@keyframes case-flash {
+  0%, 100% { border-color: var(--w-line); box-shadow: 0 0 0 0 rgba(12, 140, 94, 0); }
+  25%, 55% { border-color: var(--w-green); box-shadow: 0 0 0 3px rgba(12, 140, 94, .28); }
 }
-.chev::before,
-.chev::after {
-  content: ""; position: absolute; left: 50%; top: 50%;
-  width: 9px; height: 1.5px; background: var(--w-ink); transform: translate(-50%, -50%);
+@media (prefers-reduced-motion: reduce) {
+  .case-poster img { transition: none; }
+  .case-card:hover .case-poster img { transform: none; }
 }
-.chev::after { transform: translate(-50%, -50%) rotate(90deg); transition: transform .25s; }
-.case[open] .chev { background: var(--w-ink); border-color: var(--w-ink); }
-.case[open] .chev::before,
-.case[open] .chev::after { background: #fff; }
-.case[open] .chev::after { transform: translate(-50%, -50%) rotate(0); }
-
-/* 지원하는 브라우저에서만 높이 전환, 나머지는 그냥 열린다 */
-.case::details-content { height: 0; overflow: hidden; transition: height .32s ease, content-visibility .32s allow-discrete; }
-.case[open]::details-content { height: auto; }
-
-.case-in { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 5fr); gap: 20px; padding: 0 4px 26px; }
-.case-in > div { grid-column: 2; }
-.case-in p { font-size: 15.5px; color: var(--w-ink-2); max-width: 40em; }
-.facts { display: flex; flex-wrap: wrap; gap: 6px 26px; margin: 16px 0 18px; font-size: 13.5px; color: var(--w-ink-3); }
-.facts b { display: block; color: var(--w-ink); font-weight: 600; font-size: 14.5px; }
 
 /* ============================================================
    진행 방식
@@ -272,17 +263,14 @@
   .principles, .team, .faq, .contact { grid-template-columns: 1fr; }
   .clients { flex-direction: column; align-items: flex-start; gap: 14px; }
   .clients .cl-list { width: 100%; }
-  .cases-head { display: none; }
-  .case summary { grid-template-columns: minmax(0, 1fr) 24px; row-gap: 4px; }
-  .case .tag { grid-column: 1; }
-  .case-ttl { grid-column: 1; grid-row: 2; }
-  .case .org { grid-column: 1; grid-row: 3; }
-  .chev { grid-column: 2; grid-row: 1 / 4; }
-  .case-in { grid-template-columns: 1fr; }
-  .case-in > div { grid-column: 1; }
+}
+
+@media (max-width: 760px) {
+  .case-grid { grid-template-columns: 1fr; gap: 16px; }
 }
 
 @media (max-width: 560px) {
+  .case-body { padding: 18px 20px 20px; }
   .points { grid-template-columns: 1fr; }
   .pkg { grid-template-columns: 1fr; gap: 18px; padding: 24px 22px; }
   .pkg ul { padding-left: 0; border-left: 0; border-top: 1px solid var(--w-line); padding-top: 18px; }
