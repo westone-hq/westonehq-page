@@ -89,7 +89,7 @@ contactForm?.addEventListener('submit', async (e) => {
     if (successMsg) { successMsg.style.display = 'block'; successMsg.setAttribute('aria-hidden', 'false') }
   } catch {
     if (errorMsg) { errorMsg.style.display = 'block'; errorMsg.setAttribute('aria-hidden', 'false') }
-    submitBtn.textContent = '무료 상담 신청 보내기'
+    submitBtn.textContent = '무료 상담 신청하기'
     submitBtn.disabled = false
   }
 })
