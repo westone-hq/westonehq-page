@@ -339,15 +339,20 @@ body.w-page {
 .step-fig { margin: 18px 0 0; }
 .step-fig figcaption { margin-top: 10px; font-size: 13.5px; color: var(--w-ink-2); }
 
-/* 1단계 체크 카드 */
+/* 1단계 질문 카드, 3단계 결제 카드 */
 .step-card { padding: 24px 26px 26px; border: 1px solid var(--w-line); border-radius: 14px; background: var(--w-tile); }
 .step-card-ttl { font-size: 16px; font-weight: 600; letter-spacing: -.015em; }
-.step-checks { display: grid; gap: 12px; margin-top: 16px; }
-.step-checks li { position: relative; padding-left: 30px; font-size: 15.5px; line-height: 1.5; }
-.step-checks li::before {
-  content: ""; position: absolute; left: 0; top: .12em; width: 18px; height: 18px;
-  border: 1.5px solid var(--w-line-2); border-radius: 5px; background: #fff;
+.step-asks { display: grid; gap: 12px; margin-top: 16px; }
+.step-asks li { position: relative; padding-left: 30px; font-size: 15.5px; line-height: 1.5; }
+.step-asks li::before {
+  content: "?"; position: absolute; left: 0; top: .1em; width: 19px; height: 19px;
+  display: grid; place-items: center; border-radius: 50%; background: #fff; border: 1px solid var(--w-line-2);
+  font-size: 12px; font-weight: 700; line-height: 1; color: var(--w-green);
 }
+.step-pay { margin-top: 14px; border-top: 1px solid var(--w-line-2); }
+.step-pay li { padding: 12px 0; border-bottom: 1px solid var(--w-line); font-size: 15.5px; line-height: 1.5; color: var(--w-ink-2); }
+.step-pay b { font-weight: 650; color: var(--w-ink); }
+.step-card-note { margin-top: 14px; font-size: 13.5px; line-height: 1.6; color: var(--w-ink-2); }
 .step-cta { margin-top: 16px; }
 
 /* 4단계 실제 화면 두 장 */

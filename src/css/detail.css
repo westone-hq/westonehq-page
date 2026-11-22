@@ -57,6 +57,12 @@
 .dt-sec > p,
 .prose p { max-width: 42em; font-size: 16px; line-height: 1.75; color: var(--w-ink-2); }
 .prose p + p { margin-top: 12px; }
+/* 진행 순서 한 줄 요약 (process-mini 조각) */
+.proc-mini { display: grid; gap: 16px; justify-items: start; }
+.proc-flow { display: flex; flex-wrap: wrap; gap: 8px 0; font-size: 16px; font-weight: 600; line-height: 1.5; color: var(--w-ink); }
+.proc-flow li { white-space: nowrap; }
+.proc-flow .arr { margin: 0 10px; font-weight: 400; color: var(--w-ink-3); }
+
 .note { margin-top: 18px; font-size: 14px; color: var(--w-ink-2); }
 
 /* 초록 사각점 목록 */

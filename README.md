@@ -50,7 +50,8 @@ westonehq-page/
 │   │   └── lightbox.js       # 이미지 크게 보기
 │   └── partials/           # Handlebars 조각
 │       ├── head.hbs, header.hbs, footer.hbs
-│       ├── process-steps.hbs           # 진행 방식 6단계 (메인·패키지 상세 공통)
+│       ├── process-steps.hbs           # 진행 방식 6단계 (메인)
+│       ├── process-mini.hbs            # 진행 순서 한 줄 요약 + 메인 #process 링크 (패키지 상세 8장)
 │       ├── diagram-view.hbs            # 설계 문서 다이어그램 틀 (한 장 또는 탭 3개)
 │       ├── case-film.hbs               # 케이스 상단 전체 영상
 │       ├── cta-contact.hbs             # 상세 페이지 아래 상담 신청 띠
