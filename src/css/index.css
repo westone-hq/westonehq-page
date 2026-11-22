@@ -201,13 +201,9 @@
 /* ============================================================
    팀 · eBook
    ============================================================ */
-.team { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: 56px; align-items: start; }
-.points { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-.point { background: #fff; border: 1px solid var(--w-line); border-radius: 12px; padding: 20px; }
-.point i { display: block; width: 10px; height: 10px; border-radius: 2px; margin-bottom: 14px; }
-.point b { display: block; font-size: 15.5px; font-weight: 600; line-height: 1.4; }
-.point span { display: block; margin-top: 6px; font-size: 14px; color: var(--w-ink-2); line-height: 1.55; }
-.people { margin-top: 20px; display: flex; gap: 10px; flex-wrap: wrap; }
+.team { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: 56px; align-items: center; }
+.team-lead { margin-top: -16px; max-width: 34em; font-size: 16.5px; line-height: 1.65; color: var(--w-ink-2); }
+.people { margin-top: 28px; display: flex; gap: 10px; flex-wrap: wrap; }
 .people div { border: 1px solid var(--w-line); background: #fff; border-radius: 10px; padding: 10px 14px; font-size: 14px; }
 .people b { font-weight: 650; margin-right: 8px; }
 
@@ -296,7 +292,6 @@
 
 @media (max-width: 560px) {
   .case-body { padding: 18px 20px 20px; }
-  .points { grid-template-columns: 1fr; }
   .contact-form { grid-template-columns: 1fr; }
   .form-card { padding: 20px; }
 }
