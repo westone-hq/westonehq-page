@@ -134,7 +134,7 @@
 /* ── 케이스 상단 전체 영상 (case-film 조각, case-film.js) ──
    .case-film       본문 칼럼 안의 틀. 높이 = 보이는 칸 높이 (꽉 찬 뒤에는 + 고정 거리) (JS)
    .case-film-stick live 일 때 sticky (헤더 아래). 높이는 지금 칸 높이 (JS)
-   .case-film-box   검은 칸. 본문 칼럼 크기에서 화면 가로 전체 × (화면 - 헤더)까지 JS 가 키운다
+   .case-film-box   검은 칸. 본문 칼럼 크기에서 화면 가로 전체 × (화면 - 헤더)까지 JS 가 키운다 (640px 이하는 칼럼 크기 그대로)
    .case-film-frame iframe 자리. 꽉 찬 영상 크기로 한 번 정하고 transform 으로만 줄인다 */
 html:has([data-case-film]) { overflow-anchor: none; }
 .case-film-rule { margin: 32px 0 0; border: 0; border-top: 1px solid var(--w-line); }
@@ -151,13 +151,7 @@ html:has([data-case-film]) { overflow-anchor: none; }
 .case-film-poster { object-fit: cover; }
 .case-film-poster[hidden] { display: none; }
 
-/* JS 있음·640px 이하: 화면 가로 전체 16:9 를 계산 전에 CSS 로 먼저 잡는다
-   (그보다 넓으면 처음 크기는 위의 본문 칼럼 16:9 그대로) */
-@media (max-width: 640px) and (prefers-reduced-motion: no-preference) {
-  .case-film.film-js { aspect-ratio: auto; height: 56.25vw; }
-  .case-film.film-js .case-film-stick { height: 56.25vw; }
-  .case-film.film-js .case-film-box { width: 100vw; margin-left: calc(50% - 50vw); height: 56.25vw; border-radius: 0; }
-}
+/* 640px 이하도 처음 크기는 위의 본문 칼럼 16:9 (좌우 여백·모서리 14px 그대로). JS 가 같은 크기로 잡는다 */
 .case-film.live { aspect-ratio: auto; }
 .case-film.live .case-film-stick { position: sticky; top: var(--header-h); }
 
