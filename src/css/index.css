@@ -195,35 +195,6 @@
 .doc span { margin-left: auto; font-size: 12.5px; font-weight: 500; color: var(--w-ink-3); }
 
 /* ============================================================
-   출시 서비스
-   ============================================================ */
-.rel { border-top: 1px solid var(--w-ink); }
-.rel-row {
-  display: grid; grid-template-columns: 52px minmax(0, 2.4fr) minmax(0, 4fr) minmax(0, 1.6fr);
-  gap: 20px; align-items: center; padding: 18px 0; border-bottom: 1px solid var(--w-line);
-}
-.ico {
-  width: 52px; height: 52px; border-radius: 13px; overflow: hidden;
-  border: 1px solid var(--w-line); display: grid; place-items: center; background: var(--w-tile);
-}
-.ico img { width: 100%; height: 100%; object-fit: cover; }
-.ico.sun { background: #141614; border-color: #141614; }
-.ico.sun span { display: grid; grid-template-columns: repeat(3, 7px); gap: 2.5px; }
-.ico.sun i { width: 7px; height: 7px; background: #3a3d3b; border-radius: 1px; }
-.ico.sun i.o { background: #F2A23A; }
-.ico.lms { font-family: var(--w-serif); font-size: 15px; }
-.ico.new { border-style: dashed; color: var(--w-ink-3); font-size: 20px; background: #fff; }
-.rel-row .kind { font-size: 13.5px; color: var(--w-ink-2); }
-.rel-row p { font-size: 14.5px; color: var(--w-ink-2); }
-.state {
-  justify-self: end; white-space: nowrap;
-  font-size: 12.5px; font-weight: 600; padding: 5px 11px; border-radius: 999px;
-  background: var(--w-green-soft); color: var(--w-green);
-}
-.state.wait { background: #FBF1DC; color: #9A6200; }
-.state.field { background: var(--w-tile-2); color: var(--w-ink); }
-
-/* ============================================================
    팀 · eBook
    ============================================================ */
 .team { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: 56px; align-items: start; }
@@ -309,8 +280,6 @@
   .chev { grid-column: 2; grid-row: 1 / 4; }
   .case-in { grid-template-columns: 1fr; }
   .case-in > div { grid-column: 1; }
-  .rel-row { grid-template-columns: 52px minmax(0, 1fr) auto; row-gap: 6px; }
-  .rel-row p { grid-column: 2 / -1; }
 }
 
 @media (max-width: 560px) {

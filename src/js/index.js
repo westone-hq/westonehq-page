@@ -37,7 +37,7 @@ const activeObserver = new IntersectionObserver((entries) => {
   })
 }, { rootMargin: '-20% 0px -60% 0px', threshold: 0 })
 
-;['packages', 'cases', 'releases', 'process', 'contact'].forEach(id => {
+;['packages', 'cases', 'process', 'contact'].forEach(id => {
   const el = document.getElementById(id)
   if (el) activeObserver.observe(el)
 })
